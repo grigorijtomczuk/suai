@@ -8,7 +8,14 @@
 # dog. fog? log! smog... rog wog
 
 string = input("Введите строку: ")
-letter = input("Введите букву: ")
+letter = ""
+
+while True:
+	letter = input("Введите букву: ")
+	if len(letter) != 1:
+		print("Пожалуйста, введите один символ!")
+	else:
+		break
 
 string_list = list(string.split())
 res = []
