@@ -1,23 +1,27 @@
-# Запрещено использовать словари и множества
-# Разрешается использовать только функции split, join, len, clear, copy и функции явного приведения типов
-# Собственные функции использовать запрещено
-
 # 20.	Ввести строку и букву, вывести только слова, заканчивающиеся на заданную букву.
 
-# Hello black dog! It's been a while... How have you been?
-# dog. fog? log! smog... rog wog
-
-string = input("Введите строку: ")
+string = ""
 letter = ""
 
+# Проверка на ввод string
+while True:
+	string = input("Введите строку: ")
+	# Valid, если строка непустая, не считая whitespace-симовлы
+	if len(string.split()) == 0:
+		print("Пожалуйста, введите непустую строку!")
+	else:
+		break
+
+# Проверка на ввод letter
 while True:
 	letter = input("Введите букву: ")
-	if len(letter) != 1:
+	# Valid, если строка длиной в 1 символ, не считая whitespace-симовлы
+	if len(letter) != 1 or len(letter.split()) == 0:
 		print("Пожалуйста, введите один символ!")
 	else:
 		break
 
-string_list = list(string.split())
+string_list = string.split()
 res = []
 
 for word in string_list:
