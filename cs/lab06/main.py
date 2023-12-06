@@ -41,7 +41,7 @@ while not operation:
 while True:
 	file_name = input("Введите название текстового файла: ")
 	if not os.path.isfile(f"{file_name}.txt"):
-		print("Введите имя существующего файла!")
+		print("Введите имя существующего файла (без расширения)!")
 	else:
 		break
 
