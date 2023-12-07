@@ -1,1 +1,6 @@
 __pycache__
+
+*_encoded\.txt
+*_decoded\.txt
+
+db.json
