@@ -9,15 +9,27 @@ from db import json_service
 
 def require_collection_name():
   db = json_service.get_database()
+
   available_collections = [name for name in db if isinstance(db[name], list)]
-  return input(f"Введите название коллекции ({", ".join(available_collections)}): ")
+  user_input = None
+
+  while True:
+    user_input = input(f"Введите название коллекции ({", ".join(available_collections)}): ")
+    if user_input not in available_collections:
+      print("Введите название существующей коллекции!")
+    else:
+      break
+
+  return user_input
 
 
 def require_id():
-  try:
-    return int(input("Введите ID: "))
-  except:
-    print("Введите ID, целое число!")
+  while True:
+    try:
+      return int(input("Введите ID: "))
+    except ValueError:
+      print("Введите ID, целое число!")
+      continue
 
 
 def write_dict():
@@ -27,13 +39,15 @@ def write_dict():
     field = input("Введите название поля (-1: закончить ввод): ")
     if field == "-1": break
 
-    value_type = input("Введите тип данных значения поля (str, int, list, dict): ")
+    value_type = input("Введите тип данных значения поля (str, int, bool, list, dict): ")
 
     match value_type:
       case "str":
         value = input("Введите значение: ")
       case "int":
         value = int(input("Введите значение: "))
+      case "bool":
+        value = bool(input("Введите значение: "))
       case "list":
         value = write_list()
       case "dict":
@@ -50,7 +64,7 @@ def write_list():
   _list = []
 
   while True:
-    value_type = input("Введите тип данных значения элемента (-1: закончить ввод) (str, int, list, dict): ")
+    value_type = input("Введите тип данных значения элемента (-1: закончить ввод) (str, int, bool, list, dict): ")
     if value_type == "-1": break
 
     match value_type:
@@ -58,6 +72,8 @@ def write_list():
         value = input("Введите значение: ")
       case "int":
         value = int(input("Введите значение: "))
+      case "bool":
+        value = bool(input("Введите значение: "))
       case "list":
         value = write_list()
       case "dict":
