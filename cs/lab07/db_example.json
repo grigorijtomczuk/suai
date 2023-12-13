@@ -1,136 +1,169 @@
 {
-	"name": "Буквожор",
-	"address": "ул. Книжная, 4",
-	"books": [
-		{
-			"id": 0,
-			"title": "Властелин Колец",
-			"authors": ["Дж. Р. Р. Толкин"],
-			"price": 2000
-		},
-		{
-			"id": 1,
-			"title": "TypeScript для чайников",
-			"authors": ["Б. Гейтс"],
-			"price": 700
-		},
-		{
-			"id": 2,
-			"title": "Все будет хорошо",
-			"authors": ["Е. Успокойкин", "А. Релаксин"],
-			"price": 300
-		}
-	],
-	"cashiers": [
-		{
-			"id": 0,
-			"name": "Кулибин Н. Н.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": "+79991234567"
-			},
-			"transactions": [
-				{
-					"customerId": 1,
-					"booksId": [1, 2]
-				},
-				{
-					"customerId": 2,
-					"booksId": [1]
-				}
-			]
-		},
-		{
-			"id": 1,
-			"name": "Овечкина Е. П.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": "+79991234567"
-			},
-			"transactions": [
-				{
-					"customerId": 0,
-					"booksId": [0]
-				},
-				{
-					"customerId": 1,
-					"booksId": [0]
-				}
-			]
-		},
-		{
-			"id": 2,
-			"name": "Уварова А. Е.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": "+79991234567"
-			},
-			"transactions": [
-				{
-					"customerId": 2,
-					"booksId": [3]
-				},
-				{
-					"customerId": 2,
-					"booksId": [2]
-				}
-			]
-		}
-	],
-	"customers": [
-		{
-			"id": 0,
-			"name": "Почитайкин В. Д.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": ""
-			},
-			"transactions": [
-				{
-					"cashierId": 1,
-					"booksId": [0]
-				}
-			]
-		},
-		{
-			"id": 1,
-			"name": "Узнавайкина Я. М.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": ""
-			},
-			"transactions": [
-				{
-					"cashierId": 0,
-					"booksId": [1, 2]
-				},
-				{
-					"cashierId": 1,
-					"booksId": [0]
-				}
-			]
-		},
-		{
-			"id": 2,
-			"name": "Всезнайкин Д. В.",
-			"contacts": {
-				"email": "abcdefg@gmail.com",
-				"phone": ""
-			},
-			"transactions": [
-				{
-					"cashierId": 0,
-					"booksId": [1]
-				},
-				{
-					"cashierId": 2,
-					"booksId": [3]
-				},
-				{
-					"cashierId": 2,
-					"booksId": [2]
-				}
-			]
-		}
-	]
+  "name": "Буквожор",
+  "address": "ул. Книжная, 4",
+  "books": [
+    {
+      "id": 0,
+      "title": "Властелин Колец",
+      "authors": [
+        "Дж. Р. Р. Толкин"
+      ],
+      "price": 2000
+    },
+    {
+      "id": 1,
+      "title": "TypeScript для чайников",
+      "authors": [
+        "Б. Гейтс"
+      ],
+      "price": 700
+    },
+    {
+      "id": 2,
+      "title": "Все будет хорошо",
+      "authors": [
+        "Е. Успокойкин",
+        "А. Релаксин"
+      ],
+      "price": 300
+    }
+  ],
+  "cashiers": [
+    {
+      "id": 0,
+      "name": "Кулибин Н. Н.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": "+79991234567"
+      },
+      "transactions": [
+        {
+          "customerId": 1,
+          "booksId": [
+            1,
+            2
+          ]
+        },
+        {
+          "customerId": 2,
+          "booksId": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Овечкина Е. П.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": "+79991234567"
+      },
+      "transactions": [
+        {
+          "customerId": 0,
+          "booksId": [
+            0
+          ]
+        },
+        {
+          "customerId": 1,
+          "booksId": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Уварова А. Е.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": "+79991234567"
+      },
+      "transactions": [
+        {
+          "customerId": 2,
+          "booksId": [
+            3
+          ]
+        },
+        {
+          "customerId": 2,
+          "booksId": [
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": 0,
+      "name": "Почитайкин В. Д.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": ""
+      },
+      "transactions": [
+        {
+          "cashierId": 1,
+          "booksId": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Узнавайкина Я. М.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": ""
+      },
+      "transactions": [
+        {
+          "cashierId": 0,
+          "booksId": [
+            1,
+            2
+          ]
+        },
+        {
+          "cashierId": 1,
+          "booksId": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Всезнайкин Д. В.",
+      "contacts": {
+        "email": "abcdefg@gmail.com",
+        "phone": ""
+      },
+      "transactions": [
+        {
+          "cashierId": 0,
+          "booksId": [
+            1
+          ]
+        },
+        {
+          "cashierId": 2,
+          "booksId": [
+            3
+          ]
+        },
+        {
+          "cashierId": 2,
+          "booksId": [
+            2
+          ]
+        }
+      ]
+    }
+  ]
 }

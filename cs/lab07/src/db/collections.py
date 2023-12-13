@@ -34,8 +34,8 @@ def create_one(collection, new_item):
 def update_one_by_id(collection, id, new_item):
   for item in db[collection]:
     if item["id"] == id:
-      for attr in item:
-        item[attr] = new_item[attr] if new_item[attr] else item[attr]
+      for key in item:
+        item[key] = new_item[key] if key in new_item else item[key]
       json_service.set_database(db)
       return item
 
