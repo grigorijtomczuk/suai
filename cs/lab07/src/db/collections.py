@@ -1,4 +1,4 @@
-import json_service
+from db import json_service
 
 db = json_service.get_database()
 
