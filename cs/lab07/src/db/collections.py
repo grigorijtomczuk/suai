@@ -16,7 +16,7 @@ def get_one_by_id(collection, id):
     if item["id"] == id:
       return item
 
-  return f"Элемент id:{id} не найден в {collection}!"
+  return {"message": f"Элемент {id=} не найден в {collection}!"}
 
 
 def get_all(collection):
@@ -39,7 +39,7 @@ def update_one_by_id(collection, id, new_item):
       json_service.set_database(db)
       return item
 
-  return f"Элемент id:{id} не найден в {collection}!"
+  return {"message": f"Элемент {id=} не найден в {collection}!"}
 
 
 def delete_one_by_id(collection, id):
@@ -49,4 +49,4 @@ def delete_one_by_id(collection, id):
       json_service.set_database(db)
       return deleted_item
 
-  return f"Элемент id:{id} не найден в {collection}!"
+  return {"message": f"Элемент {id=} не найден в {collection}!"}
