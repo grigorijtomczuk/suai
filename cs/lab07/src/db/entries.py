@@ -1,4 +1,4 @@
-from utils import json_service
+import json_service
 
 
 def get_one_by_id(id):
