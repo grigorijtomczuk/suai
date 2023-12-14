@@ -14,7 +14,7 @@ def require_collection_name():
   user_input = None
 
   while True:
-    user_input = input(f"Введите название коллекции ({", ".join(available_collections)}): ")
+    user_input = input(f"Введите название коллекции ({', '.join(available_collections)}): ")
     if user_input not in available_collections:
       print("Введите название существующей коллекции!")
     else:
