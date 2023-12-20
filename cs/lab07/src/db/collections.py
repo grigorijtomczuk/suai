@@ -11,16 +11,16 @@ def get_address():
   return db["address"]
 
 
+def get_all(collection):
+  return db[collection]
+
+
 def get_one_by_id(collection, id):
   for item in db[collection]:
     if item["id"] == id:
       return item
 
   return {"message": f"Элемент {id=} не найден в {collection}!"}
-
-
-def get_all(collection):
-  return db[collection]
 
 
 def create_one(collection, new_item):

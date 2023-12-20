@@ -8,7 +8,8 @@
       "authors": [
         "Дж. Р. Р. Толкин"
       ],
-      "price": 2000
+      "price": 2000,
+      "isInStock": true
     },
     {
       "id": 1,
@@ -16,7 +17,8 @@
       "authors": [
         "Б. Гейтс"
       ],
-      "price": 700
+      "price": 700,
+      "isInStock": true
     },
     {
       "id": 2,
@@ -25,7 +27,8 @@
         "Е. Успокойкин",
         "А. Релаксин"
       ],
-      "price": 300
+      "price": 300,
+      "isInStock": true
     }
   ],
   "cashiers": [
@@ -50,7 +53,8 @@
             1
           ]
         }
-      ]
+      ],
+      "isEmployed": true
     },
     {
       "id": 1,
@@ -72,7 +76,8 @@
             0
           ]
         }
-      ]
+      ],
+      "isEmployed": true
     },
     {
       "id": 2,
@@ -94,7 +99,8 @@
             2
           ]
         }
-      ]
+      ],
+      "isEmployed": true
     }
   ],
   "customers": [
@@ -112,7 +118,8 @@
             0
           ]
         }
-      ]
+      ],
+      "isActiveCustomer": true
     },
     {
       "id": 1,
@@ -135,7 +142,8 @@
             0
           ]
         }
-      ]
+      ],
+      "isActiveCustomer": false
     },
     {
       "id": 2,
@@ -163,7 +171,8 @@
             2
           ]
         }
-      ]
+      ],
+      "isActiveCustomer": true
     }
   ]
 }

@@ -32,6 +32,10 @@ def require_id():
       continue
 
 
+def require_type_name(isEscapable=False):
+  return input(f"Введите тип значения (str, int, bool, list, dict){" (-1: закончить ввод)" if isEscapable else ""}: ")
+
+
 def write_dict():
   _dict = {}
 
@@ -39,21 +43,25 @@ def write_dict():
     field = input("Введите название поля (-1: закончить ввод): ")
     if field == "-1": break
 
-    value_type = input("Введите тип данных значения поля (str, int, bool, list, dict): ")
+    value_type = require_type_name()
 
-    match value_type:
-      case "str":
-        value = input("Введите значение: ")
-      case "int":
-        value = int(input("Введите значение: "))
-      case "bool":
-        value = bool(input("Введите значение: "))
-      case "list":
-        value = write_list()
-      case "dict":
-        value = write_dict()
-      case _:
-        value = None
+    try:
+      match value_type:
+        case "str":
+          value = input("Введите значение: ")
+        case "int":
+          value = int(input("Введите значение: "))
+        case "bool":
+          value = bool(input("Введите значение: "))
+        case "list":
+          value = write_list()
+        case "dict":
+          value = write_dict()
+        case _:
+          value = None
+    except ValueError:
+      print("Значение не соответствует типу! Попробуйте снова...")
+      continue
 
     _dict[field] = value
 
@@ -64,22 +72,26 @@ def write_list():
   _list = []
 
   while True:
-    value_type = input("Введите тип данных значения элемента (-1: закончить ввод) (str, int, bool, list, dict): ")
+    value_type = require_type_name(isEscapable=True)
     if value_type == "-1": break
 
-    match value_type:
-      case "str":
-        value = input("Введите значение: ")
-      case "int":
-        value = int(input("Введите значение: "))
-      case "bool":
-        value = bool(input("Введите значение: "))
-      case "list":
-        value = write_list()
-      case "dict":
-        value = write_dict()
-      case _:
-        value = None
+    try:
+      match value_type:
+        case "str":
+          value = input("Введите значение: ")
+        case "int":
+          value = int(input("Введите значение: "))
+        case "bool":
+          value = bool(input("Введите значение: "))
+        case "list":
+          value = write_list()
+        case "dict":
+          value = write_dict()
+        case _:
+          value = None
+    except ValueError:
+      print("Значение не соответствует типу! Попробуйте снова...")
+      continue
 
     _list.append(value)
 
