@@ -97,6 +97,91 @@ def write_list():
 
   return _list
 
+def write_books():
+  _dict = {}
+  fields = [("title", "str"), ("authors", "list"), ("price", "int"), ("isInStock", "bool")]
+
+  for field in fields:
+    print(field[0])
+    try:
+      match field[1]:
+        case "str":
+          value = input("Введите значение: ")
+        case "int":
+          value = int(input("Введите значение: "))
+        case "bool":
+          value = bool(input("Введите значение: "))
+        case "list":
+          value = write_list()
+        case "dict":
+          value = write_dict()
+        case _:
+          value = None
+    except ValueError:
+      print("Значение не соответствует типу! Попробуйте снова...")
+      continue
+
+    _dict[field] = value
+
+  return _dict
+
+
+def write_cashiers():
+  _dict = {}
+  fields = [("name", "str"), ("contacts", "dict"), ("transactions", "list"), ("isEmployed", "bool")]
+
+  for field in fields:
+    print(field[0])
+    try:
+      match field[1]:
+        case "str":
+          value = input("Введите значение: ")
+        case "int":
+          value = int(input("Введите значение: "))
+        case "bool":
+          value = bool(input("Введите значение: "))
+        case "list":
+          value = write_list()
+        case "dict":
+          value = write_dict()
+        case _:
+          value = None
+    except ValueError:
+      print("Значение не соответствует типу! Попробуйте снова...")
+      continue
+
+    _dict[field] = value
+
+  return _dict
+
+def write_customers():
+  _dict = {}
+  fields = [("name", "str"), ("contacts", "dict"), ("transactions", "list"), ("isActiveCustomer", "bool")]
+
+  for field in fields:
+    print(field[0])
+    try:
+      match field[1]:
+        case "str":
+          value = input("Введите значение: ")
+        case "int":
+          value = int(input("Введите значение: "))
+        case "bool":
+          value = bool(input("Введите значение: "))
+        case "list":
+          value = write_list()
+        case "dict":
+          value = write_dict()
+        case _:
+          value = None
+    except ValueError:
+      print("Значение не соответствует типу! Попробуйте снова...")
+      continue
+
+    _dict[field] = value
+
+  return _dict
+
 
 format_json = lambda obj: json.dumps(obj, indent=2, ensure_ascii=False)
 
@@ -106,14 +191,18 @@ while True:
   match operation:
     case "0":
       print("Доступные операции:\n"\
-            "0: help\n"\
-            "1: get_name\n"\
-            "2: get_address\n"\
-            "3: get_all\n"\
-            "4: get_one_by_id\n"\
-            "5: create_one\n"\
-            "6: update_one_by_id\n"\
-            "7: delete_one_by_id")
+            "0: Помощь\n"\
+            "1: Название магазина\n"\
+            "2: Адрес магазина\n"\
+            "3: Вывести все записи\n"\
+            "4: Вывести запись по ID\n"\
+            "5: Добавить книгу\n"\
+            "6: Добавить кассира\n"\
+            "7: Добавить покупателя\n"\
+            "8: Обновить книгу\n"\
+            "9: Обновить кассира\n"\
+            "10: Обновить покупателя\n"\
+            "11: Удалить по ID")
 
     case "1":
       print(format_json(collections.get_name()))
@@ -131,17 +220,39 @@ while True:
       print(format_json(collections.get_one_by_id(collection, id)))
 
     case "5":
-      collection = require_collection_name()
-      new_item = write_dict()
+      collection = "books"
+      new_item = write_books()
       print(format_json(collections.create_one(collection, new_item)))
 
     case "6":
-      collection = require_collection_name()
-      id = require_id()
-      new_item = write_dict()
-      print(format_json(collections.update_one_by_id(collection, id, new_item)))
+      collection = "cashiers"
+      new_item = write_cashiers()
+      print(format_json(collections.create_one(collection, new_item)))
 
     case "7":
+      collection = "customers"
+      new_item = write_customers()
+      print(format_json(collections.create_one(collection, new_item)))
+
+    case "8":
+      collection = "books"
+      id = require_id()
+      new_item = write_books()
+      print(format_json(collections.update_one_by_id(collection, id, new_item)))
+
+    case "9":
+      collection = "cashiers"
+      id = require_id()
+      new_item = write_cashiers()
+      print(format_json(collections.update_one_by_id(collection, id, new_item)))
+
+    case "10":
+      collection = "customers"
+      id = require_id()
+      new_item = write_customers()
+      print(format_json(collections.update_one_by_id(collection, id, new_item)))
+
+    case "11":
       collection = require_collection_name()
       id = require_id()
       print(format_json(collections.delete_one_by_id(collection, id)))
