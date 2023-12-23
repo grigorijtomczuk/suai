@@ -121,7 +121,7 @@ def write_books():
       print("Значение не соответствует типу! Попробуйте снова...")
       continue
 
-    _dict[field] = value
+    _dict[field[0]] = value
 
   return _dict
 
@@ -150,7 +150,7 @@ def write_cashiers():
       print("Значение не соответствует типу! Попробуйте снова...")
       continue
 
-    _dict[field] = value
+    _dict[field[0]] = value
 
   return _dict
 
@@ -178,7 +178,7 @@ def write_customers():
       print("Значение не соответствует типу! Попробуйте снова...")
       continue
 
-    _dict[field] = value
+    _dict[field[0]] = value
 
   return _dict
 
