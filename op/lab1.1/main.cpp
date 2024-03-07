@@ -1,43 +1,53 @@
 #include <iostream>
 #include <cmath>
 #include <windows.h>
+#include <cstring>
 
 struct Point2D {
-    short x;
-    short y;
+    int x;
+    int y;
 };
 
 int func(Point2D point, short a, short b, unsigned short R);
 
+int invalid_input();
+
 int main() {
     SetConsoleOutputCP(CP_UTF8);
 
-    short x, y, a, b;
+    char point_str[32];
+    short a, b;
     unsigned short R;
 
-    std::cout << "x: ";
-    std::cin >> x;
+    std::cout << "x,y: ";
+    std::cin >> point_str;
 
-    std::cout << "y: ";
-    std::cin >> y;
+    char *ptr = strtok(point_str, ",");
+    int x = strtol(ptr, nullptr, 10);
+    ptr = strtok(nullptr, ",");
+    int y = strtol(ptr, nullptr, 10);
 
     std::cout << "a: ";
     std::cin >> a;
+    if (std::cin.fail()) {
+        invalid_input();
+    }
 
     std::cout << "b: ";
     std::cin >> b;
-
-    std::cout << "R: ";
-    std::cin >> R;
-
     if (std::cin.fail()) {
-        std::cerr << "Введите целое число" << std::endl;
+        invalid_input();
+    }
+
+    if (a <= b) {
+        std::cerr << "Должно выполнятся условие: a > b" << std::endl;
         return 1;
     }
 
-    if (a < b) {
-        std::cerr << "Должно выполнятся условие: a > b" << std::endl;
-        return 1;
+    std::cout << "R: ";
+    std::cin >> R;
+    if (std::cin.fail()) {
+        invalid_input();
     }
 
     int result = func({x, y}, a, b, R);
@@ -63,4 +73,9 @@ int func(Point2D point, short a, short b, unsigned short R) {
     }
     std::cout << "Точка находится на одной из линий" << std::endl;
     exit(0);
+}
+
+int invalid_input() {
+    std::cerr << "Введите целое число" << std::endl;
+    exit(1);
 }
