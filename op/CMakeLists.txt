@@ -8,4 +8,6 @@ set(CMAKE_CXX_STANDARD 14)
 # Add executable target with source files listed in SOURCE_FILES variable
 # add_executable(simple_example ${SOURCE_FILES})
 
-add_executable(main lab1.1/main.cpp)
+#add_executable(main1.1 lab1.1/main.cpp)
+add_executable(main1.3 lab1.3/main.cpp)
+add_executable(main2.1 lab2.1/main.cpp)
