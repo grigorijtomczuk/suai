@@ -12,6 +12,4 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(main1.3 lab1.3/main.cpp)
 add_executable(main2.1 lab2.1/main.cpp)
 
-add_executable(scratch /Users/grigorijtomczuk/Library/Preferences/CLion2019.2/scratches/scratch.cpp)
-
 add_executable(main3.1 lab3.1/main3.1.cpp)
