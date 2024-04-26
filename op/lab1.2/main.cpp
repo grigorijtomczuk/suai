@@ -1,21 +1,21 @@
-// Реализовать функцию нахождения всех простых множителей числа A на экран таких,
-// что в них нет цифры B в младшем разряде десятичной записи.
-
 #include <iostream>
 #include <vector>
 
-std::vector<int> find_divisors(int A, int B) {
+bool is_prime(int number) {
+    for (int divisor = 2; divisor < number; divisor++)
+        if (number % divisor == 0) {
+            return false;
+        }
+    return true;
+}
+
+std::vector<int> find_prime_divisors(int A, int B) {
     std::vector<int> divisors;
-    for (int i = 2; i < A; ++i) {
-        bool is_prime = true;
-        for (int j = 2; j < i; ++j)
-            if (i % j == 0 && i != j) {
-                is_prime = false;
-                break;
-            }
-        if (is_prime && A % i == 0 && i % 10 != B) {
-            divisors.push_back(i);
-            A /= i;
+    for (int divisor = 2; divisor < A; divisor++) {
+        // if (A % divisor == 0 && divisor % 10 != B && is_prime(divisor))
+        if (A % divisor == 0 && divisor % 10 != B) {
+            divisors.push_back(divisor);
+            A /= divisor;
         }
     }
     return divisors;
@@ -30,10 +30,10 @@ int main() {
     std::cout << "B: ";
     std::cin >> B;
 
-    std::vector<int> result = find_divisors(A, B);
+    std::vector<int> result = find_prime_divisors(A, B);
 
-    for (int i = 0; i < result.size(); i++) {
-        std::cout << result[i] << std::endl;
+    for (int i : result) {
+        std::cout << i << std::endl;
     }
 
     return 0;
