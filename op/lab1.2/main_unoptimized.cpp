@@ -12,10 +12,8 @@ bool is_prime(int number) {
 std::vector<int> find_prime_divisors(int A, int B) {
     std::vector<int> divisors;
     for (int divisor = 2; divisor < A; divisor++) {
-        // if (A % divisor == 0 && divisor % 10 != B && is_prime(divisor))
-        if (A % divisor == 0 && divisor % 10 != B) {
+        if (A % divisor == 0 && divisor % 10 != B && is_prime(divisor)) {
             divisors.push_back(divisor);
-            A /= divisor;
         }
     }
     return divisors;
@@ -33,7 +31,7 @@ int main() {
     std::vector<int> result = find_prime_divisors(A, B);
 
     for (int i : result) {
-        std::cout << i << std::endl;
+        std::cout << i << " ";
     }
 
     return 0;
