@@ -8,7 +8,7 @@ std::set<int> find_prime_factors(int A, int B) {
     int factor = 2;
     int sqrt_A = (int) sqrt(A);
 
-    // Раскладываем число А на простые множители путем деления на простые числа, начиная с наименьших (2)
+    // Раскладываем число А на простые множители путем деления на простые числа, начиная с наименьшего - 2 (prime factorization)
     while (factor <= sqrt_A) {
         if (mutated_A % factor == 0) {
             if (factor % 10 != B)
@@ -18,7 +18,7 @@ std::set<int> find_prime_factors(int A, int B) {
             factor++;
     }
 
-    // Если mutated_A больше 1, значит mutated_A - последний простой множитель А (больше корня из А, а больше одного множителя больше корня не может быть)
+    // Если mutated_A больше 1, значит mutated_A - последний простой множитель А
     if (mutated_A > 1 && mutated_A % 10 != B)
         factors.insert(mutated_A);
 
