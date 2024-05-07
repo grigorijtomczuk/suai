@@ -14,11 +14,11 @@ add_executable(main2.1 lab2.1/main.cpp)
 
 add_executable(main3.1 lab3.1/main3.1.cpp)
 
-add_executable(pr1 pr1.cpp test.cpp)
+add_executable(pr1 pr1.cpp)
 
 add_executable(main_unoptimized lab1.2/main_unoptimized.cpp)
 
-add_executable(test test.cpp)
+add_executable(test lab1.3/test.cpp)
 
 add_executable(test1 test1.cpp)
 
