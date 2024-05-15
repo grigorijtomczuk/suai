@@ -2,51 +2,50 @@
 #include <fstream>
 #include <algorithm>
 
-int *excludeMax(const int *A, int size, int &newSize) {
+int *exclude_max(const int *A, int size, int &new_size) {
     // Находим максимальный элемент в массиве A
-    int maxElement = *std::max_element(A, A + size);
+    int max_element = *std::max_element(A, A + size);
 
     // Создаем выходной массив B
     int *B = new int[size];
-    newSize = 0;
+    new_size = 0;
 
     // Проходим по массиву A и добавляем элементы в B, исключая максимальный элемент
     for (int i = 0; i < size; ++i) {
-        if (A[i] != maxElement) {
-            B[newSize++] = A[i];
-        }
+        if (A[i] != max_element)
+            B[new_size++] = A[i];
     }
 
     return B;
 }
 
 int main() {
-    std::ifstream inputFile("/home/grigorijtomczuk/Desktop/suai/op/lab1.3/input.txt");
-    std::ofstream outputFile("/home/grigorijtomczuk/Desktop/suai/op/lab1.3/output.txt");
+    std::ifstream input_file("/home/grigorijtomczuk/Desktop/suai/op/lab1.3/input.txt");
+    std::ofstream output_file("/home/grigorijtomczuk/Desktop/suai/op/lab1.3/output.txt");
 
-    if (!inputFile.is_open() || !outputFile.is_open()) {
+    if (!input_file.is_open() || !output_file.is_open()) {
         std::cerr << "Ошибка открытия файлов!" << std::endl;
         return 1;
     }
 
     int n;
-    inputFile >> n; // Читаем размерность массива
+    input_file >> n; // Читаем размерность массива
 
     int *A = new int[n];
 
     // Считываем элементы массива A из файла
     for (int i = 0; i < n; ++i) {
-        inputFile >> A[i];
+        input_file >> A[i];
     }
 
-    int newSize;
+    int new_size;
     // Получаем выходной массив, исключая максимальный элемент
-    int *B = excludeMax(A, n, newSize);
+    int *B = exclude_max(A, n, new_size);
 
     // Записываем размерность и элементы выходного массива в файл
-    outputFile << newSize << std::endl;
-    for (int i = 0; i < newSize; ++i) {
-        outputFile << B[i] << " ";
+    output_file << new_size << std::endl;
+    for (int i = 0; i < new_size; ++i) {
+        output_file << B[i] << " ";
     }
 
     // Освобождаем память
@@ -54,8 +53,8 @@ int main() {
     delete[] B;
 
     // Закрываем файлы
-    inputFile.close();
-    outputFile.close();
+    input_file.close();
+    output_file.close();
 
     return 0;
 }
