@@ -1,56 +1,69 @@
-#include <cstddef>
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 
-long *read_array(const char *filename, long *&array, size_t &size) {
-    std::ifstream inputFile(filename);
-    if (!inputFile.is_open()) {
+void read_array(const char *filename, long *&array, size_t &size) {
+    std::ifstream input_file(filename);
+    if (!input_file.is_open()) {
         std::cerr << "Ошибка открытия файла!" << std::endl;
-        return 1;
+        exit(1);
     }
 
-    int n;
-    inputFile >> n; // Читаем размерность массива
+    input_file >> size; // Читаем размерность массива
 
-    int *array = new int[n];
+    array = new long[size];
 
-    // Считываем элементы массива A из файла
-    for (int i = 0; i < n; ++i) {
-        inputFile >> array[i];
-    }
+    // Считываем элементы массива из файла
+    for (size_t i = 0; i < size; i++)
+        input_file >> array[i];
 
-    return array;
+    input_file.close();
 }
 
-bool write_array(const char *filename, long *array, size_t &size) {
-    std::ofstream outputFile(filename);
-    if (!outputFile.is_open()) {
+void write_array(const char *filename, long *array, size_t &size) {
+    std::ofstream output_file(filename);
+    if (!output_file.is_open()) {
         std::cerr << "Ошибка открытия файла!" << std::endl;
-        return false;
+        exit(1);
     }
-    return true;
+
+    // Записываем размерность и элементы выходного массива в файл
+    output_file << size << std::endl;
+    for (size_t i = 0; i < size; i++)
+        output_file << array[i] << " ";
+
+    output_file.close();
 }
 
-long *calculation(const long *input_array, size_t input_size, long *&output_array, size_t &output_size) {
-    // Находим максимальный элемент в массиве A
-    long maxElement = *std::max_element(input_array, input_array + input_size);
+void exclude_max(const long *input_array, size_t input_array_size, long *&output_array, size_t &output_array_size) {
+    // Находим максимальный элемент в массиве
+    long max_element = *std::max_element(input_array, input_array + input_array_size);
 
-    output_size = 0;
+    output_array = new long[input_array_size];
+    output_array_size = 0;
 
-    // Проходим по массиву A и добавляем элементы в output_array, исключая максимальный элемент
-    for (size_t i = 0; i < input_size; ++i) {
-        if (input_array[i] != maxElement) {
-            output_array[output_size++] = input_array[i];
-        }
-    }
-
-    return output_array;
+    // Проходим по массиву и добавляем элементы в output_array, исключая максимальный элемент
+    for (size_t i = 0; i < input_array_size; i++)
+        if (input_array[i] != max_element)
+            output_array[output_array_size++] = input_array[i];
 }
 
 int main() {
-    char filename[100] = "/home/grigorijtomczuk/Desktop/suai/op/lab1.3/output.txt";
-    // Создаем выходной массив output_array
-    int *output_array = new int[output_size];
+    char input_filename[100] = "/home/grigorijtomczuk/Desktop/suai/op/lab1.3/input.txt";
+    char output_filename[100] = "/home/grigorijtomczuk/Desktop/suai/op/lab1.3/output.txt";
+
+    long *input_array;
+    size_t input_array_size;
+
+    long *output_array;
+    size_t output_array_size;
+
+    read_array(input_filename, input_array, input_array_size);
+    exclude_max(input_array, input_array_size, output_array, output_array_size);
+    write_array(output_filename, output_array, output_array_size);
+
+    delete[] input_array;
+    delete[] output_array;
+
     return 0;
 };
