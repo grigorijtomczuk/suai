@@ -1,48 +1,51 @@
-#include <cstdio>
 #include <iostream>
 
-int recursive_sum(long *array, size_t start, size_t end, int &call_count, int *memory, int depth_level,
-                  int *levels) {
-    int _call_count = call_count;
-    memory[_call_count] = end;
-    levels[_call_count] = depth_level;
-    call_count++;
+int64_t calculate_recursion_with_debug(int a, int b, int x, int &call_count, int &depth, int k = 0) {
+    // Увеличиваем номер вызова и сохраняем значение
+    int current_call_count = ++call_count;
 
-    if (end == start) {
-        return array[end];
+    // Вычисляем текущие значения (a - k) и (b - k)
+    int a_minus_k = (a - k < 1) ? 1 : (a - k);
+    int b_minus_k = (b - k < 1) ? 1 : (b - k);
+
+    // Вывод отладочной информации
+    std::cout << "Вызов #" << current_call_count << ": k=" << k << ", a-k=" << a_minus_k << ", b-k="
+              << b_minus_k << std::endl;
+
+    // Базовый случай: прекращаем рекурсию
+    if (a_minus_k == 1 && b_minus_k == 1) {
+        int64_t result = a_minus_k * x + b_minus_k;
+        depth = current_call_count;
+        std::cout << "Возврат из вызова #" << current_call_count << ": " << result << std::endl;
+        return result;
     }
 
-    size_t mid = (start + end) / 2;
+    // Рекурсивный случай: продолжаем умножение
+    int64_t recursive_result = calculate_recursion_with_debug(a, b, x, call_count, depth, k + 1);
+    int64_t result = (a_minus_k * x + b_minus_k) * recursive_result;
 
-    long result = recursive_sum(array, start, mid, call_count, memory, depth_level + 1, levels) + array[end] +
-                  recursive_sum(array, mid + 1, end, call_count, memory, depth_level + 1, levels) + array[end];
-    memory[_call_count] = result;
+    // Вывод отладочной информации перед возвратом
+    std::cout << "Возврат из вызова #" << current_call_count << ": " << result << std::endl;
 
     return result;
 }
 
 int main() {
-    size_t array_size = 10;
-    long *array = new long(array_size);
+    int a, b, x;
 
-    for (size_t i = 1; i <= array_size; i++) {
-        array[i] = i;
-    }
+    std::cout << "a: ";
+    std::cin >> a;
 
-    int call_count = 0;
-    int *memory = new int(array_size * 2);
-    int depth_level = 0;
-    int *levels = new int(array_size * 2);
+    std::cout << "b: ";
+    std::cin >> b;
 
-    int result = recursive_sum(array, 0, array_size - 1, call_count, memory, depth_level, levels);
+    std::cout << "x: ";
+    std::cin >> x;
 
-    for (size_t i; i < call_count; i++) {
-        printf("[%d], [%d]\n", levels[i], memory[i]);
-    }
+    int call_count = 0, depth = 0;
 
-    delete memory;
-    delete levels;
+    int64_t result = calculate_recursion_with_debug(a, b, x, call_count, depth);
+    std::cout << "Результат: " << result << ", глубина: " << depth;
 
-    std::cout << result;
     return 0;
 }
