@@ -1,6 +1,6 @@
 #include <iostream>
 
-int64_t calculate_recursion_with_debug(int a, int b, int x, int &call_count, int &depth, int k = 0) {
+int64_t calculate_recursion_with_debug(int a, int b, int x, int &call_count, int k = 0) {
     // Увеличиваем номер вызова и сохраняем значение
     int current_call_count = ++call_count;
 
@@ -15,16 +15,12 @@ int64_t calculate_recursion_with_debug(int a, int b, int x, int &call_count, int
     // Базовый случай: прекращаем рекурсию
     if (a_minus_k == 1 && b_minus_k == 1) {
         int64_t result = a_minus_k * x + b_minus_k;
-        depth = current_call_count;
         std::cout << "Возврат из вызова #" << current_call_count << ": " << result << std::endl;
         return result;
     }
 
     // Рекурсивный случай: продолжаем умножение
-    int64_t recursive_result = calculate_recursion_with_debug(a, b, x, call_count, depth, k + 1);
-    int64_t result = (a_minus_k * x + b_minus_k) * recursive_result;
-
-    // Вывод отладочной информации перед возвратом
+    int64_t result = (a_minus_k * x + b_minus_k) * calculate_recursion_with_debug(a, b, x, call_count, k + 1);
     std::cout << "Возврат из вызова #" << current_call_count << ": " << result << std::endl;
 
     return result;
@@ -42,10 +38,10 @@ int main() {
     std::cout << "x: ";
     std::cin >> x;
 
-    int call_count = 0, depth = 0;
+    int call_count = 0;
 
-    int64_t result = calculate_recursion_with_debug(a, b, x, call_count, depth);
-    std::cout << "Результат: " << result << ", глубина: " << depth;
+    int64_t result = calculate_recursion_with_debug(a, b, x, call_count);
+    std::cout << "Результат: " << result << ", глубина: " << call_count;
 
     return 0;
 }
