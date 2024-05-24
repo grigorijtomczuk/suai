@@ -3,8 +3,9 @@
 #include <vector>
 #include <chrono>
 #include <random>
+#include <iomanip>
 
-std::vector<int> findOccurrences(const std::string &A, const std::string &B) {
+std::vector<int> find_occurrences(const std::string &A, const std::string &B) {
     std::vector<int> occurrences;
     size_t pos = B.find(A); // находим первое вхождение
 
@@ -16,38 +17,39 @@ std::vector<int> findOccurrences(const std::string &A, const std::string &B) {
     return occurrences;
 }
 
-std::string generateRandomString(size_t length) {
+std::string generate_random_string(size_t length) {
     const char charset[] = "abcdefghijklmnopqrstuvwxyz";
     std::default_random_engine generator;
     std::uniform_int_distribution<int> distribution(0, sizeof(charset) - 2);
 
-    std::string randomString;
+    std::string random_string;
     for (size_t i = 0; i < length; ++i) {
-        randomString += charset[distribution(generator)];
+        random_string += charset[distribution(generator)];
     }
-    return randomString;
+    return random_string;
 }
 
 int main() {
-    const int Test_Count = 1000;
+    const int test_count = 1000;
     std::vector<int> sizes = {100, 1000, 10000, 100000}; // различные размерности входных данных
 
     for (int size : sizes) {
-        std::string A = generateRandomString(5); // фиксированная длина подстроки A
-        std::string B = generateRandomString(size); // изменяемая длина строки B
+        std::string A = generate_random_string(5); // фиксированная длина подстроки A
+        std::string B = generate_random_string(size); // изменяемая длина строки B
 
         auto total_duration = 0.0;
 
-        for (int i = 0; i < Test_Count; ++i) {
+        for (int i = 0; i < test_count; ++i) {
             auto start = std::chrono::high_resolution_clock::now();
-            findOccurrences(A, B);
+            find_occurrences(A, B);
             auto end = std::chrono::high_resolution_clock::now();
             std::chrono::duration<double> duration = end - start;
             total_duration += duration.count();
         }
 
-        double average_duration = total_duration / Test_Count;
-        std::cout << "Average time for B size " << size << " : " << average_duration << " seconds" << std::endl;
+        double average_duration = total_duration / test_count;
+        std::cout << "Average time for B size " << size << " : " << std::fixed << std::setprecision(12)
+                  << average_duration << " seconds" << std::endl;
     }
 
     return 0;
