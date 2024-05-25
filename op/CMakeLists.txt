@@ -22,9 +22,14 @@ add_executable(main1.3 lab1.3/main.cpp)
 add_executable(test2.1 lab2.1/test2.1.cpp)
 add_executable(main2.1 lab2.1/main2.1.cpp)
 
+add_executable(main2.2 lab2.2/main2.2.cpp)
+
 add_executable(main3.1 lab3.1/main3.1.cpp)
 
 add_executable(test4.1 lab4.1/test4.1.cpp)
 add_executable(main4.1 lab4.1/main4.1.cpp)
 
 add_executable(main5.1 lab5.1/main5.1.cpp)
+
+add_executable(main_extra1.1 extra1/main_extra1.1.cpp)
+add_executable(main_extra1.2 extra1/main_extra1.2.cpp)
