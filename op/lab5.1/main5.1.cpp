@@ -3,17 +3,16 @@
 #include <algorithm>
 
 int reset_random_bits(int number, int k, std::vector<int> &positions) {
+    // Считаем количество единичных битов в числе
     int one_bits_count = 0;
-
-    // Сначала считаем количество единичных битов в числе
     for (int i = 0; i < 32; ++i)
         if (number & (1 << i))
             one_bits_count++;
     if (one_bits_count < k) {
-        return 0; // Недостаточно единичных битов для обнуления
+        return 0; // Единичных битов недостаточно для обнуления
     }
 
-    srand(time(nullptr)); // Инициализация генератора случайных чисел
+    srand(time(nullptr)); // Установка начала последовательности чисел, генерируемой rand()
 
     // Обнуляем случайные биты
     while (k > 0) {
@@ -45,7 +44,7 @@ int main() {
     std::cout << "K: ";
     std::cin >> k;
 
-    std::vector<int> positions; // Для хранения позиций обнуленных битов
+    std::vector<int> positions;
 
     int result = reset_random_bits(number, k, positions);
 
