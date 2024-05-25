@@ -11,7 +11,9 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(pr1 pr1.cpp)
 add_executable(test test.cpp)
 
-add_executable(main_unoptimized lab1.2/main_unoptimized.cpp)
+add_executable(main1.1 lab1.1/main1.1.cpp)
+
+add_executable(main_unoptimized1.2 lab1.2/main_unoptimized.cpp)
 add_executable(main1.2 lab1.2/main1.2.cpp)
 
 add_executable(test1.3 lab1.3/test.cpp)
@@ -25,3 +27,4 @@ add_executable(main3.1 lab3.1/main3.1.cpp)
 add_executable(test4.1 lab4.1/test4.1.cpp)
 add_executable(main4.1 lab4.1/main4.1.cpp)
 
+add_executable(main5.1 lab5.1/main5.1.cpp)
