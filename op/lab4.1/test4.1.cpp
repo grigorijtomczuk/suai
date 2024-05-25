@@ -29,13 +29,13 @@ std::string generate_random_string(size_t length) {
     return random_string;
 }
 
-int main() {
+void test_find_occurrences() {
     const int test_count = 1000;
-    std::vector<int> sizes = {100, 1000, 10000, 100000}; // различные размерности входных данных
+    std::vector<int> sizes = {10000, 100000, 1000000, 10000000};
 
     for (int size : sizes) {
-        std::string A = generate_random_string(5); // фиксированная длина подстроки A
-        std::string B = generate_random_string(size); // изменяемая длина строки B
+        std::string A = generate_random_string(5);
+        std::string B = generate_random_string(size);
 
         auto total_duration = 0.0;
 
@@ -48,9 +48,12 @@ int main() {
         }
 
         double average_duration = total_duration / test_count;
-        std::cout << "Average time for B size " << size << " : " << std::fixed << std::setprecision(12)
-                  << average_duration << " seconds" << std::endl;
+        std::cout << "Среднее время выполнения при B=" << size << ": " << std::fixed << std::setprecision(12)
+                  << average_duration << " с" << std::endl;
     }
+}
 
+int main() {
+    test_find_occurrences();
     return 0;
 }
