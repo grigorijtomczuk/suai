@@ -27,10 +27,12 @@ std::vector<int> find_indices(const std::string &string, const std::string &word
     std::vector<int> indices;
     size_t position = string.find(word); // Находим первое вхождение
     while (position != std::string::npos) {
-        char character = string[position + word.size()];
-        // Проверяем окончание слова
-        if (character == ' ' || character == ',' || character == '\n' || character == '\0')
-            indices.push_back((int) position); // Добавляем индекс в вектор
+        char start_character = string[position - 1];
+        char end_character = string[position + word.size()];
+        // Проверяем начало и окончание слова
+        if (end_character == ' ' || end_character == ',' || end_character == '\n' || end_character == '\0')
+            if (start_character == ' ' || start_character == ',' || start_character == '\n' || start_character == '\0')
+                indices.push_back((int) position); // Добавляем индекс в вектор
         position = string.find(word, position + 1); // Ищем следующее вхождение, начиная с позиции position + 1
     }
     return indices;
