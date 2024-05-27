@@ -6,6 +6,10 @@
 void get_partial_permutations_with_debug(const std::vector<int> &A, std::vector<int> &current,
                                          std::vector<bool> &used, int depth, int K,
                                          std::vector<std::vector<int>> &result, int &call_count) {
+    if (K < 1) {
+        std::cout << "Ошибка: K < 1";
+        exit(1);
+    }
     if (K > A.size()) {
         std::cout << "Ошибка: элементов меньше, чем K";
         exit(1);
