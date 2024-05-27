@@ -1,41 +1,37 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
 #include <climits>
-
-using namespace std;
-
-const int N = 100; // Рекомендовано для отладки
-const int K1 = 5; // Примерное значение
-const double P_PLUS = 1.0;
-const double P_MINUS = 0.0;
 
 struct Bacteria {
     bool alive;
 };
 
-vector<vector<Bacteria>> field(N, vector<Bacteria>(N, {false}));
+const int N = 50;
+const int K1 = 2;
+const double p_plus = 1.0;
+const double p_minus = 0.0;
 
-bool isFilled() {
+std::vector<std::vector<Bacteria>> field(N, std::vector<Bacteria>(N, {false}));
+
+bool is_filled() {
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < N; ++j)
             if (!field[i][j].alive) return false;
     return true;
 }
 
-void spreadBacteria(int day) {
-    vector<pair<int, int>> newBacteria;
+void spread() {
+    std::vector<std::pair<int, int>> new_bacteria;
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             if (field[i][j].alive) {
-                for (int dx = -1; dx <= 1; ++dx) {
-                    for (int dy = -1; dy <= 1; ++dy) {
-                        if (dx == 0 && dy == 0) continue;
-                        int nx = i + dx, ny = j + dy;
-                        if (nx >= 0 && nx < N && ny >= 0 && ny < N && !field[nx][ny].alive) {
-                            if ((rand() % 100) < (P_PLUS * 100)) {
-                                newBacteria.push_back({nx, ny});
+                for (int delta_x = -1; delta_x <= 1; ++delta_x) {
+                    for (int delta_y = -1; delta_y <= 1; ++delta_y) {
+                        if (delta_x == 0 && delta_y == 0) continue;
+                        int new_x = i + delta_x, new_y = j + delta_y;
+                        if (new_x >= 0 && new_x < N && new_y >= 0 && new_y < N && !field[new_x][new_y].alive) {
+                            if ((rand() % 100) < (p_plus * 100)) {
+                                new_bacteria.push_back({new_x, new_y});
                             }
                         }
                     }
@@ -43,61 +39,56 @@ void spreadBacteria(int day) {
             }
         }
     }
-    for (auto &pos : newBacteria) {
-        field[pos.first][pos.second].alive = true;
-    }
+    // Заполнение поля новыми бактериями
+    for (auto &position : new_bacteria)
+        field[position.first][position.second].alive = true;
 }
 
-int simulate(vector<pair<int, int>> initialBacteria) {
-    for (auto &pos : initialBacteria) {
-        field[pos.first][pos.second].alive = true;
+int simulate(std::vector<std::pair<int, int>> initial_positions) {
+    for (auto &position : initial_positions)
+        field[position.first][position.second].alive = true;
+    int days_passed = 0;
+    while (!is_filled()) {
+        spread();
+        days_passed++;
     }
-    int day = 0;
-    while (!isFilled()) {
-        spreadBacteria(day);
-        ++day;
-    }
-    return day;
+    return days_passed;
 }
 
-vector<pair<int, int>> findOptimalPositions() {
-    vector<pair<int, int>> bestPositions;
-    int minDays = INT_MAX;
+std::vector<std::pair<int, int>> find_best_positions() {
+    std::vector<std::pair<int, int>> best_positions;
+    int min_days_passed = INT_MAX;
 
     // Генерация случайных начальных позиций
-    for (int attempt = 0; attempt < 1000; ++attempt) { // Ограниченное количество попыток
-        vector<pair<int, int>> initialBacteria;
-        while (initialBacteria.size() < K1) {
+    for (int _ = 0; _ < 1000; _++) {
+        std::vector<std::pair<int, int>> initial_positions;
+        while (initial_positions.size() < K1) {
             int x = rand() % N;
             int y = rand() % N;
-            initialBacteria.push_back({x, y});
+            initial_positions.push_back({x, y});
         }
 
-        for (int x = 0; x < N; ++x) {
-            for (int y = 0; y < N; ++y) {
+        for (int x = 0; x < N; ++x)
+            for (int y = 0; y < N; ++y)
                 field[x][y].alive = false;
-            }
-        }
 
-        int days = simulate(initialBacteria);
-        if (days < minDays) {
-            minDays = days;
-            bestPositions = initialBacteria;
+        int days_passed = simulate(initial_positions);
+        if (days_passed < min_days_passed) {
+            min_days_passed = days_passed;
+            best_positions = initial_positions;
         }
     }
 
-    return bestPositions;
+    return best_positions;
 }
 
 int main() {
-    srand(time(0));
-
-    vector<pair<int, int>> bestPositions = findOptimalPositions();
-
-    cout << "Optimal initial positions:" << endl;
-    for (auto &pos : bestPositions) {
-        cout << "(" << pos.first << ", " << pos.second << ")" << endl;
-    }
-
+    srand(time(nullptr));
+    std::vector<std::pair<int, int>> best_positions = find_best_positions();
+    std::cout
+            << "Позиции поля изначальных бактерий, при которых поле будет заполнено максимально быстро:"
+            << std::endl;
+    for (auto &positions : best_positions)
+        std::cout << "(" << positions.first << ", " << positions.second << ")" << std::endl;
     return 0;
 }

@@ -12,8 +12,8 @@ const int D = 7;
 const int T = 14;
 const int K1 = 1; // Примерное значение
 const int K2 = 3; // Примерное значение
-const double P_PLUS = 0.05;
-const double P_MINUS = 0.02;
+const double p_plus = 0.05;
+const double p_minus = 0.02;
 
 struct Bacteria {
     int dayBorn;
@@ -22,7 +22,7 @@ struct Bacteria {
 
 vector<vector<Bacteria>> field(N, vector<Bacteria>(N, {0, false}));
 
-bool isFilled() {
+bool is_filled() {
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < N; ++j)
             if (!field[i][j].alive) return false;
@@ -51,7 +51,7 @@ void spreadBacteria(int day) {
                         if (dx == 0 && dy == 0) continue;
                         int nx = i + dx, ny = j + dy;
                         if (nx >= 0 && nx < N && ny >= 0 && ny < N && !field[nx][ny].alive) {
-                            if ((rand() % 100) < (P_PLUS * 100)) {
+                            if ((rand() % 100) < (p_plus * 100)) {
                                 newBacteria.push_back({nx, ny});
                             }
                         }
@@ -71,7 +71,7 @@ void killBacteria(int day) {
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             if (field[i][j].alive && day - field[i][j].dayBorn > T / 2) {
-                if ((rand() % 100) < (P_MINUS * 100)) {
+                if ((rand() % 100) < (p_minus * 100)) {
                     field[i][j].alive = false;
                     ++killed;
                 }
@@ -86,7 +86,7 @@ int simulate() {
         addBacteria(i);
     }
     int day = D;
-    while (!isFilled()) {
+    while (!is_filled()) {
         spreadBacteria(day);
         killBacteria(day);
         ++day;
