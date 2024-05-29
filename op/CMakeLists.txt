@@ -31,6 +31,7 @@ add_executable(main3.2 lab3.2/main3.2.cpp)
 add_executable(test4.1 lab4.1/test4.1.cpp)
 add_executable(main4.1 lab4.1/main4.1.cpp)
 
+add_executable(test4.2 lab4.2/test4.2.cpp)
 add_executable(main4.2 lab4.2/main4.2.cpp)
 
 add_executable(main5.1 lab5.1/main5.1.cpp)
