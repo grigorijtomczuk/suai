@@ -56,12 +56,13 @@ vector<set<string>> generateRandomSkills(int N, int M) {
 
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> dis(1, M);
+    uniform_int_distribution<> skillCountDist(1, M);
+    uniform_int_distribution<> skillIndexDist(0, M - 1);
 
     for (int i = 0; i < N; ++i) {
-        int numSkills = dis(gen);
+        int numSkills = skillCountDist(gen);
         for (int j = 0; j < numSkills; ++j) {
-            skills[i].insert(allSkills[dis(gen) - 1]);
+            skills[i].insert(allSkills[skillIndexDist(gen)]);
         }
     }
 
@@ -69,8 +70,9 @@ vector<set<string>> generateRandomSkills(int N, int M) {
 }
 
 int main() {
-    int Test_Count = 10; // Количество повторений для каждого теста
-    vector<int> sizes = {5, 6, 7, 8, 16, 32}; // Размерности входных данных (количество претендентов)
+    int Test_Count = 5; // Количество повторений для каждого теста
+    vector<int> sizes = {5, 6, 7, 8, 9, 10, 15, 20, 21, 22, 23,
+                         24}; // Размерности входных данных (количество претендентов)
 
     for (int size : sizes) {
         int N = size;
