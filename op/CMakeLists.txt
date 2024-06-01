@@ -41,5 +41,4 @@ add_executable(main5.2 lab5.2/main5.2.cpp)
 add_executable(main_extra1.1 extra1/main_extra1.1.cpp)
 add_executable(main_extra1.2 extra1/main_extra1.2.cpp)
 
-add_executable(main_extra2.1 extra2/main_extra2.1.cpp)
-add_executable(main_extra2.2 extra2/main_extra2.2.cpp)
+add_executable(main_extra2 extra2/main_extra2.cpp)

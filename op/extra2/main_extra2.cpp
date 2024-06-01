@@ -6,6 +6,7 @@
 #include <set>
 #include <iomanip>
 #include <stdexcept>
+#include <tuple>
 
 struct Expense {
     std::string name;
@@ -34,13 +35,11 @@ std::vector<Expense> readExpenses(const std::string &filename) {
         iss >> expense.amount;
         std::string excluded;
         if (iss >> excluded) {
-            if (excluded.size() > 2) { // Ensure there is enough length to substr
-                excluded = excluded.substr(2); // Удаляем " /"
-                std::istringstream excl(excluded);
-                std::string name;
-                while (std::getline(excl, name, ',')) {
-                    expense.excluded.insert(name);
-                }
+            iss >> excluded;
+            std::istringstream excl(excluded);
+            std::string name;
+            while (std::getline(excl, name, ',')) {
+                expense.excluded.insert(name);
             }
         }
         expenses.push_back(expense);
@@ -51,28 +50,38 @@ std::vector<Expense> readExpenses(const std::string &filename) {
 std::map<std::string, double>
 calculateTotalExpenses(const std::vector<std::string> &participants, const std::vector<Expense> &expenses) {
     std::map<std::string, double> totalExpenses;
+    for (const auto &expense : expenses) {
+        totalExpenses[expense.name] += expense.amount;
+    }
+    return totalExpenses;
+}
+
+std::map<std::string, double>
+calculateTotalDebts(const std::vector<std::string> &participants, const std::vector<Expense> &expenses) {
+    std::map<std::string, double> totalDebt;
     for (const auto &participant : participants) {
-        totalExpenses[participant] = 0.0;
+        totalDebt[participant] = 0.0;
     }
 
     for (const auto &expense : expenses) {
         double sharedAmount = expense.amount / (participants.size() - expense.excluded.size());
         for (const auto &participant : participants) {
             if (expense.excluded.find(participant) == expense.excluded.end()) {
-                totalExpenses[participant] += sharedAmount;
+                totalDebt[participant] += sharedAmount;
             }
         }
     }
 
-    return totalExpenses;
+    return totalDebt;
 }
 
 std::map<std::string, double>
 calculateBalances(const std::vector<std::string> &participants, const std::vector<Expense> &expenses,
-                  const std::map<std::string, double> &totalExpenses) {
+                  const std::map<std::string, double> &totalDebts) {
     std::map<std::string, double> balances;
+
     for (const auto &participant : participants) {
-        balances[participant] = -totalExpenses.at(participant);
+        balances[participant] = -totalDebts.at(participant);
     }
 
     for (const auto &expense : expenses) {
@@ -118,28 +127,34 @@ calculateTransactions(const std::map<std::string, double> &balances) {
 }
 
 void printTotalExpenses(const std::map<std::string, double> &totalExpenses) {
-    std::cout << "Total Expenses:\n";
+    std::cout << "Потратили всего:\n";
     for (const auto &entry : totalExpenses) {
         std::cout << entry.first << ": " << std::fixed << std::setprecision(2) << entry.second << "\n";
     }
 }
 
+void printTotalDebts(const std::map<std::string, double> &totalDebts) {
+    std::cout << "\nДолжны всего:\n";
+    for (const auto &entry : totalDebts) {
+        std::cout << entry.first << ": " << std::fixed << std::setprecision(2) << entry.second << "\n";
+    }
+}
+
 void printBalances(const std::map<std::string, double> &balances) {
-    std::cout << "\nBalances:\n";
+    std::cout << "\nБалансы:\n";
     for (const auto &entry : balances) {
         std::cout << entry.first << ": " << std::fixed << std::setprecision(2) << entry.second << "\n";
     }
 }
 
 void printTransactions(const std::vector<std::tuple<std::string, std::string, double>> &transactions) {
-    std::cout << "\nTransactions:\n";
+    std::cout << "\nТранзакции для компенсаций:\n";
     for (const auto&[debtor, creditor, amount] : transactions) {
         std::cout << debtor << " -> " << creditor << ": " << std::fixed << std::setprecision(2) << amount << "\n";
     }
 }
 
 int main() {
-    // Replace "participants.txt" and "expenses.txt" with actual file paths
     std::vector<std::string> participants = readParticipants(
             "/home/grigorijtomczuk/Desktop/suai/op/extra2/participants.txt");
     std::vector<Expense> expenses = readExpenses("/home/grigorijtomczuk/Desktop/suai/op/extra2/expenses.txt");
@@ -147,7 +162,10 @@ int main() {
     std::map<std::string, double> totalExpenses = calculateTotalExpenses(participants, expenses);
     printTotalExpenses(totalExpenses);
 
-    std::map<std::string, double> balances = calculateBalances(participants, expenses, totalExpenses);
+    std::map<std::string, double> totalDebts = calculateTotalDebts(participants, expenses);
+    printTotalDebts(totalDebts);
+
+    std::map<std::string, double> balances = calculateBalances(participants, expenses, totalDebts);
     printBalances(balances);
 
     std::vector<std::tuple<std::string, std::string, double>> transactions = calculateTransactions(balances);

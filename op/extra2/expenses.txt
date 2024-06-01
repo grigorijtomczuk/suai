@@ -1,4 +1,7 @@
-Yuri: 4502.43 / Evgenii, Maria
-Evgenii: 3000.00
-Maria: 1500.00 / Anna
-Anna: 2000.00 / Yuri
+Yuri: 1500.00 / Evgenii,Maria,Yuri,
+Maria: 500.00 / Anna
+Evgenii: 4000.00
+Maria: 700.00 / Evgenii
+Yuri: 600.00 / Anna,Maria,
+Anna: 1200.00 / Yuri
+Maria: 1000.00
