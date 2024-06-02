@@ -2,104 +2,92 @@
 #include <vector>
 #include <set>
 #include <string>
-#include <sstream>
 #include <chrono>
 #include <random>
 #include <iomanip>
 
-using namespace std;
-using namespace std::chrono;
-
 // Функция для объединения навыков нескольких претендентов
-set<string> unionSkills(const vector<set<string>> &skills, const vector<int> &indices) {
-    set<string> result;
-    for (int index : indices) {
+std::set<std::string> unite_skills(const std::vector<std::set<std::string>> &skills, const std::vector<int> &indices) {
+    std::set<std::string> result;
+    for (int index : indices)
         result.insert(skills[index].begin(), skills[index].end());
-    }
     return result;
 }
 
 // Основная функция для решения задачи полного перебора
-vector<int> findMinimumSetCover(const vector<set<string>> &skills, int M) {
+std::vector<int> find_min_set_cover(const std::vector<std::set<std::string>> &skills, int M) {
     int N = skills.size();
-    vector<int> bestSubset;
-    int bestSize = N + 1;
+    std::vector<int> best_subset;
+    int best_size = N + 1;
 
     // Перебираем все возможные подмножества претендентов
     for (int i = 1; i < (1 << N); ++i) {
-        vector<int> subset;
-        for (int j = 0; j < N; ++j) {
-            if (i & (1 << j)) {
-                subset.push_back(j);
-            }
-        }
+        std::vector<int> subset;
+        for (int j = 0; j < N; ++j)
+            if (i & (1 << j)) subset.push_back(j);
 
         // Проверяем, покрывают ли выбранные претенденты все навыки
-        set<string> coveredSkills = unionSkills(skills, subset);
-        if (coveredSkills.size() == M && subset.size() < bestSize) {
-            bestSize = subset.size();
-            bestSubset = subset;
+        std::set<std::string> covered_skills = unite_skills(skills, subset);
+        if (covered_skills.size() == M && subset.size() < best_size) {
+            best_size = subset.size();
+            best_subset = subset;
         }
     }
 
-    return bestSubset;
+    return best_subset;
 }
 
 // Функция для генерации случайных данных
-vector<set<string>> generateRandomSkills(int N, int M) {
-    vector<set<string>> skills(N);
-    vector<string> allSkills(M);
+std::vector<std::set<std::string>> generate_random_skills(int N, int M) {
+    std::vector<std::string> all_skills(M);
+    std::vector<std::set<std::string>> skills(N);
 
-    for (int i = 0; i < M; ++i) {
-        allSkills[i] = "skill" + to_string(i);
-    }
+    for (int i = 0; i < M; ++i)
+        all_skills[i] = "skill" + std::to_string(i);
 
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> skillCountDist(1, M);
-    uniform_int_distribution<> skillIndexDist(0, M - 1);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> skill_quantity_dist(1, M);
+    std::uniform_int_distribution<> skill_index_dist(0, M - 1);
 
     for (int i = 0; i < N; ++i) {
-        int numSkills = skillCountDist(gen);
-        for (int j = 0; j < numSkills; ++j) {
-            skills[i].insert(allSkills[skillIndexDist(gen)]);
-        }
+        int skills_quantity = skill_quantity_dist(gen);
+        for (int j = 0; j < skills_quantity; ++j)
+            skills[i].insert(all_skills[skill_index_dist(gen)]);
     }
 
     return skills;
 }
 
-int main() {
-    int Test_Count = 5; // Количество повторений для каждого теста
-    vector<int> sizes = {5, 6, 7, 8, 9, 10, 15, 20, 21, 22, 23,
-                         24}; // Размерности входных данных (количество претендентов)
+void test_find_min_set_cover() {
+    const int test_count = 5;
+    std::vector<int> sizes = {5, 6, 7, 8, 9, 10, 15,
+                              20, 21, 22, 23, 24}; // Размерности входных данных (количество претендентов)
 
     for (int size : sizes) {
         int N = size;
         int M = 10; // Количество уникальных навыков
 
-        vector<duration<double>> durations;
+        double total_duration = 0.0;
 
-        for (int i = 0; i < Test_Count; ++i) {
-            vector<set<string>> skills = generateRandomSkills(N, M);
+        for (int i = 0; i < test_count; ++i) {
+            std::vector<std::set<std::string>> skills = generate_random_skills(N, M);
 
-            auto start = high_resolution_clock::now();
-            vector<int> result = findMinimumSetCover(skills, M);
-            auto end = high_resolution_clock::now();
+            auto start = std::chrono::high_resolution_clock::now();
+            std::vector<int> result = find_min_set_cover(skills, M);
+            auto end = std::chrono::high_resolution_clock::now();
 
-            durations.push_back(duration_cast<duration<double>>(end - start));
+            std::chrono::duration<double> duration = end - start;
+            total_duration += duration.count();
         }
 
-        double totalDuration = 0;
-        for (const auto &d : durations) {
-            totalDuration += d.count();
-        }
-
-        double averageDuration = totalDuration / Test_Count;
-
-        cout << "Среднее время для N = " << N << ": " << std::fixed << setprecision(10) << averageDuration
-             << " секунд." << endl;
+        double average_duration = total_duration / test_count;
+        std::cout << "Среднее время для N = " << N << ": " << std::fixed << std::setprecision(10) << average_duration
+                  << " секунд." << std::endl;
     }
+}
 
+int main() {
+    test_find_min_set_cover();
     return 0;
 }
