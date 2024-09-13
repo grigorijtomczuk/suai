@@ -27,6 +27,7 @@
 			buttonReadFile = new Button();
 			buttonSelectFile = new Button();
 			labelSelectedFile = new Label();
+			buttonReadHashCode = new Button();
 			SuspendLayout();
 			// 
 			// textBox_FileName
@@ -122,11 +123,22 @@
 			labelSelectedFile.TabIndex = 3;
 			labelSelectedFile.Text = "Файл не выбран";
 			// 
+			// buttonReadHashCode
+			// 
+			buttonReadHashCode.Location = new Point(174, 223);
+			buttonReadHashCode.Name = "buttonReadHashCode";
+			buttonReadHashCode.Size = new Size(123, 23);
+			buttonReadHashCode.TabIndex = 4;
+			buttonReadHashCode.Text = "Показать HashCode";
+			buttonReadHashCode.UseVisualStyleBackColor = true;
+			buttonReadHashCode.Click += buttonReadHashCode_Click;
+			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(483, 225);
+			ClientSize = new Size(483, 255);
+			Controls.Add(buttonReadHashCode);
 			Controls.Add(labelSelectedFile);
 			Controls.Add(buttonSelectFile);
 			Controls.Add(buttonReadFile);
@@ -155,5 +167,6 @@
 		private Button buttonReadFile;
 		private Button buttonSelectFile;
 		private Label labelSelectedFile;
+		private Button buttonReadHashCode;
 	}
 }

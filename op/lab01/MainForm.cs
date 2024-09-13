@@ -88,5 +88,16 @@
 				MessageBox.Show(content);
 			}
 		}
+
+		private void buttonReadHashCode_Click(object sender, EventArgs e)
+		{
+			if (currentFile == null)
+				MessageBox.Show("Файл не выбран");
+			else
+			{
+				string content = currentFile.GetHashCode().ToString();
+				MessageBox.Show(content);
+			}
+		}
 	}
 }
