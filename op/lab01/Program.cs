@@ -1,6 +1,4 @@
-using lab01;
-
-namespace FileManagerApp
+namespace lab01
 {
 	static class Program
 	{

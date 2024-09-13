@@ -8,4 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="lab01classLib">
+      <HintPath>..\lab01classLib\bin\Debug\net8.0\lab01classLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

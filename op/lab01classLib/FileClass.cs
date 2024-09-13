@@ -7,13 +7,14 @@
 		public void CreateFile()
 		{
 			// Получаем директорию файла
-			string directoryPath = System.IO.Path.GetDirectoryName(Path);
+			string directoryPath = System.IO.Path.GetDirectoryName(this.Path);
 
 			// Проверяем, существует ли директория
 			if (!Directory.Exists(directoryPath))
 			{
 				// Создаем директорию и все её вложенные папки
-				Directory.CreateDirectory(directoryPath);
+				DirectoryClass currentDirectory = new DirectoryClass(this.Name, directoryPath);
+				currentDirectory.CreateDirectory();
 			}
 
 			// Создаем файл, если его нет

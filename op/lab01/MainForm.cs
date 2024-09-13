@@ -42,6 +42,7 @@
 				currentFile.DeleteFile();
 				textBox_FilePath.Text = null;
 				labelSelectedFile.Text = "Файл не выбран";
+				currentFile = null;
 				MessageBox.Show("Файл удален");
 			}
 		}
