@@ -1,5 +1,6 @@
 ﻿namespace lab01
 {
+	// Обобщенный класс сущности файловой системы
 	public class FileSystemItem
 	{
 		public string Name;

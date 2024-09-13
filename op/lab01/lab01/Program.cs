@@ -2,6 +2,7 @@ namespace lab01
 {
 	static class Program
 	{
+		// ¬ходна€ точка в программу
 		[STAThread]
 		static void Main()
 		{

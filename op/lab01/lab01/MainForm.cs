@@ -2,6 +2,7 @@
 {
 	public partial class MainForm : Form
 	{
+		// Объявляем переменную currentFile типа FileClass глобально, так как с ней может проводится сразу несколько манипуляций
 		private FileClass currentFile;
 
 		public MainForm()
@@ -89,6 +90,7 @@
 			}
 		}
 
+		// Тестирование методов GetHashCode и ToString базового класса Object
 		private void buttonReadHashCode_Click(object sender, EventArgs e)
 		{
 			if (currentFile == null)

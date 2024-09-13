@@ -12,7 +12,7 @@
 			// Проверяем, существует ли директория
 			if (!Directory.Exists(directoryPath))
 			{
-				// Создаем директорию и все её вложенные папки
+				// Создаем директорию и все её вложенные папки, если это требуется
 				DirectoryClass currentDirectory = new DirectoryClass(this.Name, directoryPath);
 				currentDirectory.CreateDirectory();
 			}
