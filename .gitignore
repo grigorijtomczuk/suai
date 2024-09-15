@@ -4,5 +4,7 @@
 
 .~lock.*#
 
-.venv/
+.vs/
 .idea/
+
+.venv/
