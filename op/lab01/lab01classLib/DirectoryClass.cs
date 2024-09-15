@@ -6,7 +6,7 @@
 
 		public void CreateDirectory()
 		{
-			if (!Directory.Exists(Path))
+			if (!Directory.Exists(Path) && Path != "")
 			{
 				Directory.CreateDirectory(Path);
 			}

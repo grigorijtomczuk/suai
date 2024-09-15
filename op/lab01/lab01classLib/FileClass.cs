@@ -4,7 +4,11 @@
 	{
 		public FileClass(string name, string path) : base(name, path) { }
 
-		public void CreateFile()
+        private const float PI = 3.14f;
+        public static string OS = "Windows";
+		internal protected string fileSystem = "NTFS";
+
+        public void CreateFile()
 		{
 			// Получаем директорию файла
 			string directoryPath = System.IO.Path.GetDirectoryName(this.Path);
