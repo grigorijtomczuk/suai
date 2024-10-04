@@ -31,14 +31,14 @@
 
 		private void Lab3MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab3 form = new Lab3();
-			//showForm(form);
+			Lab3 form = new Lab3();
+			ShowForm(form);
 		}
 
 		private void Lab4MenuItem_Click(object sender, EventArgs e)
 		{
-			Lab4 form = new Lab4();
-			ShowForm(form);
+			//Lab4 form = new Lab3();
+			//showForm(form);
 		}
 	}
 }
