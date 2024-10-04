@@ -32,14 +32,22 @@
 
 		public FileMetadata fileMetadata;
 
-		public int FileSize { private get; set; } // Числовое свойство с ограниченным get (доступ только из класса)
+		// Числовое свойство с ограниченным get (доступ только из класса)
+		public int FileSize
+		{
+			private get;
+			set;
+		}
 
-		private bool _isReadOnly;
+		private bool isReadOnly;
 		public bool IsReadOnly
 		{
-			get { return _isReadOnly; }
-			set { _isReadOnly = value; }
+			get { return isReadOnly; }
+			set { isReadOnly = value; }
 		}
+
+		private byte readOnlyValue;
+		public byte ReadOnlyValue => readOnlyValue = 1; // Сокращенная запись свойства, без set (т.е. read-only)
 
 		public FileClass() : base() { }
 		public FileClass(string name) : base(name) { }
@@ -55,6 +63,7 @@
 		public FileClass(string name, string path, string fileType, DateTime dateCreated, bool isReadOnly) : this(name, path, fileType, dateCreated)
 		{
 			IsReadOnly = isReadOnly;
+			// ReadOnlyValue = 2; - ошибка, свойство read-only
 		}
 
 		public void CreateFile()
@@ -99,7 +108,7 @@
 			fileMetadataStructWithInitializer.printData();
 			//fileMetadata = fileMetadataStructWithInitializer;
 
-			FileSize = (int)new System.IO.FileInfo(Path).Length;
+			FileSize = (int)new FileInfo(Path).Length;
 			IsReadOnly = false;
 		}
 
