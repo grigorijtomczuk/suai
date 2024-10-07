@@ -7,27 +7,29 @@
 			// Нельзя инициализировать поля структуры при их объявлении
 			public DateTime DateCreated { get; set; } // Свойство даты и времени
 
-			private string fileType;
-			public string FileType // Свойство с проверкой на первую прописную букву
+			private string fileTypeProperty;
+			public string FileTypeProperty // Свойство с проверкой на первую прописную букву
 			{
-				get { return fileType; }
+				/*private*/ get { return fileTypeProperty; }
 				set
 				{
 					if (char.IsLower(value[0]))
-						fileType = char.ToUpper(value[0]) + value.Substring(1);
+						fileTypeProperty = char.ToUpper(value[0]) + value.Substring(1);
 					else
-						fileType = value;
+						fileTypeProperty = value;
 				}
 			}
+
+			public string fileTypeField;
 
 			// Конструктор с параметрами
 			public FileMetadata(string fileType, DateTime dateCreated)
 			{
-				FileType = fileType;
+				FileTypeProperty = fileType;
 				DateCreated = dateCreated;
 			}
 
-			public void printData() { Console.WriteLine($"Type: {FileType}, Date created: {DateCreated}."); }
+			public void printData() { Console.WriteLine($"Type: {FileTypeProperty}, Date created: {DateCreated}."); }
 		}
 
 		public FileMetadata fileMetadata;
@@ -54,7 +56,7 @@
 		public FileClass(string name, string path) : base(name, path) { }
 		public FileClass(string name, string path, string fileType) : this(name, path)
 		{
-			fileMetadata.FileType = fileType; // Значение устанавливается в конструкторе
+			fileMetadata.FileTypeProperty = fileType; // Значение устанавливается в конструкторе
 		}
 		public FileClass(string name, string path, string fileType, DateTime dateCreated) : this(name, path, fileType)
 		{
@@ -86,7 +88,8 @@
 			}
 
 			// Присваивание атрибутов через структуру FileMetadata
-			fileMetadata.FileType = "Обычный тип";
+			fileMetadata.FileTypeProperty = "обычный тип";
+			fileMetadata.fileTypeField = "обычный тип";
 			fileMetadata.DateCreated = DateTime.Now;
 			fileMetadata.printData();
 
@@ -102,7 +105,7 @@
 			// Использование инициализаторов со структурами
 			FileMetadata fileMetadataStructWithInitializer = new FileMetadata
 			{
-				FileType = "Custom Initializer Type",
+				FileTypeProperty = "Custom Initializer Type",
 				DateCreated = DateTime.Now
 			};
 			fileMetadataStructWithInitializer.printData();
@@ -148,11 +151,19 @@
 			return string.Empty;
 		}
 
-		public void ChangeType(string fileType)
+		public void ChangeTypeProperty(string fileType)
 		{
 			if (File.Exists(Path))
 			{
-				fileMetadata.FileType = fileType;
+				fileMetadata.FileTypeProperty = fileType;
+			}
+		}
+
+		public void ChangeTypeField(string fileType)
+		{
+			if (File.Exists(Path))
+			{
+				fileMetadata.fileTypeField = fileType;
 			}
 		}
 

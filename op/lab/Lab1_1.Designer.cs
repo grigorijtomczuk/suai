@@ -1,6 +1,6 @@
 ﻿namespace lab
 {
-	partial class Lab3
+	partial class Lab1_1
 	{
 		private System.ComponentModel.IContainer components = null;
 
@@ -27,15 +27,11 @@
 			buttonReadFile = new Button();
 			buttonSelectFile = new Button();
 			labelSelectedFile = new Label();
-			buttonReadFileMetadata = new Button();
 			dateTime_DateCreated = new DateTimePicker();
 			textBox_FileType = new TextBox();
 			checkBox_isReadOnly = new CheckBox();
 			label1 = new Label();
-			buttonChangeFileTypeProperty = new Button();
-			buttonChangeDateCreated = new Button();
-			buttonChangeReadOnly = new Button();
-			buttonChangeFileTypeField = new Button();
+			buttonReadHashCode = new Button();
 			SuspendLayout();
 			// 
 			// textBox_FileName
@@ -63,13 +59,13 @@
 			textBox_FileContents.Multiline = true;
 			textBox_FileContents.Name = "textBox_FileContents";
 			textBox_FileContents.PlaceholderText = "Содержимое файла";
-			textBox_FileContents.Size = new Size(786, 124);
+			textBox_FileContents.Size = new Size(786, 172);
 			textBox_FileContents.TabIndex = 0;
 			// 
 			// buttonCreateFile
 			// 
 			buttonCreateFile.ForeColor = Color.Green;
-			buttonCreateFile.Location = new Point(21, 334);
+			buttonCreateFile.Location = new Point(21, 386);
 			buttonCreateFile.Margin = new Padding(5, 6, 5, 6);
 			buttonCreateFile.Name = "buttonCreateFile";
 			buttonCreateFile.Size = new Size(129, 46);
@@ -81,7 +77,7 @@
 			// buttonDeleteFile
 			// 
 			buttonDeleteFile.ForeColor = Color.Red;
-			buttonDeleteFile.Location = new Point(159, 334);
+			buttonDeleteFile.Location = new Point(159, 386);
 			buttonDeleteFile.Margin = new Padding(5, 6, 5, 6);
 			buttonDeleteFile.Name = "buttonDeleteFile";
 			buttonDeleteFile.Size = new Size(129, 46);
@@ -92,7 +88,7 @@
 			// 
 			// buttonRenameFile
 			// 
-			buttonRenameFile.Location = new Point(298, 334);
+			buttonRenameFile.Location = new Point(298, 386);
 			buttonRenameFile.Margin = new Padding(5, 6, 5, 6);
 			buttonRenameFile.Name = "buttonRenameFile";
 			buttonRenameFile.Size = new Size(192, 46);
@@ -103,7 +99,7 @@
 			// 
 			// buttonEditFile
 			// 
-			buttonEditFile.Location = new Point(501, 334);
+			buttonEditFile.Location = new Point(501, 386);
 			buttonEditFile.Margin = new Padding(5, 6, 5, 6);
 			buttonEditFile.Name = "buttonEditFile";
 			buttonEditFile.Size = new Size(149, 46);
@@ -114,7 +110,7 @@
 			// 
 			// buttonReadFile
 			// 
-			buttonReadFile.Location = new Point(660, 334);
+			buttonReadFile.Location = new Point(660, 386);
 			buttonReadFile.Margin = new Padding(5, 6, 5, 6);
 			buttonReadFile.Name = "buttonReadFile";
 			buttonReadFile.Size = new Size(149, 46);
@@ -143,17 +139,6 @@
 			labelSelectedFile.Size = new Size(170, 30);
 			labelSelectedFile.TabIndex = 3;
 			labelSelectedFile.Text = "Файл не выбран";
-			// 
-			// buttonReadFileMetadata
-			// 
-			buttonReadFileMetadata.Location = new Point(431, 392);
-			buttonReadFileMetadata.Margin = new Padding(5, 6, 5, 6);
-			buttonReadFileMetadata.Name = "buttonReadFileMetadata";
-			buttonReadFileMetadata.Size = new Size(213, 46);
-			buttonReadFileMetadata.TabIndex = 5;
-			buttonReadFileMetadata.Text = "Атрибуты файла";
-			buttonReadFileMetadata.UseVisualStyleBackColor = true;
-			buttonReadFileMetadata.Click += buttonReadFileMetadata_Click;
 			// 
 			// dateTime_DateCreated
 			// 
@@ -195,64 +180,27 @@
 			label1.TabIndex = 9;
 			label1.Text = "Дата создания";
 			// 
-			// buttonChangeFileTypeProperty
+			// buttonReadHashCode
 			// 
-			buttonChangeFileTypeProperty.Location = new Point(21, 449);
-			buttonChangeFileTypeProperty.Margin = new Padding(5, 6, 5, 6);
-			buttonChangeFileTypeProperty.Name = "buttonChangeFileTypeProperty";
-			buttonChangeFileTypeProperty.Size = new Size(267, 46);
-			buttonChangeFileTypeProperty.TabIndex = 10;
-			buttonChangeFileTypeProperty.Text = "Изменить тип (свойство)";
-			buttonChangeFileTypeProperty.UseVisualStyleBackColor = true;
-			buttonChangeFileTypeProperty.Click += buttonChangeFileTypeProperty_Click;
+			buttonReadHashCode.Location = new Point(21, 444);
+			buttonReadHashCode.Margin = new Padding(5, 6, 5, 6);
+			buttonReadHashCode.Name = "buttonReadHashCode";
+			buttonReadHashCode.Size = new Size(211, 46);
+			buttonReadHashCode.TabIndex = 10;
+			buttonReadHashCode.Text = "Показать HashCode";
+			buttonReadHashCode.UseVisualStyleBackColor = true;
+			buttonReadHashCode.Click += buttonReadHashCode_Click;
 			// 
-			// buttonChangeDateCreated
-			// 
-			buttonChangeDateCreated.Location = new Point(21, 392);
-			buttonChangeDateCreated.Margin = new Padding(5, 6, 5, 6);
-			buttonChangeDateCreated.Name = "buttonChangeDateCreated";
-			buttonChangeDateCreated.Size = new Size(168, 46);
-			buttonChangeDateCreated.TabIndex = 11;
-			buttonChangeDateCreated.Text = "Изменить дату";
-			buttonChangeDateCreated.UseVisualStyleBackColor = true;
-			buttonChangeDateCreated.Click += buttonChangeDateCreated_Click;
-			// 
-			// buttonChangeReadOnly
-			// 
-			buttonChangeReadOnly.Location = new Point(199, 392);
-			buttonChangeReadOnly.Margin = new Padding(5, 6, 5, 6);
-			buttonChangeReadOnly.Name = "buttonChangeReadOnly";
-			buttonChangeReadOnly.Size = new Size(221, 46);
-			buttonChangeReadOnly.TabIndex = 12;
-			buttonChangeReadOnly.Text = "Изменить Read-Only";
-			buttonChangeReadOnly.UseVisualStyleBackColor = true;
-			buttonChangeReadOnly.Click += buttonChangeReadOnly_Click;
-			// 
-			// buttonChangeFileTypeField
-			// 
-			buttonChangeFileTypeField.Location = new Point(297, 450);
-			buttonChangeFileTypeField.Margin = new Padding(5, 6, 5, 6);
-			buttonChangeFileTypeField.Name = "buttonChangeFileTypeField";
-			buttonChangeFileTypeField.Size = new Size(236, 46);
-			buttonChangeFileTypeField.TabIndex = 10;
-			buttonChangeFileTypeField.Text = "Изменить тип (поле)";
-			buttonChangeFileTypeField.UseVisualStyleBackColor = true;
-			buttonChangeFileTypeField.Click += buttonChangeFileTypeField_Click;
-			// 
-			// Lab3
+			// Lab1_1
 			// 
 			AutoScaleDimensions = new SizeF(12F, 30F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(828, 510);
-			Controls.Add(buttonChangeReadOnly);
-			Controls.Add(buttonChangeDateCreated);
-			Controls.Add(buttonChangeFileTypeField);
-			Controls.Add(buttonChangeFileTypeProperty);
+			Controls.Add(buttonReadHashCode);
 			Controls.Add(label1);
 			Controls.Add(checkBox_isReadOnly);
 			Controls.Add(textBox_FileType);
 			Controls.Add(dateTime_DateCreated);
-			Controls.Add(buttonReadFileMetadata);
 			Controls.Add(labelSelectedFile);
 			Controls.Add(buttonSelectFile);
 			Controls.Add(buttonReadFile);
@@ -264,7 +212,7 @@
 			Controls.Add(textBox_FilePath);
 			Controls.Add(textBox_FileName);
 			Margin = new Padding(5, 6, 5, 6);
-			Name = "Lab3";
+			Name = "Lab1_1";
 			Text = "ЛР3";
 			ResumeLayout(false);
 			PerformLayout();
@@ -282,14 +230,10 @@
 		private Button buttonReadFile;
 		private Button buttonSelectFile;
 		private Label labelSelectedFile;
-		private Button buttonReadFileMetadata;
 		private DateTimePicker dateTime_DateCreated;
 		private TextBox textBox_FileType;
 		private CheckBox checkBox_isReadOnly;
 		private Label label1;
-		private Button buttonChangeFileTypeProperty;
-		private Button buttonChangeDateCreated;
-		private Button buttonChangeReadOnly;
-		private Button buttonChangeFileTypeField;
+		private Button buttonReadHashCode;
 	}
 }

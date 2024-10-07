@@ -19,7 +19,7 @@
 
 		private void Lab1MenuItem_Click(object sender, EventArgs e)
 		{
-			Lab1 form = new Lab1();
+			Lab1_1 form = new Lab1_1();
 			ShowForm(form);
 		}
 

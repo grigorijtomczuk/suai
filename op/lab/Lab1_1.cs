@@ -1,6 +1,6 @@
 ﻿namespace lab
 {
-	public partial class Lab2 : Form
+	public partial class Lab1_1 : Form
 	{
 		// Объявляем переменную currentFile типа FileClass глобально, так как с ней может проводится сразу несколько манипуляций
 		private FileClass? currentFile;
@@ -14,17 +14,19 @@
 		// Создание объекта с именем файла и путем
 		FileClass fullFile = new FileClass("MyFile.txt", @"MyDir\123\");
 
-		public Lab2()
+		public Lab1_1()
 		{
 			InitializeComponent();
-			this.BackColor = FileClass.BackgroundColor; // Изменение цвета фона формы
 		}
 
 		private void buttonSelectFile_Click(object sender, EventArgs e)
 		{
 			currentFile = new FileClass(textBox_FileName.Text, textBox_FilePath.Text);
 			if (!File.Exists(currentFile.Path))
+			{
+				currentFile = null;
 				MessageBox.Show("Файла не существует");
+			}
 			else
 				labelSelectedFile.Text = currentFile.Path;
 		}
@@ -98,6 +100,45 @@
 			}
 		}
 
+		private void buttonChangeFileType_Click(object sender, EventArgs e)
+		{
+			if (currentFile == null)
+				MessageBox.Show("Файл не выбран");
+			else
+			{
+				if (textBox_FileType.Text == "")
+					MessageBox.Show("Тип не указан");
+				else
+				{
+					currentFile.ChangeTypeProperty(textBox_FileType.Text);
+					textBox_FileType.Text = null;
+					MessageBox.Show("Тип файла изменен");
+				}
+			}
+		}
+
+		private void buttonChangeDateCreated_Click(object sender, EventArgs e)
+		{
+			if (currentFile == null)
+				MessageBox.Show("Файл не выбран");
+			else
+			{
+				currentFile.ChangeDateCreated(dateTime_DateCreated.Value);
+				MessageBox.Show("Дата создания файла изменена");
+			}
+		}
+
+		private void buttonChangeReadOnly_Click(object sender, EventArgs e)
+		{
+			if (currentFile == null)
+				MessageBox.Show("Файл не выбран");
+			else
+			{
+				currentFile.ChangeReadOnly(checkBox_isReadOnly.Checked);
+				MessageBox.Show("Аттрибут \"Read-Only\" изменен");
+			}
+		}
+
 		private void buttonReadFileMetadata_Click(object sender, EventArgs e)
 		{
 			if (currentFile == null)
@@ -106,7 +147,10 @@
 			{
 				string fileType = currentFile.fileMetadata.FileTypeProperty;
 				string dateCreated = currentFile.fileMetadata.DateCreated.ToString();
-				string content = $"Тип файла: {fileType}\nДата создания: {dateCreated}.";
+				string isReadOnly = currentFile.IsReadOnly.ToString();
+				string content = $"Тип файла: {fileType}\n" +
+								 $"Дата создания: {dateCreated}\n" +
+								 $"Read-Only: {isReadOnly}";
 				MessageBox.Show(content);
 			}
 		}

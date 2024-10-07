@@ -101,7 +101,7 @@
 			}
 		}
 
-		private void buttonChangeFileType_Click(object sender, EventArgs e)
+		private void buttonChangeFileTypeProperty_Click(object sender, EventArgs e)
 		{
 			if (currentFile == null)
 				MessageBox.Show("Файл не выбран");
@@ -111,7 +111,24 @@
 					MessageBox.Show("Тип не указан");
 				else
 				{
-					currentFile.ChangeType(textBox_FileType.Text);
+					currentFile.ChangeTypeProperty(textBox_FileType.Text);
+					textBox_FileType.Text = null;
+					MessageBox.Show("Тип файла изменен");
+				}
+			}
+		}
+
+		private void buttonChangeFileTypeField_Click(object sender, EventArgs e)
+		{
+			if (currentFile == null)
+				MessageBox.Show("Файл не выбран");
+			else
+			{
+				if (textBox_FileType.Text == "")
+					MessageBox.Show("Тип не указан");
+				else
+				{
+					currentFile.ChangeTypeField(textBox_FileType.Text);
 					textBox_FileType.Text = null;
 					MessageBox.Show("Тип файла изменен");
 				}
@@ -146,10 +163,12 @@
 				MessageBox.Show("Файл не выбран");
 			else
 			{
-				string fileType = currentFile.fileMetadata.FileType;
+				string fileTypeProperty = currentFile.fileMetadata.FileTypeProperty;
+				string fileTypeField = currentFile.fileMetadata.fileTypeField;
 				string dateCreated = currentFile.fileMetadata.DateCreated.ToString();
 				string isReadOnly = currentFile.IsReadOnly.ToString();
-				string content = $"Тип файла: {fileType}\n" +
+				string content = $"Тип файла (свойство): {fileTypeProperty}\n" +
+								 $"Тип файла (поле): {fileTypeField}\n" +
 								 $"Дата создания: {dateCreated}\n" +
 								 $"Read-Only: {isReadOnly}";
 				MessageBox.Show(content);
