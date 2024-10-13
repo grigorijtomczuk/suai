@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 
 # Вершины икосаэдра
-phi = (1 + np.sqrt(5)) / 2
+phi = (1 + np.sqrt(5)) / 2  # ≈ 1.618 — золотая пропорция. Используется для описания правильных многогранников, таких как икосаэдр
 vertices = np.array([
     [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
     [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
@@ -22,7 +22,7 @@ faces = [
 # Функция отражения относительно произвольной плоскости
 def reflection(vertices, A, B, C, D):
     # Матрица отражения относительно плоскости Ax + By + Cz + D = 0
-    n = np.array([A, B, C])
+    n = np.array([A, B, C])  # Нормальный вектор плоскости, относительно которой происходит отражение
     n = n / np.linalg.norm(n)  # Нормализуем нормальный вектор
     reflection_matrix = np.eye(3) - 2 * np.outer(n, n)
 
@@ -31,21 +31,22 @@ def reflection(vertices, A, B, C, D):
     return transformed_vertices
 
 
-# Пример: отражение относительно плоскости 2x + 3y + 4z - 10 = 0
-transformed_vertices = reflection(vertices, 2, 3, 4, -10)
+# Пример: отражение фигуры относительно плоскости 4x + 2y + 3z - 7 = 0
+# Применяем отражение
+transformed_vertices_centered = reflection(vertices, 4, 2, 3, -7)
 
-# Рисуем оригинальную и трансформированную фигуру
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
+center = np.array([5, 5, 5])  # Центр икосаэдра (координаты, относительно которых будем его смещать)
 
-# Оригинальный икосаэдр
-ax.add_collection3d(Poly3DCollection([vertices[face] for face in faces], alpha=.25, edgecolor='r'))
+# Смещаем фигуру от центра координат
+transformed_vertices = transformed_vertices_centered + center
 
-# Трансформированный икосаэдр
-ax.add_collection3d(Poly3DCollection([transformed_vertices[face] for face in faces], alpha=.25, edgecolor='b'))
+# Рисуем трансформированную фигуру
+fig = plt.figure()  # Пространство, на котором будет рисоваться график
+ax = fig.add_subplot(111, projection='3d')  # Объект осей, на которых рисуется график
+ax.add_collection3d(Poly3DCollection([transformed_vertices[face] for face in faces], alpha=0.5, edgecolor='b'))
 
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
 
 plt.show()
