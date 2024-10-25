@@ -85,6 +85,7 @@ namespace lab
 			newFileDialog.MinimizeBox = false;
 			newFileDialog.ShowDialog(this);
 
+			// if (submittedFilePath != null) ...
 			string newFilePath = newFileDialog.submittedFilePath;
 			FileClass newFile = new FileClass(Path.GetFileName(newFilePath), newFilePath);
 			newFile.CreateFile();

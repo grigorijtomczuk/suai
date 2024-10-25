@@ -170,6 +170,7 @@
 
 		public void ShowPhoto(Form formBox)
 		{
+			// formBox.Invalidate(); - перерисовать фон при смене файла
 			iconGraphics = Graphics.FromHwnd(formBox.Handle);
 			if (File.Exists(IconPhotoPath))
 			{
