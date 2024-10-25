@@ -104,8 +104,8 @@
 				MessageBox.Show("Файл не выбран");
 			else
 			{
-				string fileType = currentFile.fileMetadata.FileTypeProperty;
-				string dateCreated = currentFile.fileMetadata.DateCreated.ToString();
+				string fileType = currentFile.FileTypeProperty;
+				string dateCreated = currentFile.DateCreated.ToString();
 				string content = $"Тип файла: {fileType}\nДата создания: {dateCreated}.";
 				MessageBox.Show(content);
 			}

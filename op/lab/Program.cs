@@ -9,6 +9,17 @@ namespace lab
 			ApplicationConfiguration.Initialize();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			string workingDirectoryPath = @"files\";
+			string workingDirectoryName = "files";
+			// Проверяем, существует ли рабочая директория
+			if (!Directory.Exists(workingDirectoryPath))
+			{
+				// Создаем рабочую директорию
+				DirectoryClass workingDirectory = new DirectoryClass(workingDirectoryName, workingDirectoryPath);
+				workingDirectory.CreateDirectory();
+			}
+			// Задаем рабочую директорию
+			Directory.SetCurrentDirectory(@"files\");
 			Application.Run(new Menu());
 		}
 	}

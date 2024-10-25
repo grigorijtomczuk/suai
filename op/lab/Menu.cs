@@ -2,6 +2,8 @@
 {
 	public partial class Menu : Form
 	{
+		Form? currentForm;
+
 		public Menu()
 		{
 			InitializeComponent();
@@ -13,13 +15,22 @@
 			form.MaximizeBox = false;
 			form.MinimizeBox = false;
 			form.ControlBox = false;
+
+			this.Width = form.Width;
+			this.Height = form.Height + 24;
+
+			if (currentForm != null) currentForm.Close();
+			currentForm = form;
+
 			form.Show();
 			form.WindowState = FormWindowState.Maximized;
+
+			labMenuItem.Text = form.Text;
 		}
 
 		private void Lab1MenuItem_Click(object sender, EventArgs e)
 		{
-			Lab1_1 form = new Lab1_1();
+			Lab1 form = new Lab1();
 			ShowForm(form);
 		}
 
@@ -37,8 +48,8 @@
 
 		private void Lab4MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab4 form = new Lab3();
-			//showForm(form);
+			Lab4 form = new Lab4();
+			ShowForm(form);
 		}
 	}
 }

@@ -2,37 +2,33 @@
 {
 	public class FileClass : FileSystemItem
 	{
-		public struct FileMetadata
+		public string currentFileContents;
+		public string FileContents
 		{
-			// Нельзя инициализировать поля структуры при их объявлении
-			public DateTime DateCreated { get; set; } // Свойство даты и времени
-
-			private string fileTypeProperty;
-			public string FileTypeProperty // Свойство с проверкой на первую прописную букву
+			get
 			{
-				/*private*/ get { return fileTypeProperty; }
-				set
-				{
-					if (char.IsLower(value[0]))
-						fileTypeProperty = char.ToUpper(value[0]) + value.Substring(1);
-					else
-						fileTypeProperty = value;
-				}
+				if (currentFileContents == null) return this.ReadFile();
+				else return currentFileContents;
 			}
-
-			public string fileTypeField;
-
-			// Конструктор с параметрами
-			public FileMetadata(string fileType, DateTime dateCreated)
-			{
-				FileTypeProperty = fileType;
-				DateCreated = dateCreated;
-			}
-
-			public void printData() { Console.WriteLine($"Type: {FileTypeProperty}, Date created: {DateCreated}."); }
+			set { currentFileContents = value; }
 		}
 
-		public FileMetadata fileMetadata;
+		public DateTime DateCreated { get; set; } // Свойство даты и времени
+
+		private string fileTypeProperty;
+		public string FileTypeProperty // Свойство с проверкой на первую прописную букву
+		{
+			get { return fileTypeProperty; }
+			set
+			{
+				if (value.Length > 0 && char.IsLower(value[0]))
+					fileTypeProperty = char.ToUpper(value[0]) + value.Substring(1);
+				else
+					fileTypeProperty = value;
+			}
+		}
+
+		public string fileTypeField;
 
 		// Числовое свойство с ограниченным get (доступ только из класса)
 		public int FileSize
@@ -48,24 +44,25 @@
 			set { isReadOnly = value; }
 		}
 
-		private byte readOnlyValue;
-		public byte ReadOnlyValue => readOnlyValue = 1; // Сокращенная запись свойства, без set (т.е. read-only)
+		private string iconPhotoPath;
+		public string IconPhotoPath { get; set; }
+
+		private Graphics iconGraphics;
 
 		public FileClass() : base() { }
 		public FileClass(string name) : base(name) { }
 		public FileClass(string name, string path) : base(name, path) { }
 		public FileClass(string name, string path, string fileType) : this(name, path)
 		{
-			fileMetadata.FileTypeProperty = fileType; // Значение устанавливается в конструкторе
+			FileTypeProperty = fileType; // Значение устанавливается в конструкторе
 		}
 		public FileClass(string name, string path, string fileType, DateTime dateCreated) : this(name, path, fileType)
 		{
-			fileMetadata.DateCreated = dateCreated;
+			DateCreated = dateCreated;
 		}
 		public FileClass(string name, string path, string fileType, DateTime dateCreated, bool isReadOnly) : this(name, path, fileType, dateCreated)
 		{
 			IsReadOnly = isReadOnly;
-			// ReadOnlyValue = 2; - ошибка, свойство read-only
 		}
 
 		public void CreateFile()
@@ -87,29 +84,7 @@
 				File.Create(Path).Close(); // .Close() нужен, чтобы освободить файл сразу после создания
 			}
 
-			// Присваивание атрибутов через структуру FileMetadata
-			fileMetadata.FileTypeProperty = "обычный тип";
-			fileMetadata.fileTypeField = "обычный тип";
-			fileMetadata.DateCreated = DateTime.Now;
-			fileMetadata.printData();
-
-			// Тестирование конструктора по умолчанию для структуры
-			FileMetadata defaultFileMetadataStruct = new FileMetadata(); // Все поля проинициализированы значениями по умолчанию
-			defaultFileMetadataStruct.printData();
-			//fileMetadata = defaultFileMetadataStruct;
-
-			FileMetadata paramFileMetadataStruct = new FileMetadata("Custom Type Parameter", DateTime.Now); // Инициализация с параметрами
-			paramFileMetadataStruct.printData();
-			//fileMetadata = paramFileMetadataStruct;
-
-			// Использование инициализаторов со структурами
-			FileMetadata fileMetadataStructWithInitializer = new FileMetadata
-			{
-				FileTypeProperty = "Custom Initializer Type",
-				DateCreated = DateTime.Now
-			};
-			fileMetadataStructWithInitializer.printData();
-			//fileMetadata = fileMetadataStructWithInitializer;
+			DateCreated = DateTime.Now;
 
 			FileSize = (int)new FileInfo(Path).Length;
 			IsReadOnly = false;
@@ -126,8 +101,10 @@
 		public void RenameFile(string newName)
 		{
 			Name = newName;
-			string newPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Path), newName);
-			if (File.Exists(Path))
+			string newPath = System.IO.Path.GetRelativePath(Directory.GetCurrentDirectory(),
+							 System.IO.Path.Join(System.IO.Path.GetDirectoryName(Path), newName));
+
+			if (File.Exists(Path) && !File.Exists(newPath))
 			{
 				File.Move(Path, newPath);
 				Path = newPath;
@@ -155,7 +132,7 @@
 		{
 			if (File.Exists(Path))
 			{
-				fileMetadata.FileTypeProperty = fileType;
+				FileTypeProperty = fileType;
 			}
 		}
 
@@ -163,7 +140,7 @@
 		{
 			if (File.Exists(Path))
 			{
-				fileMetadata.fileTypeField = fileType;
+				fileTypeField = fileType;
 			}
 		}
 
@@ -171,7 +148,7 @@
 		{
 			if (File.Exists(Path))
 			{
-				fileMetadata.DateCreated = dateCreated;
+				DateCreated = dateCreated;
 			}
 		}
 
@@ -181,6 +158,35 @@
 			{
 				IsReadOnly = isReadOnly;
 			}
+		}
+
+		public void ShowPhoto(PictureBox pictureBox)
+		{
+			if (File.Exists(IconPhotoPath))
+				pictureBox.Image = Image.FromFile(IconPhotoPath);
+			else
+				pictureBox.Image = null;
+		}
+
+		public void ShowPhoto(Form formBox)
+		{
+			iconGraphics = Graphics.FromHwnd(formBox.Handle);
+			if (File.Exists(IconPhotoPath))
+			{
+				iconGraphics.DrawImage(Image.FromFile(IconPhotoPath), new Rectangle(0, 0, formBox.Width, formBox.Height));
+			}
+			else
+				formBox.Invalidate();
+		}
+
+		public void ResetPhoto(PictureBox pictureBox)
+		{
+			pictureBox.Image = null;
+		}
+
+		public void ResetPhoto(Form formBox)
+		{
+			formBox.Invalidate();
 		}
 	}
 }

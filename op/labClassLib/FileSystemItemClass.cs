@@ -3,8 +3,10 @@
 	// Обобщенный класс сущности файловой системы
 	public class FileSystemItem
 	{
-		public string Name { get; set; } // Строковое свойство
+		public string Name { get; set; }
+
 		public string Path { get; set; }
+
 		public static Color BackgroundColor;
 
 		// Статический конструктор
@@ -13,9 +15,9 @@
 			// Цвет фона зависит от времени суток
 			DateTime now = DateTime.Now;
 			if (now.TimeOfDay.Hours >= 12)
-				BackgroundColor = Color.LightBlue;
+				BackgroundColor = Color.FromArgb(-4861441);
 			else
-				BackgroundColor = Color.ForestGreen;
+				BackgroundColor = Color.FromArgb(-10571);
 		}
 
 		// Конструктор по умолчанию
