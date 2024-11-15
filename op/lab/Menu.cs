@@ -51,5 +51,17 @@
 			Lab4 form = new Lab4();
 			ShowForm(form);
 		}
+
+		private void lab5MenuItem_Click(object sender, EventArgs e)
+		{
+			Lab5 form = new Lab5();
+			ShowForm(form);
+		}
+
+		private void lab6MenuItem_Click(object sender, EventArgs e)
+		{
+			//Lab6 form = new Lab6();
+			//ShowForm(form);
+		}
 	}
 }

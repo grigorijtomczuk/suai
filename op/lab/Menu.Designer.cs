@@ -34,6 +34,8 @@
 			lab2MenuItem = new ToolStripMenuItem();
 			lab3MenuItem = new ToolStripMenuItem();
 			lab4MenuItem = new ToolStripMenuItem();
+			lab5MenuItem = new ToolStripMenuItem();
+			lab6MenuItem = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -48,7 +50,7 @@
 			// 
 			// labMenuItem
 			// 
-			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem });
+			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem, lab5MenuItem, lab6MenuItem });
 			labMenuItem.Name = "labMenuItem";
 			labMenuItem.Size = new Size(34, 20);
 			labMenuItem.Text = "ЛР";
@@ -81,6 +83,19 @@
 			lab4MenuItem.Text = "ЛР4";
 			lab4MenuItem.Click += Lab4MenuItem_Click;
 			// 
+			// lab5MenuItem
+			// 
+			lab5MenuItem.Name = "lab5MenuItem";
+			lab5MenuItem.Size = new Size(180, 22);
+			lab5MenuItem.Text = "ЛР5";
+			lab5MenuItem.Click += lab5MenuItem_Click;
+			// 
+			// lab6MenuItem
+			// 
+			lab6MenuItem.Name = "lab6MenuItem";
+			lab6MenuItem.Size = new Size(180, 22);
+			lab6MenuItem.Text = "ЛР6";
+			// 
 			// Menu
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
@@ -105,5 +120,7 @@
 		private ToolStripMenuItem lab2MenuItem;
 		private ToolStripMenuItem lab3MenuItem;
 		private ToolStripMenuItem lab4MenuItem;
+		private ToolStripMenuItem lab5MenuItem;
+		private ToolStripMenuItem lab6MenuItem;
 	}
 }

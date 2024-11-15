@@ -49,6 +49,8 @@
 
 		private Graphics iconGraphics;
 
+		public List<string> Authors { get; set; } = new List<string>();
+
 		public FileClass() : base() { }
 		public FileClass(string name) : base(name) { }
 		public FileClass(string name, string path) : base(name, path) { }
@@ -119,6 +121,18 @@
 			}
 		}
 
+		public void EditFile(SaveFileDialog saveFileDialog, string content)
+		{
+			if (saveFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				Path = saveFileDialog.FileName;
+				using (StreamWriter writer = new StreamWriter(Path))
+				{
+					writer.Write(content);
+				}
+			}
+		}
+
 		public string ReadFile()
 		{
 			if (File.Exists(Path))
@@ -126,6 +140,19 @@
 				return File.ReadAllText(Path);
 			}
 			return string.Empty;
+		}
+
+		public string ReadFile(OpenFileDialog openFileDialog)
+		{
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				Path = openFileDialog.FileName;
+				using (StreamReader reader = new StreamReader(Path))
+				{
+					return reader.ReadToEnd();
+				}
+			}
+			return null;
 		}
 
 		public void ChangeTypeProperty(string fileType)
@@ -188,6 +215,62 @@
 		public void ResetPhoto(Form formBox)
 		{
 			formBox.Invalidate();
+		}
+
+		// Сохранение и чтение метаинформации
+		public void SaveMetadata()
+		{
+			string metadataPath = System.IO.Path.ChangeExtension(Path, ".meta");
+			using (StreamWriter writer = new StreamWriter(metadataPath))
+			{
+				writer.WriteLine(string.Join(",", Authors));
+				writer.WriteLine(FileTypeProperty);
+				writer.WriteLine(DateCreated);
+				writer.WriteLine(IsReadOnly);
+			}
+		}
+
+		public void LoadMetadata()
+		{
+			string metadataPath = System.IO.Path.ChangeExtension(Path, ".meta");
+			if (File.Exists(metadataPath))
+			{
+				using (StreamReader reader = new StreamReader(metadataPath))
+				{
+					List<string> parsedAuthors = new List<string>(reader.ReadLine().Split(','));
+					if (parsedAuthors[0] != "") Authors = parsedAuthors;
+
+					FileTypeProperty = reader.ReadLine();
+					DateCreated = DateTime.Parse(reader.ReadLine());
+					IsReadOnly = bool.Parse(reader.ReadLine());
+				}
+			}
+		}
+
+		// Метод изменения авторов с использованием массива
+		public void ChangeAuthors(string[] newAuthors)
+		{
+			Authors = new List<string>(newAuthors);
+		}
+
+		// Метод с параметром по ссылке (ref)
+		public void ModifyFileType(ref string type)
+		{
+			type = "Польз.: " + type;
+			FileTypeProperty = type;
+		}
+
+		// Метод с двумя выходными параметрами (out)
+		public void GetFileDetails(out string type, out DateTime creationDate)
+		{
+			type = FileTypeProperty;
+			creationDate = DateCreated;
+		}
+
+		// Метод с необязательным параметром
+		public void AddAuthor(string authorName = "Неизвестный автор")
+		{
+			Authors.Add(authorName);
 		}
 	}
 }
