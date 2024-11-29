@@ -11,11 +11,12 @@ namespace lab
 		public Lab5()
 		{
 			InitializeComponent();
-			InitializeFiles();
+			CreateTestFiles();
+			ScanWorkDirForFiles();
 			SetupDataBindings();
 		}
 
-		private void InitializeFiles()
+		private void CreateTestFiles()
 		{
 			// Создаем тестовые файлы
 			for (int i = 0; i < 3; i++)
@@ -27,7 +28,10 @@ namespace lab
 					newFile.SaveMetadata();
 				}
 			}
+		}
 
+		private void ScanWorkDirForFiles()
+		{
 			// Сканируем рабочую директорию на файлы и добавляем их в список
 			foreach (string filePath in Directory.GetFiles(Directory.GetCurrentDirectory()))
 			{
@@ -35,19 +39,22 @@ namespace lab
 
 				string relativeFilePath = Path.GetRelativePath(Directory.GetCurrentDirectory(), filePath);
 				FileClass foundFile = new FileClass(Path.GetFileName(relativeFilePath), relativeFilePath, "", DateTime.Now, false);
+
 				foundFile.LoadMetadata();
+
 				fileList.Add(foundFile);
 			};
 
 			// Привязка списка файлов к ListBox
-			fileListBox.DataSource = fileList;
-			fileListBox.DisplayMember = "Name"; // Отображаем имя файла
+			listBox_Files.DataSource = fileList;
+			listBox_Files.DisplayMember = "Name"; // Отображаем имя файла
 		}
 
-		private void RefreshListBoxDisplay()
+		private void RefreshListBoxDisplay(ListBox listBox)
 		{
-			fileListBox.DisplayMember = null;
-			fileListBox.DisplayMember = "Name";
+			string initialDisplayMember = listBox.DisplayMember;
+			listBox.DisplayMember = null;
+			listBox.DisplayMember = initialDisplayMember;
 		}
 
 		private void SetupDataBindings()
@@ -59,6 +66,7 @@ namespace lab
 			comboBox_FileType.DataBindings.Add("Text", fileList, "FileTypeProperty");
 			dateTime_DateCreated.DataBindings.Add("Value", fileList, "DateCreated");
 			checkBox_isReadOnly.DataBindings.Add("Checked", fileList, "IsReadOnly");
+			listBox_FileAuthors.DataBindings.Add("DataSource", fileList, "Authors");
 		}
 
 		private void ShowPhotoConditioned(FileClass currentFile)
@@ -77,13 +85,12 @@ namespace lab
 
 		private void fileListBox_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (fileListBox.SelectedItem != null)
+			if (listBox_Files.SelectedItem != null)
 			{
 				// Синхронизация изменений при выборе файла
-				currentFile = (FileClass)fileListBox.SelectedItem;
+				currentFile = (FileClass)listBox_Files.SelectedItem;
 				if (currentFile != null) labelSelectedFile.Text = currentFile.Path;
 				ShowPhotoConditioned(currentFile);
-				listBox_FileAuthors.DataSource = currentFile.Authors;
 			}
 		}
 
@@ -128,7 +135,7 @@ namespace lab
 			textBox_FileName.Text = currentFile.Name;
 			textBox_FilePath.Text = currentFile.Path;
 
-			if (fileListBox.SelectedItem != null) RefreshListBoxDisplay();
+			if (listBox_Files.SelectedItem != null) RefreshListBoxDisplay(listBox_Files);
 
 			MessageBox.Show("Файл изменен");
 		}
@@ -175,22 +182,17 @@ namespace lab
 			ShowPhotoConditioned(currentFile);
 		}
 
-		// Метод обновления данных в интерфейсе
-		private void UpdateUI()
-		{
-			listBox_FileAuthors.DataSource = null;
-			listBox_FileAuthors.DataSource = currentFile.Authors;
-		}
-
 		private void buttonFileAuthorsAdd_Click(object sender, EventArgs e)
 		{
 			if (textBox_FileAuthorsToAdd.Text != "")
 			{
 				string authorToAdd = textBox_FileAuthorsToAdd.Text;
 				currentFile.AddAuthor(authorToAdd);
-
 				textBox_FileAuthorsToAdd.Text = "";
-				UpdateUI();
+			}
+			else
+			{
+				currentFile.AddAuthor();
 			}
 		}
 
@@ -200,7 +202,6 @@ namespace lab
 			{
 				int selectedIndex = listBox_FileAuthors.SelectedIndex;
 				currentFile.Authors.RemoveAt(selectedIndex);
-				UpdateUI();
 			}
 		}
 
@@ -209,19 +210,13 @@ namespace lab
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				//currentFile = new FileClass(Path.GetFileName(openFileDialog.FileName), openFileDialog.FileName);
 				FileClass openedFile = new FileClass(Path.GetFileName(openFileDialog.FileName), openFileDialog.FileName);
 				fileList.Add(openedFile);
-				fileListBox.SetSelected(fileList.Count - 1, true);
+				listBox_Files.ClearSelected();
+				currentFile = openedFile;
 				currentFile.LoadMetadata();
-
-				//labelSelectedFile.Text = currentFile.Path;
-				//textBox_FileName.Text = currentFile.Name;
-				//textBox_FilePath.Text = currentFile.Path;
-				//textBox_FileContents.Text = currentFile.FileContents;
-
-				//fileListBox.ClearSelected();
-				UpdateUI();
+				fileList.ResetBindings();
+				listBox_Files.SetSelected(fileList.Count - 1, true);
 			}
 		}
 
@@ -235,14 +230,25 @@ namespace lab
 		private void buttonChangeTypeByRef_Click(object sender, EventArgs e)
 		{
 			string fileType = comboBox_FileType.Text;
+			string initialFileType = fileType;
 			currentFile.ModifyFileType(ref fileType);
-			UpdateUI();
+			MessageBox.Show($"Переданный тип до вызова метода: {initialFileType}\nПереданный тип после вызова метода: {fileType}");
+			fileList.ResetBindings();
 		}
 
 		private void buttonReadFileDetails_Click(object sender, EventArgs e)
 		{
 			currentFile.GetFileDetails(out string type, out DateTime creationDate);
 			MessageBox.Show($"Тип файла: {type}\nСоздан: {creationDate}");
+		}
+
+		private void buttonChangeAuthorsList_Click(object sender, EventArgs e)
+		{
+			List<string> newAuthors = new(["Автор 1", "Автор 2", "Автор 3"]);
+			List<string> initialNewAuthors = newAuthors.ToList();
+			currentFile.ChangeAuthors(newAuthors);
+			MessageBox.Show($"Переданный список до вызова метода: {String.Join(", ", initialNewAuthors)}\n\nПереданный список после вызова метода: {String.Join(", ", newAuthors)}");
+			fileList.ResetBindings();
 		}
 	}
 }

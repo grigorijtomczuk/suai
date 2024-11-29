@@ -1,4 +1,6 @@
-﻿namespace lab
+﻿using System.ComponentModel;
+
+namespace lab
 {
 	public class FileClass : FileSystemItem
 	{
@@ -49,7 +51,7 @@
 
 		private Graphics iconGraphics;
 
-		public List<string> Authors { get; set; } = new List<string>();
+		public BindingList<string> Authors { get; set; } = new BindingList<string>();
 
 		public FileClass() : base() { }
 		public FileClass(string name) : base(name) { }
@@ -237,7 +239,9 @@
 			{
 				using (StreamReader reader = new StreamReader(metadataPath))
 				{
-					List<string> parsedAuthors = new List<string>(reader.ReadLine().Split(','));
+					// Здесь, поскольку BindingList является "оберткой" для передаваемого при его инициализации списка,
+					// нужно использовать копию списка, чтобы избежать ошибки "Read-Only List" при попытке изменения BindingList
+					BindingList<string> parsedAuthors = new BindingList<string>(reader.ReadLine().Split(',').ToList());
 					if (parsedAuthors[0] != "") Authors = parsedAuthors;
 
 					FileTypeProperty = reader.ReadLine();
@@ -245,12 +249,18 @@
 					IsReadOnly = bool.Parse(reader.ReadLine());
 				}
 			}
+			else
+			{
+				SaveMetadata();
+				LoadMetadata();
+			}
 		}
 
 		// Метод изменения авторов с использованием массива
-		public void ChangeAuthors(string[] newAuthors)
+		public void ChangeAuthors(List<string> newAuthors)
 		{
-			Authors = new List<string>(newAuthors);
+			newAuthors.Add("Добавленный автор");
+			Authors = new BindingList<string>(newAuthors);
 		}
 
 		// Метод с параметром по ссылке (ref)
