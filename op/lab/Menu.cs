@@ -60,7 +60,25 @@
 
 		private void lab6MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab6 form = new Lab6();
+			Lab6 form = new Lab6();
+			ShowForm(form);
+		}
+
+		private void lab7MenuItem_Click(object sender, EventArgs e)
+		{
+			//Lab7 form = new Lab7();
+			//ShowForm(form);
+		}
+
+		private void lab8MenuItem_Click(object sender, EventArgs e)
+		{
+			//Lab8 form = new Lab8();
+			//ShowForm(form);
+		}
+
+		private void lab9MenuItem_Click(object sender, EventArgs e)
+		{
+			//Lab9 form = new Lab9();
 			//ShowForm(form);
 		}
 	}
