@@ -48,6 +48,7 @@
 			buttonUnsetIconFile = new Button();
 			groupBox3 = new GroupBox();
 			buttonOpenDirectory = new Button();
+			buttonTestCasting = new Button();
 			groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
 			groupBox2.SuspendLayout();
@@ -194,6 +195,7 @@
 			// 
 			// groupBox1
 			// 
+			groupBox1.Controls.Add(buttonTestCasting);
 			groupBox1.Controls.Add(buttonReadFileMetadata);
 			groupBox1.Controls.Add(buttonReadFile);
 			groupBox1.Location = new Point(243, 627);
@@ -398,6 +400,16 @@
 			buttonOpenDirectory.UseVisualStyleBackColor = true;
 			buttonOpenDirectory.Click += buttonOpenDirectory_Click;
 			// 
+			// buttonTestCasting
+			// 
+			buttonTestCasting.Location = new Point(452, 37);
+			buttonTestCasting.Name = "buttonTestCasting";
+			buttonTestCasting.Size = new Size(325, 38);
+			buttonTestCasting.TabIndex = 6;
+			buttonTestCasting.Text = "Тест UpCasting/DownCasting";
+			buttonTestCasting.UseVisualStyleBackColor = true;
+			buttonTestCasting.Click += buttonTestCasting_Click;
+			// 
 			// Lab6
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
@@ -459,5 +471,6 @@
 		private Button buttonUnsetIconFile;
 		private GroupBox groupBox3;
 		private Button buttonOpenDirectory;
+		private Button buttonTestCasting;
 	}
 }

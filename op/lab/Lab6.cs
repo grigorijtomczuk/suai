@@ -252,5 +252,28 @@ namespace lab
 				SetupDataBindings();
 			}
 		}
+
+		private void buttonTestCasting_Click(object sender, EventArgs e)
+		{
+			// UpCasting - объект BrowserFile (как и объект любого другого класса) представляет объект object
+			object obj = new BrowserFile();
+
+			// DownCasting - явно преобразуем объект object к объекту производного класса BrowserFileSystemItem
+			BrowserFileSystemItem fsItem = (BrowserFileSystemItem)obj;
+
+			// UpCasting - объект производного класса BrowserFile представляет объект BrowserFileSystemItem
+			BrowserFileSystemItem fsItem1 = new BrowserFile();
+			// fsItem1.FileContents = "Sample Text"; - Ошибка, так как объекту BrowserFileSystemItem недоступны параметры объекта BrowserFile
+
+			// DownCasting - явно преобразуем объект BrowserFileSystemItem к объекту производного класса BrowserFile
+			BrowserFile browserFile = (BrowserFile)fsItem1;
+			browserFile.FileContents = "Sample Text"; // Ошибки нет
+
+			string content = $"GetHashCode() у BrowserFile: {browserFile.GetHashCode()}\n" +
+							 $"fsItem1: {fsItem1.GetType()}\n" +
+							 $"fsItem1.FileContents: Ошибка!\n" +
+							 $"browserFile.FileContents: {browserFile.FileContents}";
+			MessageBox.Show(content);
+		}
 	}
 }
