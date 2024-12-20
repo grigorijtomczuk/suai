@@ -24,7 +24,7 @@
 			buttonDeleteFile = new Button();
 			buttonEditFile = new Button();
 			buttonReadFile = new Button();
-			labelSelectedFile = new Label();
+			labelSelectedDirectory = new Label();
 			buttonReadFileMetadata = new Button();
 			dateTime_DateCreated = new DateTimePicker();
 			checkBox_isReadOnly = new CheckBox();
@@ -130,15 +130,15 @@
 			buttonReadFile.UseVisualStyleBackColor = true;
 			buttonReadFile.Click += buttonReadFile_Click;
 			// 
-			// labelSelectedFile
+			// labelSelectedDirectory
 			// 
-			labelSelectedFile.AutoSize = true;
-			labelSelectedFile.Location = new Point(16, 22);
-			labelSelectedFile.Margin = new Padding(4, 0, 4, 0);
-			labelSelectedFile.Name = "labelSelectedFile";
-			labelSelectedFile.Size = new Size(145, 25);
-			labelSelectedFile.TabIndex = 3;
-			labelSelectedFile.Text = "Файл не выбран";
+			labelSelectedDirectory.AutoSize = true;
+			labelSelectedDirectory.Location = new Point(16, 22);
+			labelSelectedDirectory.Margin = new Padding(4, 0, 4, 0);
+			labelSelectedDirectory.Name = "labelSelectedDirectory";
+			labelSelectedDirectory.Size = new Size(163, 25);
+			labelSelectedDirectory.TabIndex = 3;
+			labelSelectedDirectory.Text = "Папка не выбрана";
 			// 
 			// buttonReadFileMetadata
 			// 
@@ -438,7 +438,7 @@
 			Controls.Add(label1);
 			Controls.Add(checkBox_isReadOnly);
 			Controls.Add(dateTime_DateCreated);
-			Controls.Add(labelSelectedFile);
+			Controls.Add(labelSelectedDirectory);
 			Controls.Add(buttonEditFile);
 			Controls.Add(buttonDeleteFile);
 			Controls.Add(buttonCreateFile);
@@ -466,7 +466,7 @@
 		private Button buttonDeleteFile;
 		private Button buttonEditFile;
 		private Button buttonReadFile;
-		private Label labelSelectedFile;
+		private Label labelSelectedDirectory;
 		private Button buttonReadFileMetadata;
 		private DateTimePicker dateTime_DateCreated;
 		private CheckBox checkBox_isReadOnly;

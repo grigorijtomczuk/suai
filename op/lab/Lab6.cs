@@ -8,6 +8,8 @@ namespace lab
 		private FileClass? currentFile;
 		private BindingList<FileClass> fileList = new BindingList<FileClass>();
 
+		private DirectoryClass? currentDirectory = new DirectoryClass(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
+
 		public Lab6()
 		{
 			InitializeComponent();
@@ -32,12 +34,15 @@ namespace lab
 
 		private void ScanWorkDirForFiles()
 		{
+			string currentWorkDir = Directory.GetCurrentDirectory();
+			labelSelectedDirectory.Text = Path.GetFileName(currentWorkDir);
+
 			// Сканируем рабочую директорию на файлы и добавляем их в список
-			foreach (string filePath in Directory.GetFiles(Directory.GetCurrentDirectory()))
+			foreach (string filePath in Directory.GetFiles(currentWorkDir))
 			{
 				if (Path.GetExtension(filePath) == ".meta") continue;
 
-				string relativeFilePath = Path.GetRelativePath(Directory.GetCurrentDirectory(), filePath);
+				string relativeFilePath = Path.GetRelativePath(currentWorkDir, filePath);
 				FileClass foundFile = new FileClass(Path.GetFileName(relativeFilePath), relativeFilePath, "", DateTime.Now, false);
 
 				foundFile.LoadMetadata();
@@ -89,7 +94,6 @@ namespace lab
 			{
 				// Синхронизация изменений при выборе файла
 				currentFile = (FileClass)listBox_Files.SelectedItem;
-				if (currentFile != null) labelSelectedFile.Text = currentFile.Path;
 				ShowPhotoConditioned(currentFile);
 			}
 		}
@@ -119,7 +123,6 @@ namespace lab
 				currentFile.DeleteFile();
 				textBox_FilePath.Text = null;
 				fileList.Remove(currentFile);
-				labelSelectedFile.Text = "Файл не выбран";
 				currentFile = null;
 				MessageBox.Show("Файл удален");
 			}
