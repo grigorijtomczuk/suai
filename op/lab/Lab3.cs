@@ -39,7 +39,7 @@
 			else
 			{
 				currentFile = new BrowserTextFile(textBox_FileName.Text, textBox_FilePath.Text);
-				currentFile.CreateFile();
+				currentFile.Create();
 				labelSelectedFile.Text = currentFile.Path;
 				MessageBox.Show("Файл создан");
 			}
@@ -51,7 +51,7 @@
 				MessageBox.Show("Файл не выбран");
 			else
 			{
-				currentFile.DeleteFile();
+				currentFile.Delete();
 				textBox_FilePath.Text = null;
 				labelSelectedFile.Text = "Файл не выбран";
 				currentFile = null;
@@ -69,7 +69,7 @@
 					MessageBox.Show("Новое имя не указано");
 				else
 				{
-					currentFile.RenameFile(textBox_FileName.Text);
+					currentFile.Rename(textBox_FileName.Text);
 					textBox_FilePath.Text = currentFile.Path;
 					labelSelectedFile.Text = currentFile.Path;
 					textBox_FileName.Text = null;

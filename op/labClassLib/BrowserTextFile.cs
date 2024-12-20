@@ -47,7 +47,7 @@ namespace lab
 		public BrowserTextFile(string name, string path) : base(name, path)
 		{
 			string metadataFilePath = System.IO.Path.ChangeExtension(this.Path, ".meta");
-			linkedMetadataFile = new BrowserMetaFile(System.IO.Path.GetFileName(metadataFilePath), metadataFilePath, this);
+			linkedMetadataFile = new BrowserMetaFile(System.IO.Path.GetFileName(metadataFilePath), metadataFilePath, this); // Композиция BrowserTextFile <-> BrowserMetaFile (новый объект)
 		}
 		public BrowserTextFile(string name, string path, string fileType) : this(name, path)
 		{
@@ -62,9 +62,10 @@ namespace lab
 			IsReadOnly = isReadOnly;
 		}
 
-		public void CreateTextFile()
+		// Переопределяем метод Create для определения некоторых параметров текстового файла
+		public override void Create()
 		{
-			this.CreateFile();
+			base.Create();
 
 			DateCreated = DateTime.Now;
 			FileSize = (int)new FileInfo(Path).Length;
@@ -136,7 +137,7 @@ namespace lab
 		// Сохранение и чтение метаинформации
 		public void SaveMetadata()
 		{
-			linkedMetadataFile.Write(Authors.ToList(), FileTypeProperty, DateCreated, IsReadOnly);
+			linkedMetadataFile.Write(Authors.ToList(), FileTypeProperty, DateCreated, IsReadOnly, IconPhotoPath);
 		}
 
 		public void LoadMetadata()
@@ -144,10 +145,14 @@ namespace lab
 			linkedMetadataFile.Read();
 		}
 
+		public void DeleteMetadataFile()
+		{
+			linkedMetadataFile.Delete();
+		}
+
 		// Метод изменения авторов с использованием массива
 		public void ChangeAuthors(List<string> newAuthors)
 		{
-			newAuthors.Add("Добавленный автор");
 			Authors = new BindingList<string>(newAuthors);
 		}
 

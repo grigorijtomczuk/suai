@@ -16,7 +16,7 @@ namespace lab
 			{
 				// Создаем рабочую директорию
 				BrowserDirectory workingDirectory = new BrowserDirectory(workingDirectoryName, workingDirectoryPath);
-				workingDirectory.CreateDirectory();
+				workingDirectory.Create();
 			}
 			// Задаем рабочую директорию
 			Directory.SetCurrentDirectory(@"files\");

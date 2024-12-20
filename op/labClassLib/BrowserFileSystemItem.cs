@@ -1,13 +1,54 @@
 ﻿namespace lab
 {
-	// Обобщенный класс сущности файловой системы
-	public class BrowserFileSystemItem
+	public interface IBrowserFileSystemItem
 	{
+		string Name { get; set; }
+		string Path { get; set; }
+		DateTime DateCreated { get; set; }
+
+		void Create();
+		void Delete();
+		void Rename(string newName);
+		void Move(string newPath);
+	}
+
+	// Обобщенный класс сущности файловой системы
+	public abstract class BrowserFileSystemItem : IBrowserFileSystemItem
+	{
+		public static Color BackgroundColor;
+
 		public string Name { get; set; }
 
-		public string Path { get; set; }
+		private string path;
+		public string Path
+		{
+			get => path;
+			set
+			{
+				if (path != value)
+				{
+					path = value;
+					PathChanged?.Invoke(this, new BrowserFileSystemItemEventArgs(value)); // Вызов события при изменении Path
+				}
+			}
+		}
 
-		public static Color BackgroundColor;
+		public DateTime DateCreated { get; set; }
+
+		// Обработчик и событие, уведомляющее об изменении свойства Path
+		public delegate void BrowserFileSystemItemHandler(object sender, BrowserFileSystemItemEventArgs e);
+		public event BrowserFileSystemItemHandler PathChanged;
+
+		// Класс аргументов события
+		public class BrowserFileSystemItemEventArgs : EventArgs
+		{
+			public string NewPath { get; }
+
+			public BrowserFileSystemItemEventArgs(string newPath)
+			{
+				NewPath = newPath;
+			}
+		}
 
 		// Статический конструктор
 		static BrowserFileSystemItem()
@@ -24,7 +65,7 @@
 		public BrowserFileSystemItem()
 		{
 			Name = "NewItem";
-			Path = @"TestDirectory\";
+			Path = @"NewDirectory\";
 		}
 
 		// Перегруженный конструктор с параметрами
@@ -32,5 +73,21 @@
 
 		// Перегруженный конструктор с двумя параметрами
 		public BrowserFileSystemItem(string name, string path) : this(name) => Path = path;
+
+		// Create, Delete - данные методы абстрактные, так как реализация создания и удаления сущностей ФС (папок и файлов) не имеет ничего общего
+		public abstract void Create();
+		public abstract void Delete();
+
+		public virtual void Rename(string newName)
+		{
+			Name = newName;
+			// Обновить путь в зависимости от имени
+			Path = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Path), newName);
+		}
+
+		public virtual void Move(string newPath)
+		{
+			Path = newPath;
+		}
 	}
 }

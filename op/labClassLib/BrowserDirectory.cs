@@ -6,7 +6,7 @@
 		public BrowserDirectory(string name) : base(name) { }
 		public BrowserDirectory(string name, string path) : base(name, path) { }
 
-		public void CreateDirectory()
+		public override void Create()
 		{
 			if (!Directory.Exists(Path) && Path != "")
 			{
@@ -14,7 +14,7 @@
 			}
 		}
 
-		public void DeleteDirectory()
+		public override void Delete()
 		{
 			if (Directory.Exists(Path))
 			{
@@ -22,7 +22,7 @@
 			}
 		}
 
-		public void RenameDirectory(string newName)
+		public override void Rename(string newName)
 		{
 			string newPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Path), newName);
 			if (Directory.Exists(Path))

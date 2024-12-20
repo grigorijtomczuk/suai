@@ -2,25 +2,41 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="lab.BrowserFileSystemItem">
     <Position X="8.5" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="lab.BrowserFileSystemItem.BrowserFileSystemItemHandler" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BrowserFileSystemItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Class Name="lab.BrowserFileSystemItem.BrowserFileSystemItemEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BrowserFileSystemItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAAAAQACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAIAAAACAAQACAEAAEAAAAAEAAAAgAQ=</HashCode>
       <FileName>BrowserFileSystemItem.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.265" />
   </Class>
   <Class Name="lab.BrowserFile">
-    <Position X="10" Y="4.75" Width="1.5" />
+    <Position X="10.25" Y="6.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAIgAASAAAAAAAAEAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAQAIgAAAAAAAAAAEEAEAAAAAAAAAAgAA=</HashCode>
       <FileName>BrowserFile.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FileDirectory" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="lab.BrowserDirectory">
-    <Position X="7" Y="4.75" Width="1.5" />
+    <Position X="6" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAgAA=</HashCode>
       <FileName>BrowserDirectory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -32,18 +48,31 @@
     <TypeIdentifier />
   </Class>
   <Class Name="lab.BrowserTextFile">
-    <Position X="8.5" Y="8.5" Width="1.5" />
+    <Position X="8.75" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAEAFiCBABREAAAAQCQABBAAAgQABAEAhAAABA=</HashCode>
+      <HashCode>AEAAAAAEAFiABABREAAAAQCQABBAEEgQABAEAhAAAAA=</HashCode>
       <FileName>BrowserTextFile.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="linkedMetadataFile" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="lab.BrowserMetaFile">
-    <Position X="11.5" Y="8.5" Width="1.5" />
+    <Position X="11.75" Y="11" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
       <FileName>BrowserMetaFile.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="linkedTextFile" />
+    </ShowAsAssociation>
   </Class>
+  <Interface Name="lab.IBrowserFileSystemItem">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAIAAAAAAAQAAAEAAEAAAAAEAAAAgAA=</HashCode>
+      <FileName>BrowserFileSystemItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

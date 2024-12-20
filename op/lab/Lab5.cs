@@ -24,7 +24,7 @@ namespace lab
 				BrowserTextFile newFile = new BrowserTextFile($"file{i}.txt", $"file{i}.txt", "", DateTime.Now, false);
 				if (!File.Exists($"file{i}.txt"))
 				{
-					newFile.CreateFile();
+					newFile.Create();
 					newFile.SaveMetadata();
 				}
 			}
@@ -104,7 +104,7 @@ namespace lab
 			// if (submittedFilePath != null) ...
 			string newFilePath = newFileDialog.submittedFilePath;
 			BrowserTextFile newFile = new BrowserTextFile(Path.GetFileName(newFilePath), newFilePath);
-			newFile.CreateFile();
+			newFile.Create();
 			fileList.Add(newFile);
 
 			MessageBox.Show("Файл создан");
@@ -116,7 +116,7 @@ namespace lab
 				MessageBox.Show("Файл не выбран");
 			else
 			{
-				currentFile.DeleteFile();
+				currentFile.Delete();
 				textBox_FilePath.Text = null;
 				fileList.Remove(currentFile);
 				labelSelectedFile.Text = "Файл не выбран";
@@ -127,7 +127,7 @@ namespace lab
 
 		private void buttonEditFile_Click(object sender, EventArgs e)
 		{
-			currentFile.RenameFile(currentFile.Name);
+			currentFile.Rename(currentFile.Name);
 			currentFile.EditFile(currentFile.FileContents);
 
 			currentFile.SaveMetadata();

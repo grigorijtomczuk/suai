@@ -2,6 +2,8 @@
 {
 	public class BrowserFile : BrowserFileSystemItem
 	{
+		public BrowserDirectory FileDirectory { get; set; } // Ассоциация BrowserFile -> BrowserDirectory (каждый файл в ФС содержится в какой-то одной директории)
+
 		public string currentFileContents;
 		public string FileContents
 		{
@@ -17,7 +19,7 @@
 		public BrowserFile(string name) : base(name) { }
 		public BrowserFile(string name, string path) : base(name, path) { }
 
-		public void CreateFile()
+		public override void Create()
 		{
 			// Получаем директорию файла
 			string directoryPath = System.IO.Path.GetDirectoryName(this.Path);
@@ -27,7 +29,7 @@
 			{
 				// Создаем директорию и все её вложенные папки, если это требуется
 				BrowserDirectory currentDirectory = new BrowserDirectory(this.Name, directoryPath);
-				currentDirectory.CreateDirectory();
+				currentDirectory.Create();
 			}
 
 			// Создаем файл, если его нет
@@ -37,7 +39,7 @@
 			}
 		}
 
-		public void DeleteFile()
+		public override void Delete()
 		{
 			if (File.Exists(Path))
 			{
@@ -45,7 +47,7 @@
 			}
 		}
 
-		public void RenameFile(string newName)
+		public override void Rename(string newName)
 		{
 			Name = newName;
 			string newPath = System.IO.Path.GetRelativePath(Directory.GetCurrentDirectory(),
@@ -70,6 +72,7 @@
 		{
 			if (saveFileDialog.ShowDialog() == DialogResult.OK)
 			{
+				Name = System.IO.Path.GetFileName(saveFileDialog.FileName);
 				Path = saveFileDialog.FileName;
 				using (StreamWriter writer = new StreamWriter(Path))
 				{
