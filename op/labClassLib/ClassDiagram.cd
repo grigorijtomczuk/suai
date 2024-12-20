@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="lab.FileSystemItem">
+  <Class Name="lab.BrowserFileSystemItem">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAQACAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>FileSystemItemClass.cs</FileName>
+      <FileName>BrowserFileSystemItem.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="lab.FileClass">
+  <Class Name="lab.BrowserFile">
     <Position X="10" Y="4.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AEAAAAAEAFiARAJxEASAAQCQABBEAAgQABEEAhAAAAA=</HashCode>
-      <FileName>FileClass.cs</FileName>
+      <HashCode>AAAAAAAAAAAAQAIgAASAAAAAAAAEAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>BrowserFile.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="lab.DirectoryClass">
+  <Class Name="lab.BrowserDirectory">
     <Position X="7" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>DirectoryClass.cs</FileName>
+      <FileName>BrowserDirectory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Object" Collapsed="true">
@@ -30,6 +30,20 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier />
+  </Class>
+  <Class Name="lab.BrowserTextFile">
+    <Position X="8.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAFiCBABREAAAAQCQABBAAAgQABAEAhAAABA=</HashCode>
+      <FileName>BrowserTextFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lab.BrowserMetaFile">
+    <Position X="11.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
+      <FileName>BrowserMetaFile.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

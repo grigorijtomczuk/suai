@@ -15,7 +15,7 @@ namespace lab
 			if (!Directory.Exists(workingDirectoryPath))
 			{
 				// Создаем рабочую директорию
-				DirectoryClass workingDirectory = new DirectoryClass(workingDirectoryName, workingDirectoryPath);
+				BrowserDirectory workingDirectory = new BrowserDirectory(workingDirectoryName, workingDirectoryPath);
 				workingDirectory.CreateDirectory();
 			}
 			// Задаем рабочую директорию

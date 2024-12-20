@@ -2,17 +2,17 @@
 {
 	public partial class Lab1 : Form
 	{
-		// Объявляем переменную currentFile типа FileClass глобально, так как с ней может проводится сразу несколько манипуляций
-		private FileClass? currentFile;
+		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
+		private BrowserTextFile? currentFile;
 
 		// Создание объекта с помощью конструктора по умолчанию
-		FileClass defaultFile = new FileClass();
+		//BrowserTextFile defaultFile = new BrowserTextFile();
 
 		// Создание объекта с именем файла
-		FileClass namedFile = new FileClass("MyFile.txt");
+		//BrowserTextFile namedFile = new BrowserTextFile("MyFile.txt");
 
 		// Создание объекта с именем файла и путем
-		FileClass fullFile = new FileClass("MyFile.txt", @"MyDir\123\");
+		BrowserTextFile fullFile = new BrowserTextFile("MyFile.txt", @"MyDir\123\");
 
 		public Lab1()
 		{
@@ -21,7 +21,7 @@
 
 		private void buttonSelectFile_Click(object sender, EventArgs e)
 		{
-			currentFile = new FileClass(textBox_FileName.Text, textBox_FilePath.Text);
+			currentFile = new BrowserTextFile(textBox_FileName.Text, textBox_FilePath.Text);
 			if (!File.Exists(currentFile.Path))
 			{
 				currentFile = null;
@@ -37,7 +37,7 @@
 				MessageBox.Show("Не указан путь к файлу");
 			else
 			{
-				currentFile = new FileClass(textBox_FileName.Text, textBox_FilePath.Text);
+				currentFile = new BrowserTextFile(textBox_FileName.Text, textBox_FilePath.Text);
 				currentFile.CreateFile();
 				labelSelectedFile.Text = currentFile.Path;
 				MessageBox.Show("Файл создан");

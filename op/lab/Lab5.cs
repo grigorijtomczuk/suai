@@ -4,9 +4,9 @@ namespace lab
 {
 	public partial class Lab5 : Form
 	{
-		// Объявляем переменную currentFile типа FileClass глобально, так как с ней может проводится сразу несколько манипуляций
-		private FileClass? currentFile;
-		private BindingList<FileClass> fileList = new BindingList<FileClass>();
+		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
+		private BrowserTextFile? currentFile;
+		private BindingList<BrowserTextFile> fileList = new BindingList<BrowserTextFile>();
 
 		public Lab5()
 		{
@@ -21,7 +21,7 @@ namespace lab
 			// Создаем тестовые файлы
 			for (int i = 0; i < 3; i++)
 			{
-				FileClass newFile = new FileClass($"file{i}.txt", $"file{i}.txt", "", DateTime.Now, false);
+				BrowserTextFile newFile = new BrowserTextFile($"file{i}.txt", $"file{i}.txt", "", DateTime.Now, false);
 				if (!File.Exists($"file{i}.txt"))
 				{
 					newFile.CreateFile();
@@ -38,7 +38,7 @@ namespace lab
 				if (Path.GetExtension(filePath) == ".meta") continue;
 
 				string relativeFilePath = Path.GetRelativePath(Directory.GetCurrentDirectory(), filePath);
-				FileClass foundFile = new FileClass(Path.GetFileName(relativeFilePath), relativeFilePath, "", DateTime.Now, false);
+				BrowserTextFile foundFile = new BrowserTextFile(Path.GetFileName(relativeFilePath), relativeFilePath, "", DateTime.Now, false);
 
 				foundFile.LoadMetadata();
 
@@ -69,7 +69,7 @@ namespace lab
 			listBox_FileAuthors.DataBindings.Add("DataSource", fileList, "Authors");
 		}
 
-		private void ShowPhotoConditioned(FileClass currentFile)
+		private void ShowPhotoConditioned(BrowserTextFile currentFile)
 		{
 			if (radioButtonIconInFrame.Checked)
 			{
@@ -88,7 +88,7 @@ namespace lab
 			if (listBox_Files.SelectedItem != null)
 			{
 				// Синхронизация изменений при выборе файла
-				currentFile = (FileClass)listBox_Files.SelectedItem;
+				currentFile = (BrowserTextFile)listBox_Files.SelectedItem;
 				if (currentFile != null) labelSelectedFile.Text = currentFile.Path;
 				ShowPhotoConditioned(currentFile);
 			}
@@ -103,7 +103,7 @@ namespace lab
 
 			// if (submittedFilePath != null) ...
 			string newFilePath = newFileDialog.submittedFilePath;
-			FileClass newFile = new FileClass(Path.GetFileName(newFilePath), newFilePath);
+			BrowserTextFile newFile = new BrowserTextFile(Path.GetFileName(newFilePath), newFilePath);
 			newFile.CreateFile();
 			fileList.Add(newFile);
 
@@ -210,7 +210,7 @@ namespace lab
 			OpenFileDialog openFileDialog = new OpenFileDialog();
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				FileClass openedFile = new FileClass(Path.GetFileName(openFileDialog.FileName), openFileDialog.FileName);
+				BrowserTextFile openedFile = new BrowserTextFile(Path.GetFileName(openFileDialog.FileName), openFileDialog.FileName);
 				fileList.Add(openedFile);
 				listBox_Files.ClearSelected();
 				currentFile = openedFile;

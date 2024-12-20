@@ -1,7 +1,7 @@
 ﻿namespace lab
 {
 	// Обобщенный класс сущности файловой системы
-	public class FileSystemItem
+	public class BrowserFileSystemItem
 	{
 		public string Name { get; set; }
 
@@ -10,7 +10,7 @@
 		public static Color BackgroundColor;
 
 		// Статический конструктор
-		static FileSystemItem()
+		static BrowserFileSystemItem()
 		{
 			// Цвет фона зависит от времени суток
 			DateTime now = DateTime.Now;
@@ -21,16 +21,16 @@
 		}
 
 		// Конструктор по умолчанию
-		public FileSystemItem()
+		public BrowserFileSystemItem()
 		{
 			Name = "NewItem";
 			Path = @"TestDirectory\";
 		}
 
 		// Перегруженный конструктор с параметрами
-		public FileSystemItem(string name) : this() => Name = name;
+		public BrowserFileSystemItem(string name) : this() => Name = name;
 
 		// Перегруженный конструктор с двумя параметрами
-		public FileSystemItem(string name, string path) : this(name) => Path = path;
+		public BrowserFileSystemItem(string name, string path) : this(name) => Path = path;
 	}
 }

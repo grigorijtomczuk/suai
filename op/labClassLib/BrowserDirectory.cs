@@ -1,10 +1,10 @@
 ﻿namespace lab
 {
-	public class DirectoryClass : FileSystemItem
+	public class BrowserDirectory : BrowserFileSystemItem
 	{
-		public DirectoryClass() : base() { }
-		public DirectoryClass(string name) : base(name) { }
-		public DirectoryClass(string name, string path) : base(name, path) { }
+		public BrowserDirectory() : base() { }
+		public BrowserDirectory(string name) : base(name) { }
+		public BrowserDirectory(string name, string path) : base(name, path) { }
 
 		public void CreateDirectory()
 		{
