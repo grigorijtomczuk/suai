@@ -2,7 +2,7 @@
 
 namespace lab
 {
-	public partial class Lab6 : Form
+	public partial class Lab7 : Form
 	{
 		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
 		private BrowserTextFile? currentFile;
@@ -10,7 +10,7 @@ namespace lab
 
 		//private BrowserDirectory? currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
 
-		public Lab6()
+		public Lab7()
 		{
 			InitializeComponent();
 			CreateTestFiles();
@@ -263,7 +263,7 @@ namespace lab
 
 			// UpCasting - объект производного класса BrowserFile представляет объект BrowserFileSystemItem
 			BrowserFileSystemItem fsItem1 = new BrowserFile();
-			//fsItem1.FileContents = "Sample Text"; //- Ошибка, так как объекту BrowserFileSystemItem недоступны параметры объекта BrowserFile
+			// fsItem1.FileContents = "Sample Text"; - Ошибка, так как объекту BrowserFileSystemItem недоступны параметры объекта BrowserFile
 
 			// DownCasting - явно преобразуем объект BrowserFileSystemItem к объекту производного класса BrowserFile
 			BrowserFile browserFile = (BrowserFile)fsItem1;

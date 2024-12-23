@@ -2,7 +2,7 @@
 
 namespace lab
 {
-	public partial class Lab6 : Form
+	public partial class Lab12 : Form
 	{
 		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
 		private BrowserTextFile? currentFile;
@@ -10,7 +10,7 @@ namespace lab
 
 		//private BrowserDirectory? currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
 
-		public Lab6()
+		public Lab12()
 		{
 			InitializeComponent();
 			CreateTestFiles();
@@ -263,7 +263,7 @@ namespace lab
 
 			// UpCasting - объект производного класса BrowserFile представляет объект BrowserFileSystemItem
 			BrowserFileSystemItem fsItem1 = new BrowserFile();
-			//fsItem1.FileContents = "Sample Text"; //- Ошибка, так как объекту BrowserFileSystemItem недоступны параметры объекта BrowserFile
+			// fsItem1.FileContents = "Sample Text"; - Ошибка, так как объекту BrowserFileSystemItem недоступны параметры объекта BrowserFile
 
 			// DownCasting - явно преобразуем объект BrowserFileSystemItem к объекту производного класса BrowserFile
 			BrowserFile browserFile = (BrowserFile)fsItem1;
@@ -275,5 +275,14 @@ namespace lab
 							 $"browserFile.FileContents: {browserFile.FileContents}";
 			MessageBox.Show(content);
 		}
-	}
+
+		private void buttonTestInterface_Click(object sender, EventArgs e)
+		{
+			List<IBrowserFileSystemItem> items = new();
+			foreach (var item in items)
+			{
+				
+			}
+		}
+	} 
 }

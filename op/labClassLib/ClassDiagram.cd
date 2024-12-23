@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="lab.BrowserFileSystemItem">
+  <Class Name="lab.BrowserFileSystemItem" Collapsed="true">
     <Position X="8.5" Y="1.75" Width="1.5" />
     <NestedTypes>
       <Delegate Name="lab.BrowserFileSystemItem.BrowserFileSystemItemHandler" Collapsed="true">
@@ -20,8 +20,8 @@
     </TypeIdentifier>
     <Lollipop Orientation="Left" Position="0.265" />
   </Class>
-  <Class Name="lab.BrowserFile">
-    <Position X="10.25" Y="6.5" Width="1.5" />
+  <Class Name="lab.BrowserFile" Collapsed="true">
+    <Position X="10" Y="3" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -33,8 +33,8 @@
       <Property Name="FileDirectory" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="lab.BrowserDirectory">
-    <Position X="6" Y="6.5" Width="1.5" />
+  <Class Name="lab.BrowserDirectory" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAgAA=</HashCode>
       <FileName>BrowserDirectory.cs</FileName>
@@ -47,8 +47,8 @@
     </Compartments>
     <TypeIdentifier />
   </Class>
-  <Class Name="lab.BrowserTextFile">
-    <Position X="8.75" Y="11" Width="1.5" />
+  <Class Name="lab.BrowserTextFile" Collapsed="true">
+    <Position X="8.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAEAFiABABREAAAAQCQABBAEEgQABAEAhAAAAA=</HashCode>
       <FileName>BrowserTextFile.cs</FileName>
@@ -57,8 +57,8 @@
       <Field Name="linkedMetadataFile" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="lab.BrowserMetaFile">
-    <Position X="11.75" Y="11" Width="1.5" />
+  <Class Name="lab.BrowserMetaFile" Collapsed="true">
+    <Position X="11.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
       <FileName>BrowserMetaFile.cs</FileName>
@@ -67,8 +67,8 @@
       <Field Name="linkedTextFile" />
     </ShowAsAssociation>
   </Class>
-  <Interface Name="lab.IBrowserFileSystemItem">
-    <Position X="5.25" Y="1" Width="1.5" />
+  <Interface Name="lab.IBrowserFileSystemItem" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAIAAAAAAAQAAAEAAEAAAAAEAAAAgAA=</HashCode>
       <FileName>BrowserFileSystemItem.cs</FileName>
