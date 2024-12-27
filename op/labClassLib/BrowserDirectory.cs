@@ -1,6 +1,6 @@
 ﻿namespace lab
 {
-	public class BrowserDirectory : BrowserFileSystemItem
+	public class BrowserDirectory : BrowserFileSystemItem, IFileSystemNode
 	{
 		public BrowserDirectory() : base() { }
 		public BrowserDirectory(string name) : base(name) { }

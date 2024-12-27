@@ -1,19 +1,7 @@
 ﻿namespace lab
 {
-	public interface IBrowserFileSystemItem
-	{
-		string Name { get; set; }
-		string Path { get; set; }
-		DateTime DateCreated { get; set; }
-
-		void Create();
-		void Delete();
-		void Rename(string newName);
-		void Move(string newPath);
-	}
-
 	// Обобщенный класс сущности файловой системы
-	public abstract class BrowserFileSystemItem : IBrowserFileSystemItem
+	public abstract class BrowserFileSystemItem : IFileSystemNode
 	{
 		public static Color BackgroundColor;
 

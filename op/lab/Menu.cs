@@ -81,5 +81,11 @@
 			//Lab9 form = new Lab9();
 			//ShowForm(form);
 		}
+
+		private void courseworkMenuItem_Click(object sender, EventArgs e)
+		{
+			Coursework form = new Coursework();
+			ShowForm(form);
+		}
 	}
 }

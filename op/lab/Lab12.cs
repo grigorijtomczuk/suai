@@ -278,11 +278,11 @@ namespace lab
 
 		private void buttonTestInterface_Click(object sender, EventArgs e)
 		{
-			List<IBrowserFileSystemItem> items = new();
+			List<IFileSystemNode> items = new();
 			foreach (var item in items)
 			{
-				
+
 			}
 		}
-	} 
+	}
 }

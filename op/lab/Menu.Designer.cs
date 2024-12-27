@@ -39,6 +39,7 @@
 			lab7MenuItem = new ToolStripMenuItem();
 			lab8MenuItem = new ToolStripMenuItem();
 			lab9MenuItem = new ToolStripMenuItem();
+			courseworkMenuItem = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -55,10 +56,10 @@
 			// 
 			// labMenuItem
 			// 
-			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem, lab5MenuItem, lab6MenuItem, lab7MenuItem, lab8MenuItem, lab9MenuItem });
+			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem, lab5MenuItem, lab6MenuItem, lab7MenuItem, lab8MenuItem, lab9MenuItem, courseworkMenuItem });
 			labMenuItem.Name = "labMenuItem";
-			labMenuItem.Size = new Size(50, 29);
-			labMenuItem.Text = "ЛР";
+			labMenuItem.Size = new Size(85, 29);
+			labMenuItem.Text = "Форма";
 			// 
 			// lab1MenuItem
 			// 
@@ -123,6 +124,13 @@
 			lab9MenuItem.Text = "ЛР9";
 			lab9MenuItem.Click += lab9MenuItem_Click;
 			// 
+			// courseworkMenuItem
+			// 
+			courseworkMenuItem.Name = "courseworkMenuItem";
+			courseworkMenuItem.Size = new Size(270, 34);
+			courseworkMenuItem.Text = "КР";
+			courseworkMenuItem.Click += courseworkMenuItem_Click;
+			// 
 			// Menu
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
@@ -153,5 +161,6 @@
 		private ToolStripMenuItem lab7MenuItem;
 		private ToolStripMenuItem lab8MenuItem;
 		private ToolStripMenuItem lab9MenuItem;
+		private ToolStripMenuItem courseworkMenuItem;
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace lab
 {
-	public class BrowserFile : BrowserFileSystemItem
+	public class BrowserFile : BrowserFileSystemItem, IFileSystemNode
 	{
 		public BrowserDirectory FileDirectory { get; set; } // Ассоциация BrowserFile -> BrowserDirectory (каждый файл в ФС содержится в какой-то одной директории)
 
