@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
+using static lab.BrowserFileSystemItem;
 
 namespace lab
 {
@@ -7,6 +9,9 @@ namespace lab
 		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
 		private BrowserTextFile? currentFile;
 		private BindingList<BrowserTextFile> fileList = new BindingList<BrowserTextFile>();
+		private BindingList<BrowserDirectory> dirList = new BindingList<BrowserDirectory>();
+
+		private readonly string rootWorkDirPath = Directory.GetCurrentDirectory();
 
 		//private BrowserDirectory? currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
 
@@ -14,7 +19,7 @@ namespace lab
 		{
 			InitializeComponent();
 			CreateTestFiles();
-			ScanWorkDirForFiles();
+			ScanWorkDirForEntries();
 			SetupDataBindings();
 
 			// Убираем изначальный фокус с окна
@@ -35,12 +40,13 @@ namespace lab
 			}
 		}
 
-		private void ScanWorkDirForFiles()
+		private void ScanWorkDirForEntries()
 		{
 			string currentWorkDir = Directory.GetCurrentDirectory();
-			labelSelectedDirectory.Text = Path.GetFileName(currentWorkDir) + @"\";
+			labelSelectedDirectory.Text = Path.GetRelativePath(Path.GetDirectoryName(rootWorkDirPath), currentWorkDir) + @"\";
 
 			BindingList<BrowserTextFile> tempFileList = new();
+			BindingList<BrowserDirectory> tempDirList = new();
 
 			// Сканируем рабочую директорию на файлы и добавляем их в список
 			foreach (string filePath in Directory.GetFiles(currentWorkDir))
@@ -55,11 +61,25 @@ namespace lab
 				tempFileList.Add(foundFile);
 			};
 
+			foreach (string dirPath in Directory.GetDirectories(currentWorkDir))
+			{
+				string relativeDirPath = Path.GetRelativePath(currentWorkDir, dirPath);
+				BrowserDirectory foundDirectory = new BrowserDirectory(Path.GetFileName(relativeDirPath), relativeDirPath);
+
+				tempDirList.Add(foundDirectory);
+			}
+
 			fileList = tempFileList;
+			dirList = tempDirList;
 
 			// Привязка списка файлов к ListBox
 			listBox_Files.DataSource = fileList;
 			listBox_Files.DisplayMember = "Name"; // Отображаем имя файла
+
+			listBox_Dirs.DataSource = dirList;
+			listBox_Dirs.DisplayMember = "Name";
+
+			listBox_Dirs.ClearSelected();
 		}
 
 		private void RefreshListBoxDisplay(ListBox listBox)
@@ -100,6 +120,19 @@ namespace lab
 				// Синхронизация изменений при выборе файла
 				currentFile = (BrowserTextFile)listBox_Files.SelectedItem;
 				currentFile.ShowPhoto(pictureBox);
+				Debug.WriteLine(currentFile.Description);
+			}
+		}
+
+		private void listBox_Dirs_DoubleClick(object sender, EventArgs e)
+		{
+			if (listBox_Dirs.SelectedItem != null)
+			{
+				BrowserDirectory selectedDir = (BrowserDirectory)listBox_Dirs.SelectedItem;
+				Directory.SetCurrentDirectory(selectedDir.Path);
+				ScanWorkDirForEntries();
+				ClearDataBindings();
+				SetupDataBindings();
 			}
 		}
 
@@ -247,7 +280,7 @@ namespace lab
 			if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				Directory.SetCurrentDirectory(folderBrowserDialog.SelectedPath);
-				ScanWorkDirForFiles();
+				ScanWorkDirForEntries();
 				ClearDataBindings();
 				SetupDataBindings();
 			}
@@ -274,6 +307,35 @@ namespace lab
 							 $"fsItem1.FileContents: Ошибка!\n" +
 							 $"browserFile.FileContents: {browserFile.FileContents}";
 			MessageBox.Show(content);
+		}
+
+		private void buttonResetToRoot_Click(object sender, EventArgs e)
+		{
+			Directory.SetCurrentDirectory(rootWorkDirPath);
+			ScanWorkDirForEntries();
+			ClearDataBindings();
+			SetupDataBindings();
+		}
+
+		// Обработчик тестового события
+		private void Test_PathChanged(object sender, PathChangedEventArgs e)
+		{
+			MessageBox.Show($"Новый путь текстового файла: {e.NewPath}");
+		}
+
+		private void buttonSubEvent_Click(object sender, EventArgs e)
+		{
+			currentFile.PathChanged += Test_PathChanged;
+		}
+
+		private void buttonUnsubEvent_Click(object sender, EventArgs e)
+		{
+			currentFile.PathChanged -= Test_PathChanged;
+		}
+
+		private void buttonInvokeEvent_Click(object sender, EventArgs e)
+		{
+			currentFile.Path = Path.GetRandomFileName();
 		}
 	}
 }

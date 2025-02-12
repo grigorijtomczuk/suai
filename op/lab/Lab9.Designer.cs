@@ -48,7 +48,11 @@
 			buttonUnsetIconFile = new Button();
 			groupBox3 = new GroupBox();
 			buttonOpenDirectory = new Button();
-			buttonTestCasting = new Button();
+			listBox_Dirs = new ListBox();
+			buttonResetToRoot = new Button();
+			buttonSubEvent = new Button();
+			buttonUnsubEvent = new Button();
+			buttonInvokeEvent = new Button();
 			groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
 			groupBox2.SuspendLayout();
@@ -133,7 +137,7 @@
 			// labelSelectedDirectory
 			// 
 			labelSelectedDirectory.AutoSize = true;
-			labelSelectedDirectory.Location = new Point(16, 22);
+			labelSelectedDirectory.Location = new Point(58, 19);
 			labelSelectedDirectory.Margin = new Padding(4, 0, 4, 0);
 			labelSelectedDirectory.Name = "labelSelectedDirectory";
 			labelSelectedDirectory.Size = new Size(163, 25);
@@ -186,16 +190,18 @@
 			// 
 			listBox_Files.FormattingEnabled = true;
 			listBox_Files.ItemHeight = 25;
-			listBox_Files.Location = new Point(16, 65);
+			listBox_Files.Location = new Point(16, 240);
 			listBox_Files.Margin = new Padding(4, 5, 4, 5);
 			listBox_Files.Name = "listBox_Files";
-			listBox_Files.Size = new Size(217, 779);
+			listBox_Files.Size = new Size(217, 604);
 			listBox_Files.TabIndex = 13;
 			listBox_Files.SelectedIndexChanged += fileListBox_SelectedIndexChanged;
 			// 
 			// groupBox1
 			// 
-			groupBox1.Controls.Add(buttonTestCasting);
+			groupBox1.Controls.Add(buttonInvokeEvent);
+			groupBox1.Controls.Add(buttonUnsubEvent);
+			groupBox1.Controls.Add(buttonSubEvent);
 			groupBox1.Controls.Add(buttonReadFileMetadata);
 			groupBox1.Controls.Add(buttonReadFile);
 			groupBox1.Location = new Point(243, 627);
@@ -400,21 +406,66 @@
 			buttonOpenDirectory.UseVisualStyleBackColor = true;
 			buttonOpenDirectory.Click += buttonOpenDirectory_Click;
 			// 
-			// buttonTestCasting
+			// listBox_Dirs
 			// 
-			buttonTestCasting.Location = new Point(452, 37);
-			buttonTestCasting.Name = "buttonTestCasting";
-			buttonTestCasting.Size = new Size(325, 38);
-			buttonTestCasting.TabIndex = 6;
-			buttonTestCasting.Text = "Тест UpCasting/DownCasting";
-			buttonTestCasting.UseVisualStyleBackColor = true;
-			buttonTestCasting.Click += buttonTestCasting_Click;
+			listBox_Dirs.FormattingEnabled = true;
+			listBox_Dirs.ItemHeight = 25;
+			listBox_Dirs.Location = new Point(16, 54);
+			listBox_Dirs.Name = "listBox_Dirs";
+			listBox_Dirs.Size = new Size(217, 179);
+			listBox_Dirs.TabIndex = 28;
+			listBox_Dirs.DoubleClick += listBox_Dirs_DoubleClick;
 			// 
-			// Lab6
+			// buttonResetToRoot
+			// 
+			buttonResetToRoot.Location = new Point(16, 14);
+			buttonResetToRoot.Name = "buttonResetToRoot";
+			buttonResetToRoot.Size = new Size(35, 34);
+			buttonResetToRoot.TabIndex = 29;
+			buttonResetToRoot.Text = "↶";
+			buttonResetToRoot.UseVisualStyleBackColor = true;
+			buttonResetToRoot.Click += buttonResetToRoot_Click;
+			// 
+			// buttonSubEvent
+			// 
+			buttonSubEvent.Location = new Point(453, 37);
+			buttonSubEvent.Margin = new Padding(4, 5, 4, 5);
+			buttonSubEvent.Name = "buttonSubEvent";
+			buttonSubEvent.Size = new Size(196, 64);
+			buttonSubEvent.TabIndex = 5;
+			buttonSubEvent.Text = "Подписаться на событие";
+			buttonSubEvent.UseVisualStyleBackColor = true;
+			buttonSubEvent.Click += buttonSubEvent_Click;
+			// 
+			// buttonUnsubEvent
+			// 
+			buttonUnsubEvent.Location = new Point(453, 111);
+			buttonUnsubEvent.Margin = new Padding(4, 5, 4, 5);
+			buttonUnsubEvent.Name = "buttonUnsubEvent";
+			buttonUnsubEvent.Size = new Size(196, 64);
+			buttonUnsubEvent.TabIndex = 5;
+			buttonUnsubEvent.Text = "Отписаться от события";
+			buttonUnsubEvent.UseVisualStyleBackColor = true;
+			buttonUnsubEvent.Click += buttonUnsubEvent_Click;
+			// 
+			// buttonInvokeEvent
+			// 
+			buttonInvokeEvent.Location = new Point(657, 69);
+			buttonInvokeEvent.Margin = new Padding(4, 5, 4, 5);
+			buttonInvokeEvent.Name = "buttonInvokeEvent";
+			buttonInvokeEvent.Size = new Size(196, 64);
+			buttonInvokeEvent.TabIndex = 5;
+			buttonInvokeEvent.Text = "Вызвать событие";
+			buttonInvokeEvent.UseVisualStyleBackColor = true;
+			buttonInvokeEvent.Click += buttonInvokeEvent_Click;
+			// 
+			// Lab9
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1307, 930);
+			Controls.Add(buttonResetToRoot);
+			Controls.Add(listBox_Dirs);
 			Controls.Add(buttonOpenDirectory);
 			Controls.Add(buttonEditFileAs);
 			Controls.Add(buttonOpenFile);
@@ -427,8 +478,8 @@
 			Controls.Add(groupBox1);
 			Controls.Add(groupBox3);
 			Margin = new Padding(4, 5, 4, 5);
-			Name = "Lab6";
-			Text = "ЛР6";
+			Name = "Lab9";
+			Text = "ЛР9";
 			groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
 			groupBox2.ResumeLayout(false);
@@ -471,6 +522,10 @@
 		private Button buttonUnsetIconFile;
 		private GroupBox groupBox3;
 		private Button buttonOpenDirectory;
-		private Button buttonTestCasting;
+		private ListBox listBox_Dirs;
+		private Button buttonResetToRoot;
+		private Button buttonInvokeEvent;
+		private Button buttonUnsubEvent;
+		private Button buttonSubEvent;
 	}
 }

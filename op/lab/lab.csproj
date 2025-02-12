@@ -16,10 +16,22 @@
     <Compile Update="Lab1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Lab12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Lab11.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Lab5.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Lab3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Lab10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Lab9.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Lab8.cs">

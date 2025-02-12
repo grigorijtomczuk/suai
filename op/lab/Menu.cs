@@ -84,20 +84,20 @@
 
 		private void lab10MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab10 form = new Lab10();
-			//ShowForm(form);
+			Lab10 form = new Lab10();
+			ShowForm(form);
 		}
 
 		private void lab11MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab11 form = new Lab11();
-			//ShowForm(form);
+			Lab11 form = new Lab11();
+			ShowForm(form);
 		}
 
 		private void lab12MenuItem_Click(object sender, EventArgs e)
 		{
-			//Lab12 form = new Lab12();
-			//ShowForm(form);
+			Lab12 form = new Lab12();
+			ShowForm(form);
 		}
 
 		private void courseworkMenuItem_Click(object sender, EventArgs e)

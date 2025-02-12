@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 
 namespace lab
 {
@@ -7,14 +8,17 @@ namespace lab
 		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
 		private BrowserTextFile? currentFile;
 		private BindingList<BrowserTextFile> fileList = new BindingList<BrowserTextFile>();
+		private BindingList<BrowserDirectory> dirList = new BindingList<BrowserDirectory>();
 
-		//private BrowserDirectory? currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
+		private readonly string rootWorkDirPath = Directory.GetCurrentDirectory();
+
+		private BrowserDirectory currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
 
 		public Lab12()
 		{
 			InitializeComponent();
 			CreateTestFiles();
-			ScanWorkDirForFiles();
+			ScanWorkDirForEntries();
 			SetupDataBindings();
 
 			// Убираем изначальный фокус с окна
@@ -35,12 +39,13 @@ namespace lab
 			}
 		}
 
-		private void ScanWorkDirForFiles()
+		private void ScanWorkDirForEntries()
 		{
 			string currentWorkDir = Directory.GetCurrentDirectory();
-			labelSelectedDirectory.Text = Path.GetFileName(currentWorkDir) + @"\";
+			labelSelectedDirectory.Text = Path.GetRelativePath(Path.GetDirectoryName(rootWorkDirPath), currentWorkDir) + @"\";
 
 			BindingList<BrowserTextFile> tempFileList = new();
+			BindingList<BrowserDirectory> tempDirList = new();
 
 			// Сканируем рабочую директорию на файлы и добавляем их в список
 			foreach (string filePath in Directory.GetFiles(currentWorkDir))
@@ -53,13 +58,29 @@ namespace lab
 				foundFile.LoadMetadata();
 
 				tempFileList.Add(foundFile);
+				currentDirectory.Children.Add(foundFile);
 			};
 
+			foreach (string dirPath in Directory.GetDirectories(currentWorkDir))
+			{
+				string relativeDirPath = Path.GetRelativePath(currentWorkDir, dirPath);
+				BrowserDirectory foundDirectory = new BrowserDirectory(Path.GetFileName(relativeDirPath), relativeDirPath);
+
+				tempDirList.Add(foundDirectory);
+				currentDirectory.Children.Add(foundDirectory);
+			}
+
 			fileList = tempFileList;
+			dirList = tempDirList;
 
 			// Привязка списка файлов к ListBox
 			listBox_Files.DataSource = fileList;
 			listBox_Files.DisplayMember = "Name"; // Отображаем имя файла
+
+			listBox_Dirs.DataSource = dirList;
+			listBox_Dirs.DisplayMember = "Name";
+
+			listBox_Dirs.ClearSelected();
 		}
 
 		private void RefreshListBoxDisplay(ListBox listBox)
@@ -100,6 +121,19 @@ namespace lab
 				// Синхронизация изменений при выборе файла
 				currentFile = (BrowserTextFile)listBox_Files.SelectedItem;
 				currentFile.ShowPhoto(pictureBox);
+				Debug.WriteLine(currentFile.Description);
+			}
+		}
+
+		private void listBox_Dirs_DoubleClick(object sender, EventArgs e)
+		{
+			if (listBox_Dirs.SelectedItem != null)
+			{
+				BrowserDirectory selectedDir = (BrowserDirectory)listBox_Dirs.SelectedItem;
+				Directory.SetCurrentDirectory(selectedDir.Path);
+				ScanWorkDirForEntries();
+				ClearDataBindings();
+				SetupDataBindings();
 			}
 		}
 
@@ -247,7 +281,7 @@ namespace lab
 			if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
 			{
 				Directory.SetCurrentDirectory(folderBrowserDialog.SelectedPath);
-				ScanWorkDirForFiles();
+				ScanWorkDirForEntries();
 				ClearDataBindings();
 				SetupDataBindings();
 			}
@@ -276,13 +310,12 @@ namespace lab
 			MessageBox.Show(content);
 		}
 
-		private void buttonTestInterface_Click(object sender, EventArgs e)
+		private void buttonResetToRoot_Click(object sender, EventArgs e)
 		{
-			List<IFileSystemNode> items = new();
-			foreach (var item in items)
-			{
-
-			}
+			Directory.SetCurrentDirectory(rootWorkDirPath);
+			ScanWorkDirForEntries();
+			ClearDataBindings();
+			SetupDataBindings();
 		}
 	}
 }

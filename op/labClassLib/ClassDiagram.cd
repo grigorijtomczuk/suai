@@ -3,19 +3,19 @@
   <Class Name="lab.BrowserFileSystemItem">
     <Position X="6" Y="5" Width="2" />
     <NestedTypes>
-      <Delegate Name="lab.BrowserFileSystemItem.BrowserFileSystemItemHandler" Collapsed="true">
+      <Delegate Name="lab.BrowserFileSystemItem.PathChangedHandler" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>BrowserFileSystemItem.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
-      <Class Name="lab.BrowserFileSystemItem.BrowserFileSystemItemEventArgs" Collapsed="true">
+      <Class Name="lab.BrowserFileSystemItem.PathChangedEventArgs" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>BrowserFileSystemItem.cs</NewMemberFileName>
         </TypeIdentifier>
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAIAAAACAAQACAEAAEAAAAAEAAAAgAQ=</HashCode>
+      <HashCode>AAAAACAAAIBgQAIEQAACAAQACAEAAEAAAAAEAAAAgAQ=</HashCode>
       <FileName>BrowserFileSystemItem.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.363" />
@@ -31,7 +31,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAQAIgAAAAAAAAAAEEAEAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAACAAACAgQAIkAAAAAAAAAAEEAEAAAAAAAAAAgAA=</HashCode>
       <FileName>BrowserFile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -42,7 +42,7 @@
   <Class Name="lab.BrowserDirectory">
     <Position X="8.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAEAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAACAAAAAgAAAECAAEAAAAAAEAQEAAAAAAAAAAgAA=</HashCode>
       <FileName>BrowserDirectory.cs</FileName>
     </TypeIdentifier>
     <Lollipop Orientation="Bottom" Position="0.286" />
@@ -57,7 +57,7 @@
   <Class Name="lab.BrowserTextFile">
     <Position X="11" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAEAFiABABREAAAAQCQABBAEEgQABAEAhAAAAA=</HashCode>
+      <HashCode>AEAAACAEAFCARABRAAAAAQSQABBEEEgQABAAAhAAAAA=</HashCode>
       <FileName>BrowserTextFile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -67,7 +67,7 @@
   <Class Name="lab.BrowserMetaFile">
     <Position X="11" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAAgAAAgAAAAAAAAgAAAAAEAAAA=</HashCode>
       <FileName>BrowserMetaFile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

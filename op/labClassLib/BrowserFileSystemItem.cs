@@ -1,4 +1,6 @@
-﻿namespace lab
+﻿using System.Diagnostics;
+
+namespace lab
 {
 	// Обобщенный класс сущности файловой системы
 	public abstract class BrowserFileSystemItem : IFileSystemNode
@@ -16,7 +18,7 @@
 				if (path != value)
 				{
 					path = value;
-					PathChanged?.Invoke(this, new BrowserFileSystemItemEventArgs(value)); // Вызов события при изменении Path
+					OnPathChanged(value); // Вызов виртуального метода, порождающего событие
 				}
 			}
 		}
@@ -29,19 +31,37 @@
 			get { return $"Имя узла: {Name}, путь узла: {Path}, дата создания: {DateCreated}"; }
 		}
 
-		// Обработчик и событие, уведомляющее об изменении свойства Path
-		public delegate void BrowserFileSystemItemHandler(object sender, BrowserFileSystemItemEventArgs e);
-		public event BrowserFileSystemItemHandler PathChanged;
-
 		// Класс аргументов события
-		public class BrowserFileSystemItemEventArgs : EventArgs
+		public class PathChangedEventArgs : EventArgs
 		{
 			public string NewPath { get; }
 
-			public BrowserFileSystemItemEventArgs(string newPath)
+			public PathChangedEventArgs(string newPath)
 			{
 				NewPath = newPath;
 			}
+		}
+
+		// Обработчик и событие, уведомляющее об изменении свойства Path
+		public delegate void PathChangedHandler(object sender, PathChangedEventArgs e);
+		public event PathChangedHandler PathChanged;
+
+		// Защищённый виртуальный метод для вызова события (можно переопределять в наследниках, чтобы добавить дополнительное поведение)
+		protected virtual void OnPathChanged(string newPath)
+		{
+			PathChanged?.Invoke(this, new PathChangedEventArgs(newPath)); // Вызов события при изменении Path
+		}
+
+		// Статический обработчик событий (статическая подписка)
+		public static void StaticPathChangedHandler(object sender, BrowserFileSystemItem.PathChangedEventArgs e)
+		{
+			Debug.WriteLine($"[Static Handler] новый путь = {e.NewPath}");
+		}
+
+		// Динамический (экземплярный) обработчик событий
+		public void DynamicPathChangedHandler(object sender, BrowserFileSystemItem.PathChangedEventArgs e)
+		{
+			Debug.WriteLine($"[Dynamic Handler] новый путь = {e.NewPath}");
 		}
 
 		// Статический конструктор

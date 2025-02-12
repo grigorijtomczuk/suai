@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 
 namespace lab
 {
@@ -193,6 +194,14 @@ namespace lab
 		public override string NodeType
 		{
 			get { return $"{System.IO.Path.GetExtension(this.Path)} File"; }
+		}
+
+		// Переопределяем метод OnPathChanged для добавления логики
+		protected override void OnPathChanged(string newPath)
+		{
+			Debug.WriteLine($"[BrowserTextFile: {Name}] Путь изменяется на: {newPath}");
+			// Вызов базового метода для порождения события
+			base.OnPathChanged(newPath);
 		}
 	}
 }

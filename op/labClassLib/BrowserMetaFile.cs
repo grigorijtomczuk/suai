@@ -11,12 +11,31 @@ namespace lab
 		{
 			linkedTextFile = linkedFile; // Агрегация BrowserMetaFile <-> BrowserTextFile (ссылка на имеющийся объект)
 			linkedTextFile.PathChanged += LinkedTextFile_PathChanged; // Подписка на событие
+
+			// Подписка статическим обработчиком
+			linkedTextFile.PathChanged += StaticPathChangedHandler;
+
+			// Подписка экземплярным обработчиком (динамическая подписка)
+			linkedTextFile.PathChanged += DynamicPathChangedHandler;
+
+			// Дополнительная подписка с использованием лямбда-выражения для формирования цепочки обработчиков
+			linkedTextFile.PathChanged += (sender, e) =>
+			{
+				Debug.WriteLine($"[Lambda Handler] новый путь = {e.NewPath}");
+			};
+		}
+
+		// Переопределяем метод OnPathChanged для добавления логики
+		protected override void OnPathChanged(string newPath)
+		{
+			Debug.WriteLine($"[BrowserMetaFile: {Name}] Путь изменяется на: {newPath}");
+			// Вызов базового метода для порождения события
+			base.OnPathChanged(newPath);
 		}
 
 		// Обработчик события изменения пути текстового файла
-		private void LinkedTextFile_PathChanged(object sender, BrowserFileSystemItemEventArgs e)
+		private void LinkedTextFile_PathChanged(object sender, PathChangedEventArgs e)
 		{
-			Debug.WriteLine($"Новый путь текстового файла: {e.NewPath}");
 			this.Path = System.IO.Path.ChangeExtension(e.NewPath, ".meta"); // Меняем рабочий путь метафайла на соответсвующий новому пути текстового файла
 		}
 
