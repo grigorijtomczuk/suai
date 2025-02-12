@@ -40,6 +40,9 @@
 			lab8MenuItem = new ToolStripMenuItem();
 			lab9MenuItem = new ToolStripMenuItem();
 			courseworkMenuItem = new ToolStripMenuItem();
+			lab10MenuItem = new ToolStripMenuItem();
+			lab11MenuItem = new ToolStripMenuItem();
+			lab12MenuItem = new ToolStripMenuItem();
 			menuStrip1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -56,7 +59,7 @@
 			// 
 			// labMenuItem
 			// 
-			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem, lab5MenuItem, lab6MenuItem, lab7MenuItem, lab8MenuItem, lab9MenuItem, courseworkMenuItem });
+			labMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lab1MenuItem, lab2MenuItem, lab3MenuItem, lab4MenuItem, lab5MenuItem, lab6MenuItem, lab7MenuItem, lab8MenuItem, lab9MenuItem, lab10MenuItem, lab11MenuItem, lab12MenuItem, courseworkMenuItem });
 			labMenuItem.Name = "labMenuItem";
 			labMenuItem.Size = new Size(85, 29);
 			labMenuItem.Text = "Форма";
@@ -124,6 +127,27 @@
 			lab9MenuItem.Text = "ЛР9";
 			lab9MenuItem.Click += lab9MenuItem_Click;
 			// 
+			// lab10MenuItem
+			// 
+			lab10MenuItem.Name = "lab10MenuItem";
+			lab10MenuItem.Size = new Size(270, 34);
+			lab10MenuItem.Text = "ЛР10";
+			lab10MenuItem.Click += lab10MenuItem_Click;
+			// 
+			// lab11MenuItem
+			// 
+			lab11MenuItem.Name = "lab11MenuItem";
+			lab11MenuItem.Size = new Size(270, 34);
+			lab11MenuItem.Text = "ЛР11";
+			lab11MenuItem.Click += lab11MenuItem_Click;
+			// 
+			// lab12MenuItem
+			// 
+			lab12MenuItem.Name = "lab12MenuItem";
+			lab12MenuItem.Size = new Size(270, 34);
+			lab12MenuItem.Text = "ЛР12";
+			lab12MenuItem.Click += lab12MenuItem_Click;
+			// 
 			// courseworkMenuItem
 			// 
 			courseworkMenuItem.Name = "courseworkMenuItem";
@@ -162,5 +186,8 @@
 		private ToolStripMenuItem lab8MenuItem;
 		private ToolStripMenuItem lab9MenuItem;
 		private ToolStripMenuItem courseworkMenuItem;
+		private ToolStripMenuItem lab10MenuItem;
+		private ToolStripMenuItem lab11MenuItem;
+		private ToolStripMenuItem lab12MenuItem;
 	}
 }

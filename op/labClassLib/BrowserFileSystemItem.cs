@@ -21,7 +21,13 @@
 			}
 		}
 
-		public DateTime DateCreated { get; set; }
+		public DateTime DateCreated { get; set; } // Свойство даты и времени
+
+		// Виртуальное свойство, возвращающее описание узла файловой системы
+		public virtual string Description
+		{
+			get { return $"Имя узла: {Name}, путь узла: {Path}, дата создания: {DateCreated}"; }
+		}
 
 		// Обработчик и событие, уведомляющее об изменении свойства Path
 		public delegate void BrowserFileSystemItemHandler(object sender, BrowserFileSystemItemEventArgs e);
@@ -66,6 +72,9 @@
 		public abstract void Create();
 		public abstract void Delete();
 
+		// Абстрактное свойство, возвращающее тип узла (например, "File" или "Directory")
+		public abstract string NodeType { get; }
+
 		public virtual void Rename(string newName)
 		{
 			Name = newName;
@@ -76,6 +85,11 @@
 		public virtual void Move(string newPath)
 		{
 			Path = newPath;
+		}
+
+		public override string ToString()
+		{
+			return $"Имя узла: {Name}, путь узла: {Path}, дата создания: {DateCreated}";
 		}
 	}
 }

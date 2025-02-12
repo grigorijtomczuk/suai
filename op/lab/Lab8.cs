@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace lab
 {
-	public partial class Lab7 : Form
+	public partial class Lab8 : Form
 	{
 		// Объявляем переменную currentFile типа BrowserTextFile глобально, так как с ней может проводится сразу несколько манипуляций
 		private BrowserTextFile? currentFile;
@@ -14,7 +14,7 @@ namespace lab
 
 		//private BrowserDirectory? currentDirectory = new BrowserDirectory(Path.GetFileName(Directory.GetCurrentDirectory()), Directory.GetCurrentDirectory());
 
-		public Lab7()
+		public Lab8()
 		{
 			InitializeComponent();
 			CreateTestFiles();
@@ -316,28 +316,26 @@ namespace lab
 			SetupDataBindings();
 		}
 
-		private void buttonTestRenameOverrideDir_Click(object sender, EventArgs e)
-		{
-			BrowserDirectory testDir = new BrowserDirectory();
-			testDir.Rename("testName");
-		}
-
-		private void buttonTestRenameOverrideFile_Click(object sender, EventArgs e)
+		private void buttonTestFileNodeType_Click(object sender, EventArgs e)
 		{
 			BrowserFile testFile = new BrowserFile();
-			testFile.Rename("testName");
+			MessageBox.Show(testFile.NodeType);
 		}
 
-		private void buttonTestDescOverrideDir_Click(object sender, EventArgs e)
+		private void buttonTestDirNodeType_Click(object sender, EventArgs e)
 		{
-			BrowserDirectory testDir = new BrowserDirectory(Directory.GetCurrentDirectory(), Directory.GetCurrentDirectory());
-			Debug.WriteLine(testDir.Description);
+			BrowserDirectory testDir = new BrowserDirectory();
+			MessageBox.Show(testDir.NodeType);
 		}
 
-		private void buttonTestDescOverrideFile_Click(object sender, EventArgs e)
+		private void buttonTestTextFileNodeType_Click(object sender, EventArgs e)
 		{
-			BrowserFile testFile = currentFile;
-			Debug.WriteLine(testFile.Description);
+			MessageBox.Show(currentFile.NodeType);
+		}
+
+		private void buttonTestToStringTextFile_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(currentFile.ToString());
 		}
 	}
 }

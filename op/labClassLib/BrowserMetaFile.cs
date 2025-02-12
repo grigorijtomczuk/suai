@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace lab
 {
-	public class BrowserMetaFile : BrowserFile
+	public sealed class BrowserMetaFile : BrowserFile
 	{
 		private BrowserTextFile linkedTextFile;
 
@@ -55,5 +55,7 @@ namespace lab
 				}
 			}
 		}
+
+		// public override void Rename() {} - ошибка: метод запрещен для переопределения через sealed.
 	}
 }

@@ -2,11 +2,9 @@
 
 namespace lab
 {
-	public class BrowserTextFile : BrowserFile
+	public sealed class BrowserTextFile : BrowserFile
 	{
 		private BrowserMetaFile linkedMetadataFile;
-
-		public DateTime DateCreated { get; set; } // Свойство даты и времени
 
 		private string fileTypeProperty;
 		public string FileTypeProperty // Свойство с проверкой на первую прописную букву
@@ -40,6 +38,8 @@ namespace lab
 		private string iconPhotoPath;
 		public string IconPhotoPath { get; set; }
 
+		public DateTime DateModified { get; set; }
+
 		private Graphics iconGraphics;
 
 		public BindingList<string> Authors { get; set; } = new BindingList<string>();
@@ -68,9 +68,12 @@ namespace lab
 			base.Create();
 
 			DateCreated = DateTime.Now;
+			DateModified = DateCreated;
 			FileSize = (int)new FileInfo(Path).Length;
 			IsReadOnly = false;
 		}
+
+		// public override void Rename() {} - ошибка: метод запрещен для переопределения через sealed.
 
 		public void ChangeTypeProperty(string fileType)
 		{
@@ -174,6 +177,22 @@ namespace lab
 		public void AddAuthor(string authorName = "Неизвестный автор")
 		{
 			Authors.Add(authorName);
+		}
+
+		// Сокрытие базового метода EditFile (получить доступ к исходному методу можно, выполнив upcasting к базовому классу)
+		public new void EditFile(string content)
+		{
+			if (File.Exists(Path))
+			{
+				this.DateModified = DateTime.Now;
+				File.WriteAllText(Path, content);
+			}
+		}
+
+		// Переопределяем абстрактное свойство для редактируемых файлов
+		public override string NodeType
+		{
+			get { return $"{System.IO.Path.GetExtension(this.Path)} File"; }
 		}
 	}
 }

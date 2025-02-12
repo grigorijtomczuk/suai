@@ -1,6 +1,6 @@
 ﻿namespace lab
 {
-	partial class Lab7
+	partial class Lab8
 	{
 		private System.ComponentModel.IContainer components = null;
 
@@ -31,10 +31,10 @@
 			label1 = new Label();
 			listBox_Files = new ListBox();
 			groupBox1 = new GroupBox();
-			buttonTestDescOverrideFile = new Button();
-			buttonTestDescOverrideDir = new Button();
-			buttonTestRenameOverrideFile = new Button();
-			buttonTestRenameOverrideDir = new Button();
+			buttonTestTextFileNodeType = new Button();
+			buttonTestDirNodeType = new Button();
+			buttonTestToStringTextFile = new Button();
+			buttonTestFileNodeType = new Button();
 			label2 = new Label();
 			label3 = new Label();
 			label4 = new Label();
@@ -200,10 +200,10 @@
 			// 
 			// groupBox1
 			// 
-			groupBox1.Controls.Add(buttonTestDescOverrideFile);
-			groupBox1.Controls.Add(buttonTestDescOverrideDir);
-			groupBox1.Controls.Add(buttonTestRenameOverrideFile);
-			groupBox1.Controls.Add(buttonTestRenameOverrideDir);
+			groupBox1.Controls.Add(buttonTestTextFileNodeType);
+			groupBox1.Controls.Add(buttonTestDirNodeType);
+			groupBox1.Controls.Add(buttonTestToStringTextFile);
+			groupBox1.Controls.Add(buttonTestFileNodeType);
 			groupBox1.Controls.Add(buttonReadFileMetadata);
 			groupBox1.Controls.Add(buttonReadFile);
 			groupBox1.Location = new Point(243, 627);
@@ -215,49 +215,49 @@
 			groupBox1.TabStop = false;
 			groupBox1.Text = "Тестирование";
 			// 
-			// buttonTestDescOverrideFile
+			// buttonTestTextFileNodeType
 			// 
-			buttonTestDescOverrideFile.Location = new Point(740, 85);
-			buttonTestDescOverrideFile.Margin = new Padding(4, 5, 4, 5);
-			buttonTestDescOverrideFile.Name = "buttonTestDescOverrideFile";
-			buttonTestDescOverrideFile.Size = new Size(279, 38);
-			buttonTestDescOverrideFile.TabIndex = 5;
-			buttonTestDescOverrideFile.Text = "File overriden Description";
-			buttonTestDescOverrideFile.UseVisualStyleBackColor = true;
-			buttonTestDescOverrideFile.Click += buttonTestDescOverrideFile_Click;
+			buttonTestTextFileNodeType.Location = new Point(453, 133);
+			buttonTestTextFileNodeType.Margin = new Padding(4, 5, 4, 5);
+			buttonTestTextFileNodeType.Name = "buttonTestTextFileNodeType";
+			buttonTestTextFileNodeType.Size = new Size(162, 74);
+			buttonTestTextFileNodeType.TabIndex = 5;
+			buttonTestTextFileNodeType.Text = "NodeType открытого файла";
+			buttonTestTextFileNodeType.UseVisualStyleBackColor = true;
+			buttonTestTextFileNodeType.Click += buttonTestTextFileNodeType_Click;
 			// 
-			// buttonTestDescOverrideDir
+			// buttonTestDirNodeType
 			// 
-			buttonTestDescOverrideDir.Location = new Point(740, 37);
-			buttonTestDescOverrideDir.Margin = new Padding(4, 5, 4, 5);
-			buttonTestDescOverrideDir.Name = "buttonTestDescOverrideDir";
-			buttonTestDescOverrideDir.Size = new Size(279, 38);
-			buttonTestDescOverrideDir.TabIndex = 5;
-			buttonTestDescOverrideDir.Text = "Directory overriden Description";
-			buttonTestDescOverrideDir.UseVisualStyleBackColor = true;
-			buttonTestDescOverrideDir.Click += buttonTestDescOverrideDir_Click;
+			buttonTestDirNodeType.Location = new Point(453, 85);
+			buttonTestDirNodeType.Margin = new Padding(4, 5, 4, 5);
+			buttonTestDirNodeType.Name = "buttonTestDirNodeType";
+			buttonTestDirNodeType.Size = new Size(162, 38);
+			buttonTestDirNodeType.TabIndex = 5;
+			buttonTestDirNodeType.Text = "DirNodeType";
+			buttonTestDirNodeType.UseVisualStyleBackColor = true;
+			buttonTestDirNodeType.Click += buttonTestDirNodeType_Click;
 			// 
-			// buttonTestRenameOverrideFile
+			// buttonTestToStringTextFile
 			// 
-			buttonTestRenameOverrideFile.Location = new Point(453, 85);
-			buttonTestRenameOverrideFile.Margin = new Padding(4, 5, 4, 5);
-			buttonTestRenameOverrideFile.Name = "buttonTestRenameOverrideFile";
-			buttonTestRenameOverrideFile.Size = new Size(279, 38);
-			buttonTestRenameOverrideFile.TabIndex = 5;
-			buttonTestRenameOverrideFile.Text = "File overriden Rename()";
-			buttonTestRenameOverrideFile.UseVisualStyleBackColor = true;
-			buttonTestRenameOverrideFile.Click += buttonTestRenameOverrideFile_Click;
+			buttonTestToStringTextFile.Location = new Point(623, 37);
+			buttonTestToStringTextFile.Margin = new Padding(4, 5, 4, 5);
+			buttonTestToStringTextFile.Name = "buttonTestToStringTextFile";
+			buttonTestToStringTextFile.Size = new Size(162, 72);
+			buttonTestToStringTextFile.TabIndex = 5;
+			buttonTestToStringTextFile.Text = "ToString() открытого файла";
+			buttonTestToStringTextFile.UseVisualStyleBackColor = true;
+			buttonTestToStringTextFile.Click += buttonTestToStringTextFile_Click;
 			// 
-			// buttonTestRenameOverrideDir
+			// buttonTestFileNodeType
 			// 
-			buttonTestRenameOverrideDir.Location = new Point(453, 37);
-			buttonTestRenameOverrideDir.Margin = new Padding(4, 5, 4, 5);
-			buttonTestRenameOverrideDir.Name = "buttonTestRenameOverrideDir";
-			buttonTestRenameOverrideDir.Size = new Size(279, 38);
-			buttonTestRenameOverrideDir.TabIndex = 5;
-			buttonTestRenameOverrideDir.Text = "Directory overriden Rename()";
-			buttonTestRenameOverrideDir.UseVisualStyleBackColor = true;
-			buttonTestRenameOverrideDir.Click += buttonTestRenameOverrideDir_Click;
+			buttonTestFileNodeType.Location = new Point(453, 37);
+			buttonTestFileNodeType.Margin = new Padding(4, 5, 4, 5);
+			buttonTestFileNodeType.Name = "buttonTestFileNodeType";
+			buttonTestFileNodeType.Size = new Size(162, 38);
+			buttonTestFileNodeType.TabIndex = 5;
+			buttonTestFileNodeType.Text = "FileNodeType";
+			buttonTestFileNodeType.UseVisualStyleBackColor = true;
+			buttonTestFileNodeType.Click += buttonTestFileNodeType_Click;
 			// 
 			// label2
 			// 
@@ -472,7 +472,7 @@
 			buttonResetToRoot.UseVisualStyleBackColor = true;
 			buttonResetToRoot.Click += buttonResetToRoot_Click;
 			// 
-			// Lab7
+			// Lab8
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -491,8 +491,8 @@
 			Controls.Add(groupBox1);
 			Controls.Add(groupBox3);
 			Margin = new Padding(4, 5, 4, 5);
-			Name = "Lab7";
-			Text = "ЛР7";
+			Name = "Lab8";
+			Text = "ЛР8";
 			groupBox1.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
 			groupBox2.ResumeLayout(false);
@@ -537,9 +537,9 @@
 		private Button buttonOpenDirectory;
 		private ListBox listBox_Dirs;
 		private Button buttonResetToRoot;
-		private Button buttonTestRenameOverrideDir;
-		private Button buttonTestDescOverrideDir;
-		private Button buttonTestRenameOverrideFile;
-		private Button buttonTestDescOverrideFile;
+		private Button buttonTestFileNodeType;
+		private Button buttonTestDirNodeType;
+		private Button buttonTestTextFileNodeType;
+		private Button buttonTestToStringTextFile;
 	}
 }

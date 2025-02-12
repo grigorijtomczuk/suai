@@ -1,4 +1,6 @@
-﻿namespace lab
+﻿using System.Diagnostics;
+
+namespace lab
 {
 	public class BrowserFile : BrowserFileSystemItem, IFileSystemNode
 	{
@@ -13,6 +15,12 @@
 				else return currentFileContents;
 			}
 			set { currentFileContents = value; }
+		}
+
+		// Переопределение виртуального свойства Description для файлов
+		public override string Description
+		{
+			get { return $"Имя файла: {Name}, путь файла: {Path}, содержание: {FileContents}"; }
 		}
 
 		public BrowserFile() : base() { }
@@ -47,8 +55,13 @@
 			}
 		}
 
-		public override void Rename(string newName)
+		// Переопределяем абстрактное свойство для файлов
+		public override string NodeType => "File";
+
+		// Переопределенный метод с запретом на дальнейшее переопределение (дальнейшие производные классы не смогут изменить реализацию, что гарантирует неизменность критически важной логики переименования)
+		public override sealed void Rename(string newName)
 		{
+			Debug.WriteLine("Переименование файла");
 			Name = newName;
 			string newPath = System.IO.Path.GetRelativePath(Directory.GetCurrentDirectory(),
 							 System.IO.Path.Join(System.IO.Path.GetDirectoryName(Path), newName));
@@ -101,6 +114,11 @@
 				}
 			}
 			return null;
+		}
+
+		public override string ToString()
+		{
+			return $"Имя файла: {Name}, путь файла: {Path}, содержание: {FileContents}";
 		}
 	}
 }
