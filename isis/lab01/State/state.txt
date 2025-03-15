@@ -1,0 +1,16 @@
+Folder PATH listing for volume Windows SSD
+Volume serial number is 000000CD C650:F5DD
+C:\USERS\GRIGORIJTOMCZUK\DESKTOP\SUAI\ISIS\LAB01\STATE
+|   FourthCitizen.txt
+|   state.txt
+|   
++---City
+|       brandNewFile.txt
+|       FirstCitizen.txt
+|       SecondCitizen.txt
+|       
+\---Rural
+    +---Town
+    \---Village
+        +---Kartoshkino
+        \---Kobrino
