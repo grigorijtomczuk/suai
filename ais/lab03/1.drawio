@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.14">
+  <diagram id="vX6xC0HKu8AdidH3YZPW" name="Page-1">
+    <mxGraphModel dx="1225" dy="1656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="psplkfs4_8VYPCOgKPKU-22" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" y="230" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-16" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-22" source="psplkfs4_8VYPCOgKPKU-15" target="psplkfs4_8VYPCOgKPKU-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-17" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-22" source="psplkfs4_8VYPCOgKPKU-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-19" value="1.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-21" value="Обработка заявки" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-30" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="170" y="230" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-25" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-30" source="psplkfs4_8VYPCOgKPKU-24" target="psplkfs4_8VYPCOgKPKU-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-26" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="12" y="45" as="sourcePoint" />
+            <mxPoint x="12" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-27" value="1.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry x="40" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-28" value="Обработка заявки" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry x="21" y="8" width="69" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-37" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="290" y="245" width="30" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-31" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-32" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6" as="sourcePoint" />
+            <mxPoint x="6" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-33" value="X" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry x="6" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-35" value="J1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry x="3" y="35" width="24" height="10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

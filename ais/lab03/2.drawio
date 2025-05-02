@@ -1,0 +1,380 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.14">
+  <diagram id="vX6xC0HKu8AdidH3YZPW" name="Page-1">
+    <mxGraphModel dx="718" dy="971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="psplkfs4_8VYPCOgKPKU-22" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" y="230" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-16" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-22" source="psplkfs4_8VYPCOgKPKU-15" target="psplkfs4_8VYPCOgKPKU-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-17" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-22" source="psplkfs4_8VYPCOgKPKU-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-19" value="1.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-21" value="Обработка заявки" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-22">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-30" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="170" y="230" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-25" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-30" source="psplkfs4_8VYPCOgKPKU-24" target="psplkfs4_8VYPCOgKPKU-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-26" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="12" y="45" as="sourcePoint" />
+            <mxPoint x="12" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-27" value="1.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry x="40" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-28" value="Обработка заявки" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-30">
+          <mxGeometry x="21" y="8" width="69" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-37" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="290" y="245" width="30" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-31" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-32" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6" as="sourcePoint" />
+            <mxPoint x="6" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-33" value="X" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry x="6" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-35" value="J1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-37">
+          <mxGeometry x="3" y="35" width="24" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-127" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="110" y="460" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-128" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-127">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-129" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-127" source="psplkfs4_8VYPCOgKPKU-128" target="psplkfs4_8VYPCOgKPKU-128">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-130" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-127" source="psplkfs4_8VYPCOgKPKU-128">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-131" value="2.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-127">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-132" value="&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1186&quot; data-start=&quot;1179&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1221&quot; data-start=&quot;1186&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;Определение предметов для сдачи&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-127">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-133" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="290" y="370" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-134" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-133">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-135" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-133" source="psplkfs4_8VYPCOgKPKU-134" target="psplkfs4_8VYPCOgKPKU-134">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-136" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-133" source="psplkfs4_8VYPCOgKPKU-134">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-137" value="2.2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-133">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-138" value="&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1229&quot; data-start=&quot;1222&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1252&quot; data-start=&quot;1229&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;Изучение материалов&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-133">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-139" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="290" y="460" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-140" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-139">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-141" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-139" source="psplkfs4_8VYPCOgKPKU-140" target="psplkfs4_8VYPCOgKPKU-140">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-142" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-139" source="psplkfs4_8VYPCOgKPKU-140">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-143" value="2.3" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-139">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-144" value="Посещение курсов и консультаций" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-139">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-145" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="480" y="460" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-146" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-145">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-147" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-145" source="psplkfs4_8VYPCOgKPKU-146" target="psplkfs4_8VYPCOgKPKU-146">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-148" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-145" source="psplkfs4_8VYPCOgKPKU-146">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-149" value="2.5" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-145">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-150" value="Регистрация на ЕГЭ" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-145">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-151" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="600" y="460" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-152" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-151">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-153" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-151" source="psplkfs4_8VYPCOgKPKU-152" target="psplkfs4_8VYPCOgKPKU-152">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-154" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-151" source="psplkfs4_8VYPCOgKPKU-152">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-155" value="2.6" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-151">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-156" value="&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1333&quot; data-start=&quot;1326&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td data-end=&quot;1346&quot; data-start=&quot;1333&quot; class=&quot;max-w-[calc(var(--thread-content-max-width)*2/3)]&quot;&gt;Сдача ЕГЭ&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-151">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-157" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="230" y="475" width="30" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-158" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-157">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-159" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-157">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6" as="sourcePoint" />
+            <mxPoint x="6" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-160" value="O" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-157">
+          <mxGeometry x="6" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-161" value="J1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-157">
+          <mxGeometry x="3" y="35" width="24" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-162" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="420" y="475" width="30" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-163" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-162">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-164" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-162">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6" as="sourcePoint" />
+            <mxPoint x="6" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-165" value="O" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-162">
+          <mxGeometry x="6" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-166" value="J2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-162">
+          <mxGeometry x="3" y="35" width="24" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-167" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="290" y="550" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-168" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-167">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-169" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-167" source="psplkfs4_8VYPCOgKPKU-168" target="psplkfs4_8VYPCOgKPKU-168">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-170" value="" style="endArrow=none;html=1;rounded=0;exitX=0.36;exitY=0.997;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-167" source="psplkfs4_8VYPCOgKPKU-168">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="36" y="45" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-171" value="2.4" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-167">
+          <mxGeometry x="7" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-172" value="Выполнение упражнений&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-167">
+          <mxGeometry x="10" y="8" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-174" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="720" y="475" width="30" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-175" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-174">
+          <mxGeometry width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-176" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-174">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="6" as="sourcePoint" />
+            <mxPoint x="6" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-199" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="psplkfs4_8VYPCOgKPKU-174" source="psplkfs4_8VYPCOgKPKU-177">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="-35" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="40" y="15" />
+              <mxPoint x="40" y="-35" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-200" value="Экзамен сдан" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="psplkfs4_8VYPCOgKPKU-199">
+          <mxGeometry x="-0.1903" relative="1" as="geometry">
+            <mxPoint x="-22" y="-21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-201" value="Экзамен&lt;div&gt;не сдан&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="psplkfs4_8VYPCOgKPKU-199">
+          <mxGeometry x="-0.1903" relative="1" as="geometry">
+            <mxPoint x="-22" y="117" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-202" value="..." style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="psplkfs4_8VYPCOgKPKU-199">
+          <mxGeometry x="-0.1903" relative="1" as="geometry">
+            <mxPoint x="100" y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-177" value="X" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-174">
+          <mxGeometry x="6" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-178" value="J3" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-174">
+          <mxGeometry x="3" y="35" width="24" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-179" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="780" y="512.5" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-180" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-179">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-181" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-179" source="psplkfs4_8VYPCOgKPKU-180" target="psplkfs4_8VYPCOgKPKU-180">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-20" y="50" as="sourcePoint" />
+            <mxPoint x="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-182" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="psplkfs4_8VYPCOgKPKU-179">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="12" y="45" as="sourcePoint" />
+            <mxPoint x="12" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-183" value="2.1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-179">
+          <mxGeometry x="40" y="47" width="20" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-184" value="GO-TO/Определение предметов" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="psplkfs4_8VYPCOgKPKU-179">
+          <mxGeometry x="21" y="8" width="69" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-128" target="psplkfs4_8VYPCOgKPKU-158">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-187" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-160" target="psplkfs4_8VYPCOgKPKU-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-188" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-160" target="psplkfs4_8VYPCOgKPKU-134">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="490" />
+              <mxPoint x="270" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-160" target="psplkfs4_8VYPCOgKPKU-168">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="270" y="490" />
+              <mxPoint x="270" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-190" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-134" target="psplkfs4_8VYPCOgKPKU-163">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="400" />
+              <mxPoint x="400" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-191" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-140" target="psplkfs4_8VYPCOgKPKU-163">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-168" target="psplkfs4_8VYPCOgKPKU-163">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="580" />
+              <mxPoint x="400" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-165" target="psplkfs4_8VYPCOgKPKU-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-195" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-146" target="psplkfs4_8VYPCOgKPKU-152">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-197" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-152" target="psplkfs4_8VYPCOgKPKU-175">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="psplkfs4_8VYPCOgKPKU-198" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="psplkfs4_8VYPCOgKPKU-177" target="psplkfs4_8VYPCOgKPKU-180">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="490" />
+              <mxPoint x="760" y="543" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
