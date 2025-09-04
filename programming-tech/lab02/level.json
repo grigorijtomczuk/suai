@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "type": "enemy",
+    "x": 5,
+    "y": 7,
+    "props": {
+      "hp": 80,
+      "damage": 10,
+      "entity_type": "goblin"
+    }
+  },
+  {
+    "id": 2,
+    "type": "player",
+    "x": 0,
+    "y": 0,
+    "props": {
+      "hp": 120,
+      "name": "Grigory"
+    }
+  }
+]

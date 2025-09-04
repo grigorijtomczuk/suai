@@ -1,0 +1,162 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Project coffee_loyalty_app {
+  database_type: "PostgreSQL"
+  note: "ER-модель ИС франшизной кофейни с программой лояльности, самовывозом и ролями пользователей"
+}
+
+Table clients {
+  id uuid [pk]
+  name varchar
+  phone varchar [unique]
+  email varchar
+  created_at timestamp
+  is_active boolean
+  bonus_balance int
+}
+
+Table qr_tokens {
+  id uuid [pk]
+  client_id uuid [ref: > clients.id]
+  token_hash varchar
+  created_at timestamp
+  revoked_at timestamp
+}
+
+Table branches {
+  id uuid [pk]
+  name varchar
+  address text
+  timezone varchar
+  is_active boolean
+}
+
+Table users {
+  id uuid [pk]
+  name varchar
+  role varchar [note: 'super_admin, branch_admin, barista']
+  login varchar [unique]
+  password_hash varchar
+  is_active boolean
+  branch_id uuid [ref: > branches.id, note: "null для супер-админа"]
+}
+
+Table menu_items {
+  id uuid [pk]
+  name varchar
+  description text
+  category varchar
+  base_price decimal
+  is_active boolean
+}
+
+Table branch_menu_items {
+  branch_id uuid [ref: > branches.id, pk]
+  menu_item_id uuid [ref: > menu_items.id, pk]
+  price_override decimal
+  is_available boolean
+}
+
+Table orders {
+  id uuid [pk]
+  client_id uuid [ref: > clients.id, note: "может быть NULL, если заказ сделан без регистрации"]
+  branch_id uuid [ref: > branches.id]
+  status varchar [note: 'created, paid, preparing, ready, issued, canceled']
+  source varchar [note: 'pos, mobile']
+  total_amount decimal
+  bonus_spent int
+  bonus_earned int
+  paid_at timestamp
+  created_at timestamp
+}
+
+Table order_items {
+  order_id uuid [ref: > orders.id]
+  menu_item_id uuid [ref: > menu_items.id]
+  quantity int
+  price decimal
+  discount_amount decimal
+}
+
+Table loyalty_transactions {
+  id uuid [pk]
+  client_id uuid [ref: > clients.id]
+  order_id uuid [ref: > orders.id]
+  type varchar [note: 'earn, spend, adjust']
+  amount int
+  created_at timestamp
+  note text
+}
+
+Table promotions {
+  id uuid [pk]
+  name varchar
+  type varchar [note: 'percent, fixed, double_points']
+  description text
+  starts_at date
+  ends_at date
+  is_active boolean
+}
+
+Table promotion_branches {
+  promotion_id uuid [ref: > promotions.id, pk]
+  branch_id uuid [ref: > branches.id, pk]
+}
+
+Table promotion_menu_items {
+  promotion_id uuid [ref: > promotions.id, pk]
+  menu_item_id uuid [ref: > menu_items.id, pk]
+}
+
+Table shift_reports {
+  id uuid [pk]
+  user_id uuid [ref: > users.id]
+  branch_id uuid [ref: > branches.id]
+  opened_at timestamp
+  closed_at timestamp
+  total_sales decimal
+  orders_count int
+  bonuses_spent int
+  bonuses_earned int
+}
+
+Table action_logs {
+  id uuid [pk]
+  user_id uuid [ref: > users.id]
+  action_type varchar
+  description text
+  created_at timestamp
+}
+
+Enum user_roles {
+  super_admin
+  branch_admin
+  barista
+}
+
+Enum order_status {
+  created
+  paid
+  preparing
+  ready
+  issued
+  canceled
+}
+
+Enum order_source {
+  pos
+  mobile
+}
+
+Enum loyalty_type {
+  earn
+  spend
+  adjust
+}
+
+Enum promo_type {
+  percent
+  fixed
+  double_points
+}
