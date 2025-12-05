@@ -1,31 +1,23 @@
-; Исходные данные
-MOV AL, 0F9h    ; X1 = -7
-MOV BL, 0B6h    ; X2 = 182
-MOV CL, 030h    ; X3 = -208
-MOV DL, 01Ah    ; X4 = 26
+; input
+MOV AX, 0FFF9h    ; X1
+MOV BX, 000B6h    ; X2
+MOV CX, 0FF30h    ; X3
+MOV DX, 0001Ah    ; X4
 
-; --- 1) X3 = X3 + X2 ---
-MOV AL, CL      ; AL = X3
-ADD AL, BL      ; AL = X3 + X2
-MOV CL, AL      ; CL = new X3
+; X3 = X3 + X2 
+ADD CX, BX        ; CX = X3 + X2
 
-; --- 2) X1 / X3 ---
-MOV AL, 0F9h    ; AL = X1
-CBW             ; расширение знака в AX
-IDIV CL         ; AX / CL -> AL=result
-MOV AH, 00h     ; очистка старшего байта
-MOV AL, AL      ; результат деления в AL (0)
+; DX:AX = X1 / X3 
+CWD               ; sign-extend AX in DX:AX (if AX<0: DX = FFFFh, else zero) - IDIV takes 32-bit DX:AX as devidend 
+IDIV CX           ; (DX:AX) / CX -> AX=quotient, DX=remainder
 
-; --- 3) X2 = X2 XOR X1 ---
-MOV AL, 0F9h    ; AL = X1
-XOR BL, AL      ; X2 xor X1 -> BL
+; X2 = X2 XOR X1 
+MOV AX, 0FFF9h    ; AX = X1 after IDIV
+XOR BX, AX        ; BX = X2 XOR X1
 
-; --- 4) X3 = X3 - X1 - CF ---
-MOV AL, CL      ; AL = X3
-SBB AL, 0F9h    ; AL = X3 - X1 - CF
-MOV CL, AL      ; сохранить новый X3
+; X3 = X3 - X1 - CF 
+SBB CX, AX        ; CX = X3 - X1 - carry_flag
 
-; --- 5) X4 = X4 * 2^4 ---
-MOV AL, DL      ; AL = X4
-SHL AL, 4       ; умножение на 16
-MOV DL, AL      ; сохранить новый X4
+; X4 = X4 * 2^4    
+MOV DX, 0001Ah    ; DX = X4 after IDIV
+SHL DX, 4         ; DX = X4 * 16 (bitwise left shift)
