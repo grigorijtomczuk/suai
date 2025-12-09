@@ -1,15 +1,5 @@
 from collections import Counter
 
-text = "Si mangia per vivere, non si vive per mangiare"
-text = text.lower()
-
-# 1. частоты
-freq = Counter(text)
-total = sum(freq.values())
-
-# 2. сортируем по убыванию вероятности
-items = sorted([(ch, freq[ch] / total) for ch in freq], key=lambda x: (-x[1], x[0]))
-
 
 def shannon_fano(sorted_items):
     codes = {sym: "" for sym, _ in sorted_items}
@@ -20,11 +10,13 @@ def shannon_fano(sorted_items):
             return
         probs = [p for _, p in items]
         total_p = sum(probs)
+        # ищем лучший индекс разбиения
         best_idx = 1
         best_diff = abs(sum(probs[:1]) - (total_p - sum(probs[:1])))
         for i in range(2, len(items)):
             left_sum = sum(probs[:i])
             diff = abs(left_sum - (total_p - left_sum))
+            # ищем такое разбиение, чтобы суммы вероятностей слева и справа были максимально близкими
             if diff < best_diff:
                 best_diff = diff
                 best_idx = i
@@ -41,6 +33,16 @@ def shannon_fano(sorted_items):
     split_group(sorted_items)
     return codes, splits
 
+
+text = "Si mangia per vivere, non si vive per mangiare"
+text = text.lower()
+
+# частоты
+freq = Counter(text)
+total = sum(freq.values())
+
+# сортируем по убыванию вероятности
+items = sorted([(ch, freq[ch] / total) for ch in freq], key=lambda x: (-x[1], x[0]))
 
 codes, splits = shannon_fano(items)
 
