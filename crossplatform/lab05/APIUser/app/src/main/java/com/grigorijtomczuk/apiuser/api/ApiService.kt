@@ -11,6 +11,6 @@ interface ApiService {
         @Header("X-Api-Key") apiKey: String = "4hmnPRfAo9Cmst+a/XuQLA==jFZfmwEbiPVbBv1u",
         @Query("make") make: String?,
         @Query("model") model: String?,
-//        @Query("year") year: Int? = 2022,
+//        @Query("year") year: Int?,
     ): Response<List<Motorcycle>>
 }
