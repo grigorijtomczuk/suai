@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">APIUser</string>
-    <string name="title_manufacturers">Manufacturers</string>
-    <string name="title_models">Models</string>
+    <string name="title_manufacturers">Производители</string>
+    <string name="title_models">Модели</string>
 </resources>
