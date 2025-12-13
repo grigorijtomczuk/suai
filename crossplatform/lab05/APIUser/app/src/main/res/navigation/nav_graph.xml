@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_manufacturers">
+    app:startDestination="@id/navigation_motorcycles">
 
     <fragment
-        android:id="@+id/navigation_manufacturers"
-        android:name="com.grigorijtomczuk.apiuser.ui.manufacturers.ManufacturersFragment"
-        android:label="@string/title_manufacturers"
-        tools:layout="@layout/fragment_manufacturers" />
+        android:id="@+id/navigation_motorcycles"
+        android:name="com.grigorijtomczuk.apiuser.ui.motorcycles.MotorcyclesFragment"
+        android:label="@string/title_motorcycles"
+        tools:layout="@layout/fragment_motorcycles" />
 
     <fragment
         android:id="@+id/navigation_models"

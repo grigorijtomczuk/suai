@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         AppBarConfiguration(
             setOf(
-                R.id.navigation_manufacturers, R.id.navigation_models
+                R.id.navigation_motorcycles, R.id.navigation_models
             )
         )
 //        setupActionBarWithNavController(navController, appBarConfiguration)

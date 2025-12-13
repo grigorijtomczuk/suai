@@ -8,9 +8,9 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("motorcycles")
     suspend fun getMotorcycles(
-        @Query("make") make: String = "Kawasaki",
-        @Query("model") model: String = "Ninja",
-        @Query("year") year: Int = 2022,
-        @Header("X-Api-Key") apiKey: String = "4hmnPRfAo9Cmst+a/XuQLA==jFZfmwEbiPVbBv1u"
-    ): Response<MotorcycleResponse>
+        @Header("X-Api-Key") apiKey: String = "4hmnPRfAo9Cmst+a/XuQLA==jFZfmwEbiPVbBv1u",
+        @Query("make") make: String?,
+        @Query("model") model: String?,
+//        @Query("year") year: Int? = 2022,
+    ): Response<List<Motorcycle>>
 }

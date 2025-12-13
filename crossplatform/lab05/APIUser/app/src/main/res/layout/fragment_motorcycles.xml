@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="8dp"
-    tools:context=".ui.models.ModelsFragment">
+    tools:context=".ui.motorcycles.MotorcyclesFragment">
 
     <EditText
-        android:id="@+id/model_edit_text"
+        android:id="@+id/make_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Модель (Ninja 650)"
+        android:hint="Производитель (Honda, Kawasaki)"
         app:layout_constraintEnd_toStartOf="@+id/search_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,11 +25,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/models_recycler_view"
+        android:id="@+id/motorcycles_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/model_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/make_edit_text" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
