@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="coursework" version="1" scripttimeout="300" lock="0">
+  <topology>
+    <nodes>
+      <node id="1" name="PC1" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="372" top="627">
+        <interface id="0" name="eth0" type="ethernet" network_id="11"/>
+      </node>
+      <node id="2" name="PC2" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="435" top="627">
+        <interface id="0" name="eth0" type="ethernet" network_id="12"/>
+      </node>
+      <node id="3" name="PC3" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="504" top="627">
+        <interface id="0" name="eth0" type="ethernet" network_id="13"/>
+      </node>
+      <node id="4" name="PC4" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="306" top="438">
+        <interface id="0" name="eth0" type="ethernet" network_id="7"/>
+      </node>
+      <node id="5" name="PC5" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="561" top="438">
+        <interface id="0" name="eth0" type="ethernet" network_id="8"/>
+      </node>
+      <node id="6" name="PC6" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="306" top="522">
+        <interface id="0" name="eth0" type="ethernet" network_id="9"/>
+      </node>
+      <node id="7" name="PC7" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="561" top="528">
+        <interface id="0" name="eth0" type="ethernet" network_id="10"/>
+      </node>
+      <node id="8" name="Mikrotik1" type="qemu" template="mikrotik" image="mikrotik-6.49.19" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="05fc2910-7a60-4cb5-a89f-418bd5716a82" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" icon="Router.png" config="0" left="429" top="228">
+        <interface id="0" name="eth1" type="ethernet" network_id="1"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="2"/>
+      </node>
+      <node id="9" name="Mikrotik2" type="qemu" template="mikrotik" image="mikrotik-6.49.19" console="telnet" cpu="1" cpulimit="0" ram="256" ethernet="4" uuid="3ad99649-03e7-4b08-a98f-e122d16486d5" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -display none -vga std -rtc base=utc" qemu_version="2.12.0" qemu_arch="x86_64" qemu_nic="e1000" delay="0" icon="Router.png" config="0" left="432" top="525">
+        <interface id="0" name="eth1" type="ethernet" network_id="6"/>
+        <interface id="1" name="eth2" type="ethernet" network_id="11"/>
+        <interface id="2" name="eth3" type="ethernet" network_id="12"/>
+        <interface id="3" name="eth4" type="ethernet" network_id="13"/>
+      </node>
+      <node id="10" name="Switch1" type="iol" template="iol" image="L2-ADVENTERPRISE-M-15.1-20140814.bin" ethernet="2" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="297" top="327">
+        <interface id="0" name="e0/0" type="ethernet" network_id="3"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="7"/>
+      </node>
+      <node id="11" name="Switch2" type="iol" template="iol" image="L2-ADVENTERPRISE-M-15.1-20140814.bin" ethernet="2" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="426" top="327">
+        <interface id="0" name="e0/0" type="ethernet" network_id="2"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="3"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="4"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="5"/>
+      </node>
+      <node id="12" name="Switch3" type="iol" template="iol" image="L2-ADVENTERPRISE-M-15.1-20140814.bin" ethernet="2" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="552" top="327">
+        <interface id="0" name="e0/0" type="ethernet" network_id="4"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="8"/>
+      </node>
+      <node id="13" name="Switch4" type="iol" template="iol" image="L2-ADVENTERPRISE-M-15.1-20140814.bin" ethernet="2" nvram="1024" ram="512" serial="0" console="" delay="0" icon="Switch.png" config="0" left="426" top="423">
+        <interface id="0" name="e0/0" type="ethernet" network_id="5"/>
+        <interface id="16" name="e0/1" type="ethernet" network_id="6"/>
+        <interface id="32" name="e0/2" type="ethernet" network_id="9"/>
+        <interface id="48" name="e0/3" type="ethernet" network_id="10"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="pnet0" name="Internet" left="432" top="150" visibility="1" icon="01-Cloud-Default.svg"/>
+      <network id="2" type="bridge" name="Net-Mikrotik1iface_1" left="708" top="382" visibility="0" icon="lan.png"/>
+      <network id="3" type="bridge" name="Net-Switch1iface_0" left="427" top="508" visibility="0" icon="lan.png"/>
+      <network id="4" type="bridge" name="Net-Switch2iface_32" left="699" top="508" visibility="0" icon="lan.png"/>
+      <network id="5" type="bridge" name="Net-Switch2iface_48" left="699" top="406" visibility="0" icon="lan.png"/>
+      <network id="6" type="bridge" name="Net-Switch4iface_16" left="278" top="288" visibility="0" icon="lan.png"/>
+      <network id="7" type="bridge" name="Net-Switch1iface_16" left="379" top="508" visibility="0" icon="lan.png"/>
+      <network id="8" type="bridge" name="Net-Switch3iface_16" left="548" top="508" visibility="0" icon="lan.png"/>
+      <network id="9" type="bridge" name="Net-Switch4iface_32" left="381" top="271" visibility="0" icon="lan.png"/>
+      <network id="10" type="bridge" name="Net-Switch4iface_48" left="350" top="281" visibility="0" icon="lan.png"/>
+      <network id="11" type="bridge" name="Net-Mikrotik2iface_1" left="458" top="199" visibility="0" icon="lan.png"/>
+      <network id="12" type="bridge" name="Net-Mikrotik2iface_2" left="699" top="374" visibility="0" icon="lan.png"/>
+      <network id="13" type="bridge" name="Net-Mikrotik2iface_3" left="699" top="187" visibility="0" icon="lan.png"/>
+    </networks>
+  </topology>
+  <objects>
+    <textobjects>
+      <textobject id="1" name="square1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUxIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IHVpLXJlc2l6YWJsZSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjEiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAyOTFweDsgdG9wOiA0MDhweDsgaGVpZ2h0OiAxODJweDsgd2lkdGg6IDgxcHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9InNxdWFyZTEiPjxzdmcgd2lkdGg9IjgxIiBoZWlnaHQ9IjE4MiI+PHJlY3Qgd2lkdGg9IjgxIiBoZWlnaHQ9IjE4MiIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogYmxvY2s7Ij48L2Rpdj48ZGl2IGNsYXNzPSJ1aS1yZXNpemFibGUtaGFuZGxlIHVpLXJlc2l6YWJsZS1zIiBzdHlsZT0iei1pbmRleDogOTA7IGRpc3BsYXk6IGJsb2NrOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBibG9jazsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="2" name="square1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUyIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjIiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1NDZweDsgdG9wOiA0MDhweDsgaGVpZ2h0OiA5MXB4OyB3aWR0aDogODNweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0ic3F1YXJlMSI+PHN2ZyB3aWR0aD0iODMiIGhlaWdodD0iOTEiPjxyZWN0IHdpZHRoPSI4MyIgaGVpZ2h0PSI5MSIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="3" name="square1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGUzIiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjMiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiA1NDZweDsgdG9wOiA1MTZweDsgaGVpZ2h0OiA3NHB4OyB3aWR0aDogODRweDsiIHdpZHRoPSIxMjBweCIgaGVpZ2h0PSIxMjBweCIgbmFtZT0ic3F1YXJlMSI+PHN2ZyB3aWR0aD0iODQiIGhlaWdodD0iNzQiPjxyZWN0IHdpZHRoPSI4NCIgaGVpZ2h0PSI3NCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="4" name="square1" type="square">
+        <data>PGRpdiBpZD0iY3VzdG9tU2hhcGU0IiBjbGFzcz0iY3VzdG9tU2hhcGUgY29udGV4dC1tZW51IGp0ay1kcmFnZ2FibGUgdWktcmVzaXphYmxlIGRyYWdzdG9wcGVkIiBkYXRhLXBhdGg9IjQiIHN0eWxlPSJkaXNwbGF5OiBpbmxpbmU7IHotaW5kZXg6IDk5OTsgcG9zaXRpb246IGFic29sdXRlOyBsZWZ0OiAzNDVweDsgdG9wOiA2MDNweDsgaGVpZ2h0OiA4OHB4OyB3aWR0aDogMjM5cHg7IiB3aWR0aD0iMTIwcHgiIGhlaWdodD0iMTIwcHgiIG5hbWU9InNxdWFyZTEiPjxzdmcgd2lkdGg9IjIzOSIgaGVpZ2h0PSI4OCI+PHJlY3Qgd2lkdGg9IjIzOSIgaGVpZ2h0PSI4OCIgZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI1IiBzdHJva2U9IiMwMDAwMDAiICI9IiI+PC9yZWN0PlNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLjwvc3ZnPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="5" name="txt 5" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDUiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSB1aS1yZXNpemFibGUganRrLWRyYWdnYWJsZSBkcmFnc3RvcHBlZCIgZGF0YS1wYXRoPSI1IiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDU0M3B4OyB0b3A6IDU5NHB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7Ij5WTEFOLTEwICAgICAgICA8L3A+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyI+PC9kaXY+PC9kaXY+</data>
+      </textobject>
+      <textobject id="6" name="txt 6" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDYiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIHVpLXNlbGVjdGVlIHVpLXJlc2l6YWJsZS1hdXRvaGlkZSIgZGF0YS1wYXRoPSI2IiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDMzNnB4OyB0b3A6IDQwMnB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IGhlaWdodDogMjRweDsgd2lkdGg6IGF1dG87IHRyYW5zZm9ybTogcm90YXRlKDBkZWcpOyI+PHAgYWxpZ249ImNlbnRlciIgc3R5bGU9InZlcnRpY2FsLWFsaWduOnRvcDtjb2xvcjojMDAwMDAwO2JhY2tncm91bmQtY29sb3I6I2ZmZmZmZjtmb250LXNpemU6MTJweDtmb250LXdlaWdodDogbm9ybWFsOyIgY29udGVudGVkaXRhYmxlPSJmYWxzZSIgY2xhc3M9IiI+VkxBTi0yMCAgICAgICAgPC9wPjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLWUiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXMiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjxkaXYgY2xhc3M9InVpLXJlc2l6YWJsZS1oYW5kbGUgdWktcmVzaXphYmxlLXNlIHVpLWljb24gdWktaWNvbi1ncmlwc21hbGwtZGlhZ29uYWwtc2UiIHN0eWxlPSJ6LWluZGV4OiA5MDsgZGlzcGxheTogbm9uZTsiPjwvZGl2PjwvZGl2Pg==</data>
+      </textobject>
+      <textobject id="7" name="txt 7" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDciIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIHVpLXNlbGVjdGVlIHVpLXJlc2l6YWJsZS1hdXRvaGlkZSIgZGF0YS1wYXRoPSI3IiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDU5N3B4OyB0b3A6IDQwMnB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IGhlaWdodDogMjRweDsgd2lkdGg6IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj5WTEFOLTMwICAgICAgICA8L3A+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBub25lOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtcyIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBub25lOyI+PC9kaXY+PGRpdiBjbGFzcz0idWktcmVzaXphYmxlLWhhbmRsZSB1aS1yZXNpemFibGUtc2UgdWktaWNvbiB1aS1pY29uLWdyaXBzbWFsbC1kaWFnb25hbC1zZSIgc3R5bGU9InotaW5kZXg6IDkwOyBkaXNwbGF5OiBub25lOyI+PC9kaXY+PC9kaXY+</data>
+      </textobject>
+      <textobject id="8" name="txt 8" type="text">
+        <data>PGRpdiBpZD0iY3VzdG9tVGV4dDgiIGNsYXNzPSJjdXN0b21TaGFwZSBjdXN0b21UZXh0IGNvbnRleHQtbWVudSBqdGstZHJhZ2dhYmxlIGRyYWdzdG9wcGVkIHVpLXNlbGVjdGVlIHVpLXJlc2l6YWJsZS1hdXRvaGlkZSIgZGF0YS1wYXRoPSI4IiBzdHlsZT0iZGlzcGxheTogaW5saW5lOyBwb3NpdGlvbjogYWJzb2x1dGU7IGxlZnQ6IDU5NHB4OyB0b3A6IDUwNHB4OyBjdXJzb3I6IG1vdmU7IHotaW5kZXg6IDEwMDE7IGhlaWdodDogMjRweDsgd2lkdGg6IGF1dG87Ij48cCBhbGlnbj0iY2VudGVyIiBzdHlsZT0idmVydGljYWwtYWxpZ246dG9wO2NvbG9yOiMwMDAwMDA7YmFja2dyb3VuZC1jb2xvcjojZmZmZmZmO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtd2VpZ2h0OiBub3JtYWw7IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiBjbGFzcz0iIj5WTEFOLTQwICAgICAgICA8L3A+PC9kaXY+</data>
+      </textobject>
+    </textobjects>
+  </objects>
+</lab>
