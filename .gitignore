@@ -9,3 +9,6 @@
 .idea/
 
 .venv/
+
+*.bin*
+dumpfile_*.txt

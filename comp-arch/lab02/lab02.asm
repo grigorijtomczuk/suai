@@ -1,19 +1,19 @@
 ; input
-MOV AL, 0F9h      ; X1
-MOV BX, 000B6h    ; X2
-MOV CX, 0FF30h    ; X3
-MOV DX, 0001Ah    ; X4
+MOV AL, 0F9h      ; X1 = -7
+MOV BX, 000B6h    ; X2 = 182
+MOV CX, 0FF30h    ; X3 = -208
+MOV DL, 01Ah      ; X4 = 26
 
 ; X3 = X3 + X2 
 ADD CX, BX        ; CX = X3 + X2
 
-; DX:AL = X1 / X3     
-CBW
-CWD               ; sign-extend AL in DX:AX (if AL<0: DX = FFFFh, else zero) - IDIV takes 32-bit DX:AL as devidend 
+; DX:AX = X1 / X3     
+CBW               ; sign extend byte AL -> word AX
+CWD               ; sign-extend word AX to  dword DX:AX (if AX<0: DX = FFFFh, else zero) - IDIV takes 32-bit DWORD DX:AX as devidend 
 IDIV CX           ; (DX:AX) / CX -> AX=quotient, DX=remainder
 
 ; X2 = X2 XOR X1 
-MOV AL, 0F9h      ; AL = X1 after IDIV
+MOV AX, 0FFF9h    ; AX = X1 after IDIV
 XOR BX, AX        ; BX = X2 XOR X1
 
 ; X3 = X3 - X1 - CF 
