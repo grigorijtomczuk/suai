@@ -1,16 +1,13 @@
-package com.grigorijtomczuk.dbuser.data.db
+package com.grigorijtomczuk.dbuser.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.grigorijtomczuk.dbuser.data.db.dao.MotorcycleDao
-import com.grigorijtomczuk.dbuser.data.db.entity.Motorcycle
 
-@Database(entities = [Motorcycle::class], version = 1, exportSchema = false)
+@Database(entities = [Motorcyclist::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-
-    abstract fun motorcycleDao(): MotorcycleDao
+    abstract fun motorcyclistDao(): MotorcyclistDao
 
     companion object {
         @Volatile
@@ -21,7 +18,7 @@ abstract class AppDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "motorcycle_database"
+                    "motorcyclist_database"
                 ).build()
                 INSTANCE = instance
                 instance

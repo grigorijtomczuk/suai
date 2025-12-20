@@ -3,7 +3,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+    <application
+        android:name=".DBUserApplication"
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -12,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".AddActivity" />
+        <activity android:name=".UpdateActivity" />
+        <activity android:name=".DeleteActivity" />
+
     </application>
 
 </manifest>

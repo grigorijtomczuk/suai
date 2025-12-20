@@ -6,28 +6,34 @@
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/et_brand"
+        android:id="@+id/etBrand"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Brand" />
+        android:hint="Марка" />
 
     <EditText
-        android:id="@+id/et_model"
+        android:id="@+id/etModel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Model" />
+        android:hint="Модель" />
 
     <EditText
-        android:id="@+id/et_year"
+        android:id="@+id/etYear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Year"
+        android:hint="Год"
         android:inputType="number" />
 
-    <Button
-        android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etOwner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:hint="Имя владельца" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сохранить" />
 
 </LinearLayout>
