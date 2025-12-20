@@ -59,14 +59,14 @@ class MapActivity : AppCompatActivity() {
 
         mapView = findViewById(R.id.mapview)
 
-        // Move to Moscow
+        // Смещаем камеру на Москву
         mapView.map.move(
             CameraPosition(Point(55.7558, 37.6173), 10.0f, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 1f),
             null
         )
 
-        // Add initial marker (Red Square)
+        // Тестовая метка
         val redSquarePoint = Point(55.7539, 37.6208)
         addMarker(redSquarePoint, "Красная площадь")
 
@@ -82,7 +82,6 @@ class MapActivity : AppCompatActivity() {
             )
         }"
 
-        // Using a standard system drawable for the marker
         placemark.setIcon(ImageProvider.fromResource(this, android.R.drawable.presence_online))
         placemark.userData = MarkerData(title, snippet)
         placemark.setText(title, TextStyle().apply { placement = TextStyle.Placement.BOTTOM })
@@ -92,11 +91,11 @@ class MapActivity : AppCompatActivity() {
     }
 
     private fun findMarkerAt(point: Point): PlacemarkMapObject? {
-        // Convert map point to screen point
+        // Конвертация mapPoint в screenPoint
         val mapWindow = mapView.mapWindow ?: return null
         val touchScreenPoint = mapWindow.worldToScreen(point) ?: return null
 
-        // Threshold in pixels (approx 50dp)
+        // Радиус для поиска (50dp)
         val threshold = 50 * resources.displayMetrics.density
 
         var closestMarker: PlacemarkMapObject? = null
