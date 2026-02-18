@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">APIUser</string>
-    <string name="title_motorcycles">Поиск по производителю</string>
-    <string name="title_models">Поиск по модели</string>
-</resources>
