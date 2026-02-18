@@ -12,3 +12,6 @@
 
 *.bin*
 dumpfile_*.txt
+
+*.lgp.lck
+*.~lgp
