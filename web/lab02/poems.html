@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Стихотворения русских поэтов</title>
+		<link rel="stylesheet" href="styles.css" />
+		<style>
+			div[class$="container"] {
+				position: relative;
+				background: linear-gradient(
+					135deg,
+					rgba(255, 255, 255, 0.9),
+					rgba(240, 240, 240, 0.9)
+				);
+			}
+
+			.lists-container > h3 {
+				margin-top: 30px;
+				border-left: 4px solid #8b0000;
+				padding-left: 15px;
+				color: #333;
+				font-size: 1.3em;
+			}
+
+			.lists-container h3 + p {
+				margin-top: 10px;
+				color: #555;
+				font-weight: bold;
+			}
+
+			.border-solid ~ .border-dashed {
+				margin-top: 0;
+			}
+
+			.border-container > div:nth-child(odd) {
+				background-color: rgba(255, 250, 240, 0.5);
+			}
+
+			.border-container > div:nth-child(even) {
+				background-color: rgba(245, 245, 245, 0.5);
+			}
+
+			/* href начинается с index */
+			a[href^="index"] {
+				border-radius: 3px;
+				background-color: rgba(0, 102, 204, 0.33);
+				padding: 5px 8px;
+				font-weight: bold;
+			}
+
+			p:not(.code) {
+				word-break: break-word;
+			}
+
+			.text-indent-container p.paragraph-indent:first-of-type {
+				font-size: 1.05em;
+			}
+
+			.text-indent-container p.paragraph-indent:last-of-type {
+				color: #555;
+			}
+
+			.lists-container ul > li {
+				transition: color 0.2s ease;
+			}
+
+			.lists-container ul > li:hover {
+				color: #8b0000;
+				font-weight: 500;
+			}
+
+			.lists-container ol > li:first-child {
+				color: #008000;
+				font-weight: bold;
+			}
+
+			.lists-container ol > li:last-child {
+				color: #0066cc;
+				font-style: italic;
+			}
+
+			ul.list-disc.list-inside li {
+				margin-left: 0;
+			}
+
+			.section-title:is(h1, h2, h3, .section-title) {
+				position: relative;
+				padding-left: 15px;
+			}
+
+			.section-title:before {
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				border-radius: 2px;
+				background-color: #8b0000;
+				width: 4px;
+				height: 80%;
+				content: "";
+			}
+
+			h3[style*="margin-top"] {
+				margin-bottom: 15px !important;
+				border-bottom: 1px solid #ddd;
+			}
+
+			.text-decoration-container > p:first-of-type {
+				margin-bottom: 15px;
+				color: #666;
+				font-size: 0.95em;
+			}
+
+			.border-container > .border-solid > strong,
+			.border-container > .border-dashed > strong,
+			.border-container > .border-dotted > strong {
+				display: block;
+				margin-bottom: 8px;
+			}
+		</style>
+	</head>
+	<body class="poems-page">
+		<h1>Стихотворения русских поэтов</h1>
+
+		<hr />
+
+		<!-- ДЕМОНСТРАЦИЯ СТИЛЕЙ ТЕКСТА -->
+		<div class="section-title">Стили оформления текста</div>
+
+		<div class="text-decoration-container">
+			<p>Обычный текст для демонстрации:</p>
+			<p class="underlined">Это подчеркнутый текст (text-decoration: underline)</p>
+			<p class="strikethrough">Это перечеркнутый текст (text-decoration: line-through)</p>
+			<p class="wavy">Это текст с волнистой линией (text-decoration: underline wavy)</p>
+		</div>
+
+		<!-- ВЫРАВНИВАНИЕ ТЕКСТА -->
+		<div class="section-title">Горизонтальное выравнивание текста</div>
+
+		<div class="alignment-container">
+			<p class="align-left">Текст выравнен влево (text-align: left)</p>
+			<p class="align-center">Текст выравнен по центру (text-align: center)</p>
+			<p class="align-right">Текст выравнен вправо (text-align: right)</p>
+			<p class="align-justify">
+				Текст выравнен по ширине (text-align: justify). Этот текст имеет достаточную длину,
+				чтобы продемонстрировать выравнивание по ширине страницы с равномерным
+				распределением слов.
+			</p>
+		</div>
+
+		<!-- ВЕРТИКАЛЬНОЕ ВЫРАВНИВАНИЕ И ВЕРХНИЕ/НИЖНИЕ ИНДЕКСЫ -->
+		<div class="section-title">Вертикальное выравнивание и индексы</div>
+
+		<div class="vertical-align-container">
+			<p>
+				Обычный текст с верхним индексом E = mc<span class="superscript">2</span>
+				(vertical-align: super)
+			</p>
+			<p>
+				Обычный текст с нижним индексом H<span class="subscript">2</span>O (vertical-align:
+				sub)
+			</p>
+			<p>
+				Текст с изображением внутри строки
+				<img
+					src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23ff6600'/%3E%3C/svg%3E"
+					alt="circle"
+					class="inline-image"
+					style="vertical-align: middle"
+				/>
+				(vertical-align: middle)
+			</p>
+		</div>
+
+		<!-- ВЫСОТА СТРОКИ И ИНТЕРВАЛЫ -->
+		<div class="section-title">Высота строки и интервалы между символами</div>
+
+		<div class="spacing-container">
+			<p class="line-height-normal">
+				Текст с обычной высотой строки (line-height: 1.2). Эта строка имеет меньший интервал
+				между строками, что делает текст более компактным.
+			</p>
+			<p class="line-height-large">
+				Текст с увеличенной высотой строки (line-height: 2). Эта строка имеет больший
+				интервал между строками, что делает текст более свободным и легко читаемым.
+			</p>
+			<p class="letter-spacing-wide">
+				Текст с увеличенным расстоянием между символами (letter-spacing: 0.2em).
+			</p>
+			<p class="word-spacing-wide">
+				Текст с увеличенным расстоянием между словами (word-spacing: 0.5em).
+			</p>
+		</div>
+
+		<!-- ОТСТУП КРАСНОЙ СТРОКИ -->
+		<div class="section-title">Отступ красной строки (text-indent)</div>
+
+		<div class="text-indent-container">
+			<p class="paragraph-indent">
+				Это первый абзац с отступом красной строки (text-indent: 2em). Отступ красной строки
+				является традиционным способом обозначения начала нового абзаца в типографике.
+				Данный эффект достигается за счет использования CSS свойства text-indent.
+			</p>
+			<p class="paragraph-indent">
+				Это второй абзац, также имеющий отступ красной строки. Обратите внимание, что каждый
+				абзац начинается с определенного отступа, что улучшает читаемость текста и придает
+				документу более профессиональный вид.
+			</p>
+		</div>
+
+		<!-- ТЕНЬ ТЕКСТА -->
+		<div class="section-title">Тень текста (text-shadow)</div>
+
+		<div class="text-shadow-container">
+			<p class="text-shadow-soft">Мягкая тень текста (text-shadow: 2px 2px 4px rgba(...))</p>
+			<p class="text-shadow-colored">
+				Цветная тень текста (text-shadow: 3px 3px 0px #ff6600, ...)
+			</p>
+			<p class="text-shadow-neon">НЕОНОВАЯ ТЕНЬ (text-shadow: 0 0 10px #00ffff, ...)</p>
+		</div>
+
+		<!-- СПИСКИ -->
+		<div class="section-title">Стили списков</div>
+
+		<div class="lists-container">
+			<h3>Неупорядоченные списки:</h3>
+			<p><strong>Маркеры disc:</strong></p>
+			<ul class="list-disc">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ul>
+
+			<p><strong>Маркеры circle:</strong></p>
+			<ul class="list-circle">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ul>
+
+			<p><strong>Маркеры square:</strong></p>
+			<ul class="list-square">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ul>
+
+			<p><strong>Пользовательские маркеры:</strong></p>
+			<ul class="list-custom">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ul>
+
+			<h3 style="margin-top: 25px">Упорядоченные списки:</h3>
+			<p><strong>Десятичная нумерация (1, 2, 3...):</strong></p>
+			<ol class="list-decimal">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ol>
+
+			<p><strong>Римская нумерация (i, ii, iii...):</strong></p>
+			<ol class="list-roman">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ol>
+
+			<p><strong>Буквенная нумерация (a, b, c...):</strong></p>
+			<ol class="list-alpha">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ol>
+
+			<p><strong>Грузинская нумерация:</strong></p>
+			<ol class="list-georgian">
+				<li>Первый элемент</li>
+				<li>Второй элемент</li>
+				<li>Третий элемент</li>
+			</ol>
+
+			<h3 style="margin-top: 25px">Позиция маркеров:</h3>
+			<p><strong>Маркер снаружи (outside):</strong></p>
+			<ul class="list-disc list-outside">
+				<li>Длинный текст элемента списка, который может занимать несколько строк</li>
+				<li>Второй элемент</li>
+			</ul>
+
+			<p><strong>Маркер внутри (inside):</strong></p>
+			<ul class="list-disc list-inside">
+				<li>Длинный текст элемента списка, который может занимать несколько строк</li>
+				<li>Второй элемент</li>
+			</ul>
+		</div>
+
+		<!-- РАМКИ И ОБРАМЛЕНИЯ -->
+		<div class="section-title">Рамки (border) и скругление углов (border-radius)</div>
+
+		<div class="border-container">
+			<div class="border-solid">
+				<strong>Сплошная рамка (border: 3px solid #ff6600)</strong><br />
+				Это содержимое внутри сплошной оранжевой рамки с малым скруглением
+			</div>
+
+			<div class="border-dashed">
+				<strong>Пунктирная рамка (border: 3px dashed #0066cc)</strong><br />
+				Это содержимое внутри пунктирной синей рамки
+			</div>
+
+			<div class="border-dotted">
+				<strong>Точечная рамка (border: 3px dotted #008000)</strong><br />
+				Это содержимое внутри точечной зеленой рамки
+			</div>
+
+			<div class="border-double">
+				<strong>Двойная рамка (border: 5px double #8b0000)</strong><br />
+				Это содержимое внутри двойной красной рамки
+			</div>
+
+			<div class="border-groove">
+				<strong>Бороздчатая рамка (border: 5px groove #666)</strong><br />
+				Это содержимое внутри бороздчатой рамки с 3D эффектом
+			</div>
+
+			<div class="border-round-small">
+				<strong>Малое скругление (border-radius: 5px)</strong><br />
+				Углы слегка скруглены
+			</div>
+
+			<div class="border-round-medium">
+				<strong>Среднее скругление (border-radius: 15px)</strong><br />
+				Углы заметно скруглены
+			</div>
+
+			<div class="border-round-large">
+				<strong>Большое скругление (border-radius: 30px)</strong><br />
+				Углы сильно скруглены
+			</div>
+
+			<div class="border-round-circle">
+				<strong>Круглая форма (border-radius: 50%)</strong><br />
+				Рамка образует идеальный круг
+			</div>
+
+			<div class="border-multicolor">
+				<strong>Разноцветные стороны рамки</strong><br />
+				Каждая сторона имеет свой цвет:
+				<br />Верх: красный, Право: зеленый <br />Низ: синий, Лево: желтый
+			</div>
+		</div>
+
+		<hr />
+
+		<!-- ПУШКИН -->
+		<h2 id="evgenij-onegin">Евгений Онегин (отрывок)</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Мой дядя самых честных правил, Когда не в шутку занемог, Он уважать себя заставил И
+				лучше выдумать не мог. Его пример другим наука; Но, боже мой, какая скука С больным
+				сидеть и день и ночь, Не отходя ни на шаг прочь! Какое низкое коварство Полуживого
+				забавлять, Ему подушки поправлять, Печально подносить лекарство, Вздыхать и думать
+				про себя: Когда же черт возьмет тебя!
+			</div>
+			<div class="poem-author">— А.С. Пушкин</div>
+		</div>
+
+		<h2 id="ya-pomnyu-chudnoe-mgnovenie">Я помню чудное мгновение</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Я помню чудное мгновение: Передо мною явилась ты, Как мимолетное виденье, Как гений
+				чистой красоты. В томленьях сладостных и мучительных, Забыл я все мечты былые; Душе
+				твоей, святой и чистой, Себя я всем обязан был. Тоска, отчаянье и вера, Волненья ног
+				благоговейных, Судеб минутные теченья... И долго, долго слышал я Святые звуки
+				благодати И дивный голос чарованья.
+			</div>
+			<div class="poem-author">— А.С. Пушкин</div>
+		</div>
+
+		<h2 id="moj-ded-vysokih-strannostej">Мой дед высоких странностей (отрывок)</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Мой дед высоких странностей Являл в себе, судьбой хранимый: Но, досказать о них,
+				друзья, Не стану в песне вам я. Не мне на ней, о боже мой! Наводить грусть, тоску,
+				печаль: Лучше душе поэта, лучше Всё воспевать, утрате вопреки, И говорить: "Придут
+				ко мне Другие дни, другие сны!"
+			</div>
+			<div class="poem-author">— А.С. Пушкин</div>
+		</div>
+
+		<!-- ЛЕРМОНТОВ -->
+		<h2 id="geroj-nashego-vremeni">Герой нашего времени (предисловие в стихах)</h2>
+		<div class="poem">
+			<div class="poem-text">
+				О, полная святыни дева! О, дева дивной красоты! Как часто я с восторгом пева Пою
+				природы мне черты! Прошу, о, дева, не скорби О мне, забытом и беда! Со мною дух
+				судьбы был строг, Со мною дух судьбы мудрец. Но верь, что я в груди питаю Огонь
+				безсмертный и святой, Я вас, о дивные, обожаю, И скоро я приду с бедой!
+			</div>
+			<div class="poem-author">— М.Ю. Лермонтов</div>
+		</div>
+
+		<h2 id="parus">Парус</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Белеет парус одинокой В тумане моря голубом!.. Что ищет он в стране далекой? Что
+				кинул он в краю родном?.. Играют волны — ветер свищет, И мачта гнется и скрипит;
+				Увы! он счастья не ищет И не от счастья он бежит! Под ним струится океан; Светилом
+				звезды блещут над ним; Куда же мчится он в туман? Где медленных пучин пиит? Зачем же
+				он влечен мечтою На край далекий и неведом? Иль над его судьбой такою Издевся бес, —
+				не дай ей, дом!
+			</div>
+			<div class="poem-author">— М.Ю. Лермонтов</div>
+		</div>
+
+		<h2 id="kogda-volnuetsya-zhelteyushaya-niva">Когда волнуется желтеющая нива</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Когда волнуется желтеющая нива, И свежий лес шумит при ветре золотом, И в синей
+				вышине летают облака, — Тогда смиряется в душе моей беда, И верится, и плачет вкруг
+				душа, И кажется, что радость быть должна. И на душе, и в самом возникает Святое
+				ощущенье — благодать! Я слышу голос вечности, поёт, И чувствую — блаженство!
+				благодать!
+			</div>
+			<div class="poem-author">— М.Ю. Лермонтов</div>
+		</div>
+
+		<!-- ТЮТЧЕВ -->
+		<h2 id="silentium">Silentium!</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Молчи, скрывайся и таись, Как счастье в глубине морской, Иль как червонец под
+				травой. Не выставляй в суде суждений Ни гордый взор, ни мне в виду Святого много
+				откровений — Не оскорбляй их суету... О, если б ты узнать могла, Как мず роковая
+				мощь, Когда, душа, молчишь была! И дум сокрытых полноту!
+			</div>
+			<div class="poem-author">— Ф.И. Тютчев</div>
+		</div>
+
+		<h2 id="весна-как-воздух-чист">Весна! Как воздух чист</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Весна! Как воздух чист! Как ясен небосвод! Своей лаской манит Душе благодать! Земля,
+				вкушая дождь, Поёт, ликует, вьётся — И вот уже цветут Поля, леса, сады! О, дивная
+				пора! О, вечер ясный, светлый! О, радость бытия! О, чистота святая!
+			</div>
+			<div class="poem-author">— Ф.И. Тютчев</div>
+		</div>
+
+		<h2 id="умом-россию-не-понять">Умом Россию не понять</h2>
+		<div class="poem">
+			<div class="poem-text">
+				Умом Россию не понять, Аршином общим не измерить: У ней особенная стать — В Россию
+				можно только верить.
+			</div>
+			<div class="poem-author">— Ф.И. Тютчев</div>
+		</div>
+
+		<hr />
+
+		<div class="back-button">
+			<p>
+				<a href="index.html">← Вернуться на главную страницу</a>
+			</p>
+		</div>
+	</body>
+</html>
