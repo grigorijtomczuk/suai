@@ -14,13 +14,44 @@ body {
 }
 
 body.home-page {
+	background-image:
+		repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 35px,
+			rgba(135, 206, 235, 0.15) 35px,
+			rgba(135, 206, 235, 0.15) 70px
+		),
+		repeating-linear-gradient(
+			-45deg,
+			transparent,
+			transparent 35px,
+			rgba(176, 224, 230, 0.15) 35px,
+			rgba(176, 224, 230, 0.15) 70px
+		);
 	background-color: #f0f8ff;
 	font-family: Arial, sans-serif;
 }
 
 body.poems-page {
-	background-color: #fffaf0;
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(./poems-bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
 	font-family: "Georgia", serif;
+}
+
+body.table-page {
+	background-image: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 40px,
+		rgba(200, 200, 200, 0.08) 40px,
+		rgba(200, 200, 200, 0.08) 80px
+	);
+	background-attachment: fixed;
+	background-color: #f5f5f5;
+	font-family: Arial, sans-serif;
 }
 
 /* заголовки */
@@ -427,7 +458,7 @@ table {
 
 th,
 td {
-	border: 1px solid #ddd;
+	border: 1px solid #8b0000;
 	padding: 12px;
 	text-align: left;
 }
@@ -436,6 +467,7 @@ th {
 	background-color: #8b0000;
 	color: white;
 	font-weight: bold;
+	font-size: 1.1em;
 }
 
 tr:nth-child(even) {
@@ -444,6 +476,89 @@ tr:nth-child(even) {
 
 tr:hover {
 	background-color: #f0f0f0;
+}
+
+/* таблица прайс-листа */
+.price-list {
+	margin: 30px 0;
+	border: 2px solid #8b0000;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.price-list th {
+	border: 2px solid #8b0000;
+	background-color: #8b0000;
+	padding: 15px;
+	color: white;
+	font-size: 1.15em;
+	text-align: center;
+}
+
+.price-list td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+/* Нечетные строки (светлый цвет) */
+.price-list tbody tr:nth-child(odd) {
+	background-color: #e8f4f8;
+}
+
+/* Четные строки (более темный цвет) */
+.price-list tbody tr:nth-child(even) {
+	background-color: #d4e9f0;
+}
+
+.price-list tbody tr:hover {
+	background-color: #c4d9e0;
+}
+
+/* Первый столбец - номер (выравнивание по центру) */
+.price-list td:first-child {
+	width: 8%;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* Второй столбец - наименование (выравнивание по левому краю) */
+.price-list td:nth-child(2) {
+	width: 62%;
+	text-align: left;
+}
+
+/* Третий столбец - цена (выравнивание по правому краю) */
+.price-list td:nth-child(3) {
+	width: 30%;
+	font-weight: bold;
+	text-align: right;
+}
+
+/* Таблица по варианту задания */
+.variant-table {
+	margin: 30px 0;
+	border-collapse: collapse;
+	width: 100%;
+	border: 2px solid #ff0000;
+}
+
+.variant-table td {
+	border: 2px solid #ff0000;
+	padding: 3px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.variant-table img {
+	max-width: 100%;
+	height: auto;
+}
+
+.variant-table .blue-cell {
+	background-color: #87ceeb;
+	text-align: center;
+	font-weight: bold;
+	padding: 10px 3px;
 }
 
 /* стихи */
@@ -456,10 +571,11 @@ tr:hover {
 }
 
 .poem-text {
+	transform: translateX(-25%);
+	margin-left: 50%;
 	color: #333;
 	font-size: 1rem;
 	line-height: 1.8;
-	white-space: pre-line;
 }
 
 .poem-author {
