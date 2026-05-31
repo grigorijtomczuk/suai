@@ -1,0 +1,265 @@
+:root {
+	--bg: #f5f7fb;
+	--surface: #ffffff;
+	--surface-soft: #eef4f8;
+	--text: #172033;
+	--muted: #687386;
+	--line: #d9e0ea;
+	--primary: #0f8f84;
+	--primary-dark: #087168;
+	--accent: #ffb84d;
+	--focus: rgba(15, 143, 132, 0.24);
+	--shadow: 0 24px 70px rgba(25, 38, 60, 0.14);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background:
+		linear-gradient(135deg, rgba(15, 143, 132, 0.12), transparent 38%),
+		linear-gradient(315deg, rgba(255, 184, 77, 0.22), transparent 42%), var(--bg);
+	min-height: 100vh;
+	color: var(--text);
+	font-family:
+		Inter,
+		-apple-system,
+		BlinkMacSystemFont,
+		"Segoe UI",
+		Arial,
+		sans-serif;
+}
+
+.page-shell {
+	margin: 0 auto;
+	padding: 40px 0 56px;
+	width: min(1120px, calc(100% - 32px));
+}
+
+.hero {
+	display: flex;
+	align-items: end;
+	box-shadow: var(--shadow);
+	border-radius: 24px;
+	background:
+		linear-gradient(90deg, rgba(12, 23, 36, 0.84), rgba(12, 23, 36, 0.38)),
+		url("assets/travel-hero.jpg") center/cover;
+	min-height: 280px;
+	overflow: hidden;
+}
+
+.hero__content {
+	padding: 44px;
+	max-width: 720px;
+	color: #ffffff;
+}
+
+.eyebrow {
+	margin: 0 0 12px;
+	color: var(--accent);
+	font-weight: 800;
+	font-size: 13px;
+	letter-spacing: 0;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(36px, 7vw, 68px);
+	line-height: 0.96;
+	letter-spacing: 0;
+}
+
+.hero__text {
+	margin: 18px 0 0;
+	max-width: 620px;
+	color: rgba(255, 255, 255, 0.88);
+	font-size: 18px;
+	line-height: 1.55;
+}
+
+.form-section {
+	margin-top: -36px;
+	padding: 0 24px;
+}
+
+.travel-form {
+	backdrop-filter: blur(16px);
+	margin: 0 auto;
+	box-shadow: 0 18px 50px rgba(25, 38, 60, 0.12);
+	border: 1px solid rgba(217, 224, 234, 0.75);
+	border-radius: 18px;
+	background: rgba(255, 255, 255, 0.94);
+	padding: 34px;
+	max-width: 920px;
+}
+
+.form-grid {
+	display: grid;
+	grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
+	align-items: start;
+	gap: 18px 24px;
+}
+
+.form-label {
+	padding-top: 13px;
+	color: #263246;
+	font-weight: 700;
+	font-size: 15px;
+}
+
+.form-label span,
+legend span {
+	color: #d94b4b;
+}
+
+.field {
+	transition:
+		border-color 0.2s ease,
+		box-shadow 0.2s ease,
+		background-color 0.2s ease;
+	outline: none;
+	border: 1px solid var(--line);
+	border-radius: 8px;
+	background: #ffffff;
+	padding: 12px 14px;
+	width: 100%;
+	min-height: 48px;
+	color: var(--text);
+	font: inherit;
+}
+
+.field--textarea {
+	min-height: 132px;
+	resize: vertical;
+}
+
+.field::placeholder {
+	color: #98a2b3;
+}
+
+.field:hover,
+.choice-group:hover {
+	border-color: #b7c5d6;
+}
+
+.field:focus {
+	box-shadow: 0 0 0 4px var(--focus);
+	border-color: var(--primary);
+}
+
+.choice-group {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-column: 2;
+	gap: 12px;
+	margin: 4px 0 0;
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	background: var(--surface-soft);
+	padding: 18px;
+}
+
+.choice-group legend {
+	padding: 0 8px;
+	color: #263246;
+	font-weight: 800;
+	font-size: 15px;
+}
+
+.choice {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	transition:
+		border-color 0.2s ease,
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 8px;
+	background: var(--surface);
+	padding: 10px 12px;
+	min-height: 44px;
+}
+
+.choice:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 20px rgba(25, 38, 60, 0.08);
+	border-color: rgba(15, 143, 132, 0.32);
+}
+
+.choice input {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--primary);
+}
+
+.choice span {
+	font-weight: 600;
+	font-size: 14px;
+	hyphens: auto;
+}
+
+.form-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-top: 28px;
+	margin-left: 284px;
+}
+
+.button {
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease,
+		background-color 0.2s ease;
+	cursor: pointer;
+	border: 0;
+	border-radius: 8px;
+	padding: 0 18px;
+	min-height: 46px;
+	font: inherit;
+}
+
+.button:hover {
+	transform: translateY(-1px);
+}
+
+.button--primary {
+	box-shadow: 0 12px 24px rgba(15, 143, 132, 0.25);
+	background: var(--primary);
+	color: #ffffff;
+}
+
+.button--primary:hover {
+	background: var(--primary-dark);
+}
+
+.button--secondary {
+	background: #e7edf5;
+	color: #263246;
+}
+
+.button--secondary:hover {
+	background: #d8e1ed;
+}
+
+.button--ghost {
+	box-shadow: inset 0 0 0 1px rgba(15, 143, 132, 0.35);
+	background: transparent;
+	color: var(--primary-dark);
+}
+
+.button--ghost:hover {
+	background: rgba(15, 143, 132, 0.08);
+}
+
+.form-note {
+	margin: 18px 0 0 284px;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.5;
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Лабораторная работа 05 - Flexbox</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="page">
+			<nav class="flex-container navigation-container" aria-label="Основная навигация">
+				<a href="#about">Главная</a>
+				<a href="#articles">Материалы</a>
+				<a href="#gallery">Галерея</a>
+				<a href="#contacts">Контакты</a>
+			</nav>
+
+			<main class="flex-container content-container" id="articles">
+				<section class="text-block side-block" id="about">
+					<h2>Flexbox</h2>
+					<p>
+						Flexbox используется для гибкого размещения элементов в строке или колонке.
+						Он позволяет управлять направлением, выравниванием и распределением
+						свободного пространства внутри контейнера.
+					</p>
+					<p>
+						В этой колонке показан левый блок, ширина которого примерно в два раза
+						меньше центральной области.
+					</p>
+				</section>
+
+				<section class="text-block center-block" id="gallery">
+					<h1>Верстка web-страниц с использованием Flexbox</h1>
+					<img class="content-image" src="assets/image.jpg" />
+					<p>
+						Центральный блок занимает больше места по главной оси контейнера. Внутри
+						него находится изображение, а текст обтекает картинку с правой стороны.
+						Такой прием удобно использовать в статьях, учебных материалах и карточках с
+						описанием продукта.
+					</p>
+					<p>
+						При уменьшении ширины окна до значения меньше 800 пикселей этот блок, как и
+						соседние блоки, становится элементом вертикального списка. Все три блока
+						получают одинаковую ширину и читаются сверху вниз.
+					</p>
+					<p>
+						Минимальная ширина изображения ограничена значением 200 пикселей, поэтому
+						при сужении экрана оно остается различимым и не сжимается до слишком
+						маленького размера.
+					</p>
+				</section>
+
+				<section class="text-block side-block">
+					<h2>Адаптивность</h2>
+					<p>
+						На широком экране блоки выстроены в одну строку и растянуты по высоте
+						контейнера вдоль поперечной оси.
+					</p>
+					<p>
+						На узком экране навигация и основное содержимое перестраиваются в колонку, а
+						подвал сохраняет горизонтальное расположение двух частей.
+					</p>
+				</section>
+			</main>
+
+			<footer class="flex-container footer-container" id="contacts">
+				<div class="footer-block">
+					<strong>Телефон:</strong>
+					<a href="tel:+78121234567">+7 (812) 123-45-67</a>
+				</div>
+				<div class="footer-block">
+					<strong>Адрес:</strong>
+					<span>Санкт-Петербург, Кронверкский проспект, 49</span>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<nav class="navigation" aria-label="Основная навигация">
+			<ul class="menu">
+				<li class="menu__item">
+					<a class="menu__link" href="#">Разделы</a>
+					<ul class="submenu">
+						<li><a href="pages/slideshow.html">Слайд-шоу</a></li>
+						<li><a href="pages/menu.html">Выпадающее меню</a></li>
+						<li><a href="pages/gallery.html">Галерея</a></li>
+					</ul>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="#">Изображения</a>
+					<ul class="submenu">
+						<li><a href="pages/mountains.html">Горы</a></li>
+						<li><a href="pages/city.html">Город</a></li>
+						<li><a href="pages/forest.html">Лес</a></li>
+					</ul>
+				</li>
+				<li class="menu__item">
+					<a class="menu__link" href="#">Справка</a>
+					<ul class="submenu">
+						<li><a href="pages/about.html">О работе</a></li>
+						<li><a href="pages/contacts.html">Контакты</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+		<main>
+			<section class="section">
+				<div class="section__text">
+					<h2>Слайд-шоу</h2>
+					<p>
+						Три изображения меняются автоматически с интервалом 1 секунда. Каждое
+						изображение является ссылкой на соответствующий файл.
+					</p>
+				</div>
+
+				<div class="slideshow" aria-label="Автоматическое слайд-шоу">
+					<a id="slideLink" href="assets/images/gallery-07.jpg" target="_blank">
+						<img
+							id="slideImage"
+							src="assets/images/gallery-07.jpg"
+							alt="Горный пейзаж"
+						/>
+					</a>
+					<div class="slide-dots" aria-hidden="true">
+						<span class="slide-dot slide-dot--active"></span>
+						<span class="slide-dot"></span>
+						<span class="slide-dot"></span>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="section__text">
+					<h2>Галерея изображений</h2>
+					<p>
+						В галерее 7 изображений. Одновременно видны 3 изображения, а кнопки слева и
+						справа прокручивают ленту.
+					</p>
+				</div>
+
+				<div class="gallery" aria-label="Галерея изображений">
+					<button
+						class="gallery__button"
+						id="galleryPrev"
+						type="button"
+						aria-label="Прокрутить влево"
+					>
+						<
+					</button>
+					<div class="gallery__viewport">
+						<div class="gallery__track" id="galleryTrack">
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-01.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-01.jpg"
+									alt="Изображение галереи 1"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-02.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-02.jpg"
+									alt="Изображение галереи 2"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-03.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-03.jpg"
+									alt="Изображение галереи 3"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-04.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-04.jpg"
+									alt="Изображение галереи 4"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-05.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-05.jpg"
+									alt="Изображение галереи 5"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-06.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-06.jpg"
+									alt="Изображение галереи 6"
+							/></a>
+							<a
+								class="gallery__item"
+								href="assets/images/gallery-07.jpg"
+								target="_blank"
+								><img
+									src="assets/images/gallery-07.jpg"
+									alt="Изображение галереи 7"
+							/></a>
+						</div>
+					</div>
+					<button
+						class="gallery__button"
+						id="galleryNext"
+						type="button"
+						aria-label="Прокрутить вправо"
+					>
+						>
+					</button>
+				</div>
+			</section>
+		</main>
+		<script src="script.js"></script>
+	</body>
+</html>

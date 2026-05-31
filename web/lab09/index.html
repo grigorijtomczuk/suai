@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="vendor/anime.min.js" defer></script>
+		<script src="vendor/chart.umd.min.js" defer></script>
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<main class="page">
+			<section class="intro">
+				<div class="intro__content">
+					<p class="eyebrow">Web-технологии / Лабораторная работа 09</p>
+					<h1>Использование библиотек JavaScript для анимации и визуализации данных</h1>
+					<p class="lead">
+						На странице используется anime.js для анимированного появления элементов и
+						Chart.js для диаграммы крупнейших операторов сотовой связи в России.
+					</p>
+					<button class="replay-btn" type="button" id="replayAnimation">
+						Повторить анимацию
+					</button>
+				</div>
+
+				<div class="phone-scene" aria-label="Анимированная SIM-карта">
+					<div class="signal signal--one"></div>
+					<div class="signal signal--two"></div>
+					<div class="sim-card" id="simCard">
+						<span></span>
+						<strong>5G</strong>
+					</div>
+				</div>
+			</section>
+
+			<section class="stats-grid" aria-label="Ключевые данные">
+				<article class="stat-card">
+					<span>Длительность</span>
+					<strong>900 мс</strong>
+					<p>Появление карточек с небольшой последовательной задержкой.</p>
+				</article>
+				<article class="stat-card">
+					<span>Easing</span>
+					<strong>easeOutElastic</strong>
+					<p>Элементы двигаются мягко и немного пружинят в финале.</p>
+				</article>
+				<article class="stat-card">
+					<span>График</span>
+					<strong>Chart.js</strong>
+					<p>Горизонтальная диаграмма сравнивает число абонентов.</p>
+				</article>
+			</section>
+
+			<section class="chart-section">
+				<div class="section-heading">
+					<p class="eyebrow">Вариант 6</p>
+					<h2>Самые крупные операторы сотовой связи в России</h2>
+					<p>
+						Количество абонентов приведено в миллионах. Для федеральных операторов
+						использованы данные CNews Analytics на 31.12.2023; Yota добавлена как
+						крупнейший российский MVNO по данным TelecomDaily/MForum за 2025 год.
+					</p>
+				</div>
+
+				<div class="chart-wrap">
+					<canvas
+						id="operatorsChart"
+						aria-label="Диаграмма операторов связи по количеству абонентов"
+					></canvas>
+				</div>
+
+				<div class="data-table" aria-label="Таблица данных для диаграммы">
+					<div class="data-row data-row--head">
+						<span>Оператор</span>
+						<span>Абоненты, млн</span>
+					</div>
+					<div class="data-row"><span>МТС</span><span>81,8</span></div>
+					<div class="data-row"><span>МегаФон</span><span>67,7</span></div>
+					<div class="data-row"><span>Ростелеком / T2</span><span>48,1</span></div>
+					<div class="data-row"><span>Билайн</span><span>44,1</span></div>
+					<div class="data-row"><span>Yota</span><span>9,5</span></div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

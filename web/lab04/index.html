@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<main class="page-shell">
+			<section class="hero" aria-labelledby="page-title">
+				<div class="hero__content">
+					<p class="eyebrow">Туристическое агентство</p>
+					<h1 id="page-title">Заявка на подбор</h1>
+					<p class="hero__text">
+						Заполните форму, чтобы менеджер подобрал маршрут, отель и дополнительные
+						услуги под ваши пожелания.
+					</p>
+				</div>
+			</section>
+
+			<section class="form-section" aria-label="Форма заявки на тур">
+				<form class="travel-form" id="travelForm" action="#" method="post">
+					<div class="form-grid">
+						<label class="form-label" for="clientName"
+							>ФИО туриста <span aria-hidden="true">*</span></label
+						>
+						<input
+							class="field"
+							type="text"
+							id="clientName"
+							name="clientName"
+							placeholder="Например, Иванова Анна Сергеевна"
+							required
+						/>
+
+						<label class="form-label" for="password"
+							>Личный пароль <span aria-hidden="true">*</span></label
+						>
+						<input
+							class="field"
+							type="password"
+							id="password"
+							name="password"
+							placeholder="Введите пароль для личного кабинета"
+							minlength="6"
+							required
+						/>
+
+						<label class="form-label" for="travelDate"
+							>Дата вылета <span aria-hidden="true">*</span></label
+						>
+						<input
+							class="field"
+							type="date"
+							id="travelDate"
+							name="travelDate"
+							required
+						/>
+
+						<label class="form-label" for="destination"
+							>Направление <span aria-hidden="true">*</span></label
+						>
+						<select class="field" id="destination" name="destination" required>
+							<option value="">Выберите страну или регион</option>
+							<option value="turkey">Турция</option>
+							<option value="egypt">Египет</option>
+							<option value="uae">ОАЭ</option>
+							<option value="thailand">Таиланд</option>
+							<option value="europe">Европа</option>
+							<option value="russia">Россия</option>
+						</select>
+
+						<label class="form-label" for="comment">Пожелания к туру</label>
+						<textarea
+							class="field field--textarea"
+							id="comment"
+							name="comment"
+							placeholder="Опишите желаемый бюджет, тип отдыха, состав туристов и важные детали"
+							rows="5"
+						></textarea>
+
+						<fieldset class="choice-group">
+							<legend>Формат путешествия <span aria-hidden="true">*</span></legend>
+							<label class="choice">
+								<input type="radio" name="tripFormat" value="beach" required />
+								<span>Пляжный отдых</span>
+							</label>
+							<label class="choice">
+								<input type="radio" name="tripFormat" value="excursion" />
+								<span>Экскурсионный тур</span>
+							</label>
+							<label class="choice">
+								<input type="radio" name="tripFormat" value="active" />
+								<span>Активное путешествие</span>
+							</label>
+						</fieldset>
+
+						<fieldset class="choice-group">
+							<legend>Класс размещения <span aria-hidden="true">*</span></legend>
+							<label class="choice">
+								<input type="radio" name="hotelClass" value="standard" required />
+								<span>Стандарт</span>
+							</label>
+							<label class="choice">
+								<input type="radio" name="hotelClass" value="comfort" />
+								<span>Комфорт</span>
+							</label>
+							<label class="choice">
+								<input type="radio" name="hotelClass" value="premium" />
+								<span>Премиум</span>
+							</label>
+						</fieldset>
+
+						<fieldset class="choice-group">
+							<legend>Интересы в поездке</legend>
+							<label class="choice">
+								<input type="checkbox" name="interests" value="sea" />
+								<span>Море и пляжи</span>
+							</label>
+							<label class="choice">
+								<input type="checkbox" name="interests" value="food" />
+								<span>Гастрономия</span>
+							</label>
+							<label class="choice">
+								<input type="checkbox" name="interests" value="museums" />
+								<span>Музеи и история</span>
+							</label>
+						</fieldset>
+
+						<fieldset class="choice-group">
+							<legend>Дополнительные услуги</legend>
+							<label class="choice">
+								<input type="checkbox" name="services" value="insurance" />
+								<span>Страховка</span>
+							</label>
+							<label class="choice">
+								<input type="checkbox" name="services" value="transfer" />
+								<span>Трансфер</span>
+							</label>
+							<label class="choice">
+								<input type="checkbox" name="services" value="guide" />
+								<span>Индивидуальный гид</span>
+							</label>
+						</fieldset>
+					</div>
+
+					<p class="form-note" id="formNote" role="status" aria-live="polite">
+						Поля со звездочкой обязательны для заполнения.
+					</p>
+
+					<div class="form-actions">
+						<button class="button button--primary" type="submit">
+							Отправить заявку
+						</button>
+						<button class="button button--secondary" type="reset">
+							Очистить форму
+						</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+</html>
