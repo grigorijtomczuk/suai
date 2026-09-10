@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import FeatureCard from "@/app/ui/FeatureCard";
@@ -12,11 +13,12 @@ export default function Home() {
           </Link>
           <nav aria-label="Основная навигация">
             <Link className="nav-link" href="/about">
-              О проекте
+              О сервисе
             </Link>
           </nav>
         </header>
 
+        {/* Hero объединяет основное предложение сервиса и тематический визуал. */}
         <div className="hero__content container">
           <div className="hero__copy">
             <p className="eyebrow">Город становится приключением</p>
@@ -30,17 +32,24 @@ export default function Home() {
               подходящие варианты.
             </p>
             <Link className="primary-link" href="/about">
-              Узнать о проекте <span aria-hidden="true">↗</span>
+              Как это работает <span aria-hidden="true">↗</span>
             </Link>
           </div>
 
-          <aside className="hero__note" aria-label="Для кого создан QuestCity">
-            <span className="hero__note-label">Для кого</span>
-            <p>
-              Для жителей города и туристов, компаний друзей, пар и семей —
-              всех, кто ищет новый сценарий для свободного вечера.
-            </p>
-          </aside>
+          <figure className="hero__visual">
+            {/* Priority ускоряет загрузку изображения в первом экране. */}
+            <Image
+              src="/hero.jpg"
+              alt="Команда участников разгадывает тайну квеста"
+              fill
+              priority
+              sizes="(max-width: 820px) 100vw, 42vw"
+            />
+            <figcaption>
+              <span>Подберите приключение</span>
+              Для друзей, пары или всей семьи
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -49,23 +58,24 @@ export default function Home() {
           <p className="eyebrow">Возможности</p>
           <h2 id="features-title">Всё нужное для выбора — в одном месте</h2>
           <p>
-            Первая версия задаёт основу сервиса. Эти направления будут
-            последовательно развиваться в следующих лабораторных работах.
+            Детектив, хоррор, приключение или семейная история — сравните
+            варианты и найдите тот самый сценарий для вашей команды.
           </p>
         </div>
 
+        {/* Один компонент получает разные данные через типизированные props. */}
         <div className="feature-grid">
           <FeatureCard
             title="Каталог квестов"
-            description="Просмотр городских квестов с основной информацией о каждом варианте."
+            description="Изучайте городские квесты и всю важную информацию о каждом варианте."
           />
           <FeatureCard
             title="Удобный поиск"
-            description="Поиск и подбор квестов по интересующим пользователя характеристикам."
+            description="Подбирайте приключения по жанру, сложности и составу вашей команды."
           />
           <FeatureCard
             title="Избранные квесты"
-            description="Сохранение интересных квестов для быстрого доступа и последующего выбора."
+            description="Сохраняйте понравившиеся варианты, чтобы спокойно сравнить их позже."
           />
         </div>
       </section>
@@ -86,9 +96,9 @@ export default function Home() {
       </section>
 
       <footer className="site-footer container">
-        <p>QuestCity · учебный проект</p>
+        <p>QuestCity · городские квесты в одном месте</p>
         <Link className="text-link" href="/about">
-          О проекте <span aria-hidden="true">→</span>
+          О сервисе <span aria-hidden="true">→</span>
         </Link>
       </footer>
     </main>

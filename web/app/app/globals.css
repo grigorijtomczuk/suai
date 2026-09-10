@@ -1,4 +1,5 @@
 :root {
+  /* Общая палитра используется на обеих страницах приложения. */
   --background: #f4f2ec;
   --surface: #fffdf7;
   --foreground: #171714;
@@ -43,6 +44,7 @@ a:focus-visible {
 }
 
 .container {
+  /* Ограничение ширины сохраняет удобные поля на больших экранах. */
   width: min(1180px, calc(100% - 48px));
   margin-inline: auto;
 }
@@ -50,29 +52,9 @@ a:focus-visible {
 .hero {
   min-height: 720px;
   color: #f8f6ef;
-  background:
-    linear-gradient(120deg, rgba(15, 16, 14, 0.92), rgba(15, 16, 14, 0.72)),
-    repeating-linear-gradient(
-      115deg,
-      #22241f 0,
-      #22241f 1px,
-      #171815 1px,
-      #171815 80px
-    );
+  background: #10110f;
   position: relative;
   overflow: hidden;
-}
-
-.hero::after {
-  content: "Q";
-  position: absolute;
-  right: -0.06em;
-  bottom: -0.46em;
-  color: rgba(223, 255, 0, 0.08);
-  font-size: clamp(28rem, 56vw, 48rem);
-  font-weight: 900;
-  line-height: 1;
-  pointer-events: none;
 }
 
 .site-header {
@@ -110,10 +92,11 @@ a:focus-visible {
 }
 
 .hero__content {
+  /* Текст и изображение образуют две колонки первого экрана. */
   min-height: 632px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 72px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: clamp(40px, 6vw, 88px);
   align-items: center;
   padding-block: 72px 96px;
   position: relative;
@@ -176,21 +159,43 @@ a:focus-visible {
   transform: translateY(-2px);
 }
 
-.hero__note {
-  align-self: end;
-  padding: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
-  color: #d7d5ce;
-  font-size: 0.95rem;
+.hero__visual {
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
-.hero__note-label {
+.hero__visual::after {
+  /* Затемнение делает подпись читаемой поверх фотографии. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(8, 9, 7, 0.9));
+}
+
+.hero__visual img {
+  object-fit: cover;
+  object-position: 58% center;
+}
+
+.hero__visual figcaption {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1;
+  color: #d7d5ce;
+  font-size: 0.92rem;
+}
+
+.hero__visual figcaption span {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: var(--accent);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -397,13 +402,13 @@ a:focus-visible {
 }
 
 @media (max-width: 820px) {
+  /* На планшетах и телефонах многоколоночные блоки складываются вертикально. */
   .hero__content {
     grid-template-columns: 1fr;
   }
 
-  .hero__note {
-    max-width: 480px;
-    align-self: auto;
+  .hero__visual {
+    min-height: 400px;
   }
 
   .feature-grid {
@@ -454,6 +459,10 @@ a:focus-visible {
     min-height: 600px;
     gap: 48px;
     padding-block: 64px;
+  }
+
+  .hero__visual {
+    min-height: 320px;
   }
 
   .hero h1 {
