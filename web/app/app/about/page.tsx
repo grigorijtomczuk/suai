@@ -13,17 +13,6 @@ const selectionTips = [
 export default function AboutPage() {
   return (
     <main className="about-page">
-      <header className="site-header container">
-        <Link className="brand" href="/" aria-label="QuestCity — на главную">
-          Quest<span>City</span>
-        </Link>
-        <nav aria-label="Основная навигация">
-          <Link className="nav-link" href="/">
-            Главная
-          </Link>
-        </nav>
-      </header>
-
       <section className="about-hero container">
         <p className="eyebrow">О сервисе</p>
         <h1>Мы собираем городские приключения на одной карте.</h1>
@@ -69,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       <footer className="about-footer container">
-        <Link className="text-link" href="/">
+        <Link className="text-link" href="/start">
           <span aria-hidden="true">←</span> Вернуться на главную
         </Link>
       </footer>
